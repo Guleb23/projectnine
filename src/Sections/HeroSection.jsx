@@ -171,7 +171,7 @@ const HeroSection = () => {
             <img
                 ref={toumanRef}
                 className="absolute z-1 top-20 left-1/2 max-w-full h-auto select-none pointer-events-none"
-                src="/src/assets/Hero/touman.png"
+                src="/Hero/touman.png"
                 alt="Touman"
                 style={{
                     transform: 'translateX(-50%)', // ✅ Центрируем вручную
@@ -197,7 +197,7 @@ const HeroSection = () => {
                 <img
                     ref={el => lastRight.current[0] = el}
                     className="hidden lg:block absolute -top-16 right-[10%] h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
-                    src="/src/assets/Hero/code.png"
+                    src="/Hero/Code.png"
                     alt="code"
                     style={{
                         WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
@@ -277,7 +277,7 @@ const HeroSection = () => {
 
             <img
                 className="absolute z-1 bottom-10 w-full h-auto select-none pointer-events-none"
-                src="/src/assets/Hero/bottom.png"
+                src="/Hero/bottom.png"
                 alt="Touman"
             />
         </FirstFone>

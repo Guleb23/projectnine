@@ -46,23 +46,23 @@ const SecondFone = ({ children, id }) => {
             <img
                 ref={el => firstAnimation.current[2] = el}
                 className="absolute inset-0 h-full m-auto select-none pointer-events-none z-0"
-                src="/src/assets/Second/step2.png"
+                src="/Second/step2.png"
                 alt="Step 2"
             />
             <img
                 className="absolute inset-0 m-auto select-none pointer-events-none z-1 opacity-40"
-                src="/src/assets/Second/blur.png"
+                src="/Second/blur.png"
                 alt="Blur"
             />
             <img
                 className="absolute inset-0 h-full m-auto select-none pointer-events-none z-1 opacity-40"
-                src="/src/assets/Second/whiteblur.png"
+                src="/Second/whiteblur.png"
                 alt="White Blur"
             />
             <img
                 ref={el => firstAnimation.current[1] = el}
                 className="absolute w-full select-none pointer-events-none z-1 opacity-40"
-                src="/src/assets/Second/greenBlur.png"
+                src="/Second/greenBlur.png"
                 alt="Green Blur"
             />
             <img

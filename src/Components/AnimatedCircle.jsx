@@ -8,7 +8,7 @@ const AnimatedCircle = ({ ref }) => {
             ref={ref}
             width={250}
             height={250}
-            src="/src/assets/ball.gif"
+            src="/ball.gif"
             alt="Animated Ball"
         />
 

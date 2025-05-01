@@ -111,14 +111,14 @@ const SecondSection = () => {
 
 
                         className="max-w-full max-h-full opacity-0"
-                        src="/src/assets/Second/main.png"
+                        src="/Second/main.png"
                         alt="Main"
                     />
                     {/* Картинка in.png, которая появляется после main.png */}
                     <img
                         ref={imgRef}
                         className="absolute pt-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0"
-                        src="/src/assets/Second/in.png"
+                        src="/Second/in.png"
                         alt="In"
                     />
                     {/* Картинка final.png, которая появляется после in.png */}
@@ -126,7 +126,7 @@ const SecondSection = () => {
                         ref={finalRef}
 
                         className="absolute max-w-full max-h-full opacity-0"
-                        src="/src/assets/Second/final.png"
+                        src="/Second/final.png"
                         alt="Final"
                     />
                     {/* Анимированный круг, который появляется в финале */}
