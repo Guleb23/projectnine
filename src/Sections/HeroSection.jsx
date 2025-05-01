@@ -134,7 +134,7 @@ const HeroSection = () => {
                     ease: 'power2.out',
                     stagger: 0.2,
                 },
-                '+=0.5'
+                '+=0.2'
             );
 
             // 8. Только если superLast есть — уезжает circleRef
