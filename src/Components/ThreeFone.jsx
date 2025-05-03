@@ -12,7 +12,7 @@ const ThreeFone = ({ children, id }) => {
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />
-            <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 w-screen min-h-screen h-full xl:h-[130vh] 2xl:h-[120vh]">
+            <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 w-screen min-h-screen h-full  md:h-[130vh] 2xl:h-[120vh]">
                 {children}
             </div>
             <ThreeBigCard />
