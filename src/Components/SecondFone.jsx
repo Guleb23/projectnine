@@ -41,11 +41,11 @@ const SecondFone = ({ children, id }) => {
         <section
             ref={sectionRef}
             id={id}
-            className="bg-black w-screen h-screen relative overflow-hidden flex  justify-center items-center"
+            className="bg-black w-screen min-h-screen h-full relative z-50 flex  justify-center items-center"
         >
             <img
                 ref={el => firstAnimation.current[2] = el}
-                className="absolute inset-0 h-full m-auto select-none pointer-events-none z-0"
+                className="absolute inset-0 h-full w-fit m-auto select-none pointer-events-none z-0"
                 src="/Second/step2.png"
                 alt="Step 2"
             />
@@ -55,7 +55,7 @@ const SecondFone = ({ children, id }) => {
                 alt="Blur"
             />
             <img
-                className="absolute inset-0 h-full m-auto select-none pointer-events-none z-1 opacity-40"
+                className="absolute inset-0 h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />
@@ -71,6 +71,7 @@ const SecondFone = ({ children, id }) => {
                 alt="Hidden Blur"
             />
             {children}
+            <div className="absolute opacity-70 bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
         </section>
     );
 };

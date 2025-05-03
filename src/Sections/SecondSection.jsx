@@ -95,6 +95,7 @@ const SecondSection = () => {
 
 
     return (
+
         <SecondFone id="second">
             <div className="flex flex-col gap-10 z-50">
                 <div className="flex flex-col gap-6 text-center">
@@ -110,14 +111,14 @@ const SecondSection = () => {
                         ref={mainRef}
 
 
-                        className="max-w-full max-h-full opacity-0"
+                        className="max-w-full max-h-full opacity-0  select-none pointer-events-none"
                         src="/Second/main.png"
                         alt="Main"
                     />
                     {/* Картинка in.png, которая появляется после main.png */}
                     <img
                         ref={imgRef}
-                        className="absolute pt-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0"
+                        className="absolute pt-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0  select-none pointer-events-none"
                         src="/Second/in.png"
                         alt="In"
                     />
@@ -125,7 +126,7 @@ const SecondSection = () => {
                     <img
                         ref={finalRef}
 
-                        className="absolute max-w-full max-h-full opacity-0"
+                        className="absolute max-w-full max-h-full opacity-0 select-none pointer-events-none"
                         src="/Second/final.png"
                         alt="Final"
                     />
@@ -137,6 +138,7 @@ const SecondSection = () => {
             </div>
 
         </SecondFone>
+
     );
 };
 

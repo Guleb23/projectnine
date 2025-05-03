@@ -4,7 +4,7 @@ const AnimatedCircle = ({ ref }) => {
     return (
 
         <img
-            className='absolute pt-[2%]'
+            className='absolute pt-[2%] select-none pointer-events-none'
             ref={ref}
             width={250}
             height={250}

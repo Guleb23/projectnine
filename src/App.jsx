@@ -3,6 +3,7 @@ import FirstFone from "./Components/FirstFone"
 import SecondFone from "./Components/SecondFone"
 import HeroSection from "./Sections/HeroSection"
 import SecondSection from "./Sections/SecondSection"
+import ThreeScetion from "./Sections/ThreeScetion"
 
 function App() {
 
@@ -11,6 +12,8 @@ function App() {
     <main className="overflow-x-hidden">
       <HeroSection />
       <SecondSection />
+      <ThreeScetion />
+
     </main>
   )
 }
