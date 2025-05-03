@@ -20,7 +20,7 @@ const ThreeScetion = () => {
     useEffect(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: "three", // Триггер на секцию
+                trigger: "#three", // Триггер на секцию
                 start: "top 80%",  // Когда секция попадет в 80% видимости
                 toggleActions: "play none none none",
             }
