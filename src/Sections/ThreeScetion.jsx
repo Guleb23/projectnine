@@ -47,7 +47,7 @@ const ThreeScetion = () => {
             <ThreeCard ref={addToRefs} img={`/Three/two.png`} mainText={`Billion-Dollar Burn`} customStyles={`md:self-end justify-self-center md:translate-y-10`} subText={`AI hardware costs could exceed $880B by 2030 (Fortune)`} />
             <ThreeCard ref={addToRefs} img={`/Three/three.png`} mainText={`Energy Apocalypse`} customStyles={`md:self-start justify-self-center 2xl:-translate-y-24`} subText={`Data centers may consume 21% 
 of global electricity`} />
-            <ThreeCard ref={addToRefs} img={`/Three/four.png`} mainText={`Precision Tax`} customStyles={`md:self-end justify-self-center md:-translate-x-38 md:translate-y-10 2xl:translate-y-0`} subText={`Every 1% accuracy increase 
+            <ThreeCard ref={addToRefs} img={`/Three/four.png`} mainText={`Precision Tax`} customStyles={`md:self-end justify-self-center md:mr-[30%]`} subText={`Every 1% accuracy increase 
 costs $10M in energy.`} />
 
         </ThreeFone>

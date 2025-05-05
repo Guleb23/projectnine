@@ -3,7 +3,7 @@ import FourCard from './FourCard'
 import ThreeMiniSect from './ThreeMiniSect'
 const FourLeft = () => {
     return (
-        <div className='flex flex-col gap-6 '>
+        <div className='flex flex-col gap-6 2xl:mb-[30%] xl:mb-[35%] lg:mb-[35%] md:mb-[50%]' >
             <p className='mono text-sm  gradient-text-green'>Our Solution</p>
             <div className='flex flex-col'>
                 <h2 className='text-4xl font-bold gradient-text-green'>SpinEdge cuts energy use vs. GPUs/TPUs</h2>
@@ -15,7 +15,7 @@ const FourLeft = () => {
                 <div className='mono text-[12px] gradient-text-green'>*Passed the rigorous technological<br /> assessment by European Innovation Council<br /> and Israel Innovation Authority
 
                 </div>
-                <FourCard customPosition={'!absolute hidden bottom-[5%] -right-[5%] lg:-right-[10%] md:block'} text={`Spintronic<br/> Synapse`} />
+
 
             </div>
             <div className='flex flex-col gap-20'>

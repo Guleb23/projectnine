@@ -11,7 +11,7 @@ const NavBar = ({ ref }) => {
                 {items.map((item, index) => (
                     <React.Fragment key={item}>
                         {/* Текст пункта меню */}
-                        <span className=" hidden lg:block px-2.5 leading-4 text-center text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium">
+                        <span className=" hidden xl:block px-2.5 leading-4 text-center text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium">
                             {item}
                         </span>
 
