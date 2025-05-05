@@ -97,7 +97,7 @@ const SecondSection = () => {
     return (
 
         <SecondFone id="second">
-            <div className="flex flex-col gap-10 z-50">
+            <div className="flex flex-col gap-10 z-50 overflow-hidden">
                 <div className="flex flex-col gap-6 text-center">
                     <p className="mono text-sm gradient-text-green">AI’s Ticking Time Bomb</p>
                     <h1 className="text-4xl font-bold gradient-text-green">

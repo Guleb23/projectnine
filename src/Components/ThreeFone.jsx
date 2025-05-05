@@ -5,7 +5,7 @@ const ThreeFone = ({ children, id }) => {
     return (
         <section
             id={id}
-            className="bg-black w-screen min-h-screen h-fit relative pb-40"
+            className="bg-black w-screen min-h-screen h-fit relative pb-40 overflow-x-hidden"
         >
             <img
                 className="absolute inset-0 min-h-screen h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
@@ -16,8 +16,8 @@ const ThreeFone = ({ children, id }) => {
                 {children}
             </div>
             <ThreeBigCard />
-            <div className="absolute opacity-70 top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
-
+            <div className="absolute opacity-50 top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
+            <div className="absolute opacity-70 bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
         </section>
     )
 }

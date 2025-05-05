@@ -5,7 +5,8 @@ const NavBar = ({ ref }) => {
     const items = ['ABOUT', 'TECHNOLOGY', 'OUR TEAM', 'ROADMAP'];
 
     return (
-        <div ref={ref} className="w-screen flex items-center justify-center bg-gradient-to-b from-black to-transparent py-16 relative z-[100]">
+        <div ref={ref} className="fixed top-0 left-0 w-full flex items-center justify-center bg-gradient-to-b from-black to-transparent py-16 z-[100]">
+
             <div className="flex w-full flex-wrap items-center justify-center 2xl:gap-4 gap-0.5">
                 {items.map((item, index) => (
                     <React.Fragment key={item}>

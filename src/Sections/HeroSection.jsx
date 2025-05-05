@@ -6,7 +6,7 @@ import AnimatedCircle from '../Components/AnimatedCircle'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import FirstFone from '../Components/FirstFone'
 gsap.registerPlugin(ScrollToPlugin);
-const HeroSection = () => {
+const HeroSection = ({ styles }) => {
     const overlayRef = useRef(null)
     const firstElems = useRef([])
     const lastLeft = useRef([])
@@ -180,7 +180,7 @@ const HeroSection = () => {
 
 
             {/* TEXT */}
-            <div className="relative flex flex-col items-center text-white text-center pb-32 2xl:pb-40 w-full mx-auto">
+            <div className="relative flex flex-col items-center text-white text-center pb-32 pt-64 2xl:pb-40 w-full mx-auto">
                 <p
                     ref={el => firstElems.current[0] = el}
                     className="gradient-text-green font-bold text-3xl leading-[150%] first"
