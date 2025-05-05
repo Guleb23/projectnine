@@ -1,18 +1,47 @@
 import React from 'react';
 import LogoComponent from './LogoComponent';
-
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
 const NavBar = ({ ref }) => {
-    const items = ['ABOUT', 'TECHNOLOGY', 'OUR TEAM', 'ROADMAP'];
-
+    const items = [
+        {
+            name: "ABOUT",
+            link: "#main",
+        },
+        {
+            name: "TECHNOLOGY",
+            link: "#second",
+        },
+        {
+            name: "OUR TEAM",
+            link: "#three",
+        },
+        {
+            name: "ROADMAP",
+            link: "#four",
+        }
+    ];
+    '', '', '', ''
     return (
         <div ref={ref} className="fixed top-0 left-0 w-full flex items-center justify-center bg-gradient-to-b from-black to-transparent py-16 z-[100]">
 
             <div className="flex w-full flex-wrap items-center justify-center 2xl:gap-4 gap-0.5">
                 {items.map((item, index) => (
-                    <React.Fragment key={item}>
+                    <React.Fragment key={index}>
                         {/* Текст пункта меню */}
-                        <span className=" hidden xl:block px-2.5 leading-4 text-center text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium">
-                            {item}
+
+                        <span
+                            onClick={() => {
+                                gsap.to(window, {
+                                    duration: 1,
+                                    scrollTo: item.link,
+                                    ease: "power2.inOut",
+                                });
+                            }}
+                            className="cursor-pointer hidden xl:block px-2.5 leading-4 text-center text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium"
+                        >
+                            {item.name}
                         </span>
 
                         {/* Вставка логотипа после TECHNOLOGY */}
