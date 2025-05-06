@@ -26,7 +26,7 @@ const NavBar = ({ ref }) => {
     return (
         <div ref={ref} className="fixed top-0 left-0 w-full flex items-center justify-center bg-gradient-to-b from-black to-transparent py-16 z-[100]">
 
-            <div className="flex w-full flex-wrap items-center justify-center 2xl:gap-4 gap-0.5">
+            <div className="flex w-full flex-wrap items-center justify-center 2xl:gap-4 gap-8">
                 {items.map((item, index) => (
                     <React.Fragment key={index}>
                         {/* Текст пункта меню */}
@@ -39,7 +39,7 @@ const NavBar = ({ ref }) => {
                                     ease: "power2.inOut",
                                 });
                             }}
-                            className="cursor-pointer hidden xl:block px-2.5 leading-4 text-center text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium"
+                            className="cursor-pointer text-[12px] hidden xl:block px-2.5 leading-4 text-center text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium"
                         >
                             {item.name}
                         </span>
@@ -60,7 +60,7 @@ const NavBar = ({ ref }) => {
                         {/* Разделители между остальными пунктами */}
                         {index !== items.length - 1 && index !== 1 && (
                             <div className=" hidden lg:flex items-center gap-1 px-2">
-                                <div className="h-0.5 w-20 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                                <div className="h-0.5 w-26 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                             </div>
                         )}
                     </React.Fragment>
