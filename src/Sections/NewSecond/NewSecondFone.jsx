@@ -4,7 +4,7 @@ const NewSecondFone = ({ children, id }) => {
     return (
         <section
             id={id}
-            className="bg-black w-screen min-h-screen h-fit relative overflow-y-hidden  overflow-x-hidden pt-[6%] "
+            className="bg-black w-screen min-h-screen h-fit relative overflow-y-hidden  overflow-x-hidden pt-[3%] "
         >
             <img
                 className="absolute inset-0 min-h-screen h-full m-auto select-none pointer-events-none z-0 rounded-4xl"

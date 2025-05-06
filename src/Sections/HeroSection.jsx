@@ -170,7 +170,7 @@ const HeroSection = ({ styles }) => {
 
             <img
                 ref={toumanRef}
-                className="absolute z-1 top-20 left-1/2 max-w-full h-auto select-none pointer-events-none"
+                className="absolute z-1 top-10 left-1/2 max-w-full h-auto select-none pointer-events-none"
                 src="/Hero/touman.png"
                 alt="Touman"
                 style={{
@@ -180,7 +180,7 @@ const HeroSection = ({ styles }) => {
 
 
             {/* TEXT */}
-            <div className="relative flex flex-col items-center text-white text-center pb-32 pt-40 2xl:pb-40 w-full mx-auto">
+            <div className="relative flex flex-col items-center text-white text-center pb-32 pt-30 2xl:pb-40 w-full mx-auto">
                 <p
                     ref={el => firstElems.current[0] = el}
                     className="gradient-text-green font-bold text-3xl leading-[120%] first"
@@ -270,7 +270,7 @@ const HeroSection = ({ styles }) => {
             <p
                 onClick={() => gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' })}
                 ref={el => superLast.current[1] = el}
-                className='cursor-pointer flex justify-center gradient-text-green items-center w-full absolute bottom-22 mono text-sm font-normal super'
+                className='cursor-pointer flex justify-center gradient-text-green text-transparent bg-clip-text items-center w-full absolute bottom-32 mono text-sm font-normal super'
             >
                 Meet the Future ↓
             </p>
@@ -281,7 +281,7 @@ const HeroSection = ({ styles }) => {
                 alt="botom"
             />
             <img
-                className="absolute z-2 bottom-0 -translate-x-1/2  left-[50%]  select-none pointer-events-none"
+                className="absolute z-10 bottom-0 -translate-x-1/2  left-[50%]  select-none pointer-events-none"
                 src="/Hero/btmBlur.png"
                 alt="botom"
             />
