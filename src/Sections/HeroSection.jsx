@@ -86,7 +86,6 @@ const HeroSection = ({ styles }) => {
             },
             '-=1' // одновременно с toumanRef и navbarRef
         );
-        // 5. Анимация для lastLeft элементов (появление с небольшим смещением)
         // 5. Анимация для lastLeft элементов
         const visibleLastLeft = getVisible(lastLeft.current);
         if (visibleLastLeft.length) {
@@ -137,20 +136,31 @@ const HeroSection = ({ styles }) => {
                 '+=0.2'
             );
 
-            // 8. Только если superLast есть — уезжает circleRef
-            tl.to(
-                circleRef.current,
-                {
-                    y: '100vh',
-                    scale: 0.3,
-                    opacity: 0,
-                    duration: 3,
-                    ease: 'power2.inOut',
-                },
-                '<'
-            );
+
         }
+        gsap.fromTo(circleRef.current,
+            {
+                scale: 1 // Начальное значение (нормальный размер)
+            },
+            {
+                scale: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: circleRef.current,
+                    start: "50% 20%",
+                    endTrigger: "#sec",
+                    end: "20% 90%",
+                    scrub: 1,
+                    pin: true,
+                    markers: true,
+                    // Отключаем мгновенный прыжок при старте
+                    immediateRender: false
+                }
+            }
+        );
     }, []);
+
+
 
 
 

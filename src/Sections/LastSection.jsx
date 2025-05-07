@@ -16,8 +16,8 @@ const LastSection = () => {
                 </p>
                 <p className='mono text-sm  gradient-text-green'>Spintronic commercial products:</p>
                 <div className='flex gap-14'>
-                    <LastCard num={`01`} Title={`Non-Volatile Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
-                    <LastCard num={`02`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are the best fit for edge and IoT devices`} />
+                    <LastCard img={`/Four/cardleft.png`} Title={`Non-Volatile Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
+                    <LastCard img={`/Four/cardRight.png`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are the best fit for edge and IoT devices`} />
 
                 </div>
             </div>

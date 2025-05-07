@@ -1,5 +1,6 @@
 
-import FourSection from "./Sections/FourSection"
+import FiveSection from "./Sections/FiveSection/FiveSection"
+import FourSection from "./Sections/FourSection/FourSection"
 import HeroSection from "./Sections/HeroSection"
 import LastSection from "./Sections/LastSection"
 import NewSecondSection from "./Sections/NewSecond/NewSecondSection"

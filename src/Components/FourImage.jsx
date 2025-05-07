@@ -37,7 +37,7 @@ const FourImage = () => {
                 customPosition={'!absolute !py-[5px] !px-[10px] hidden 2xl:bottom-[61%] 2xl:left-[2%] xl:bottom-[57%] xl:left-[2%] lg:bottom-[57%] lg:-left-[2%] lg:-right-[10%] md:bottom-[60%] md:-left-[2%] md:-right-[10%] md:block'} text={`100 nm`} />
             <img className='hidden md:block absolute
             2xl:w-[39%]  2xl:top-[27%] 2xl:left-[15%] 2xl:rotate-8 
-            xl:w-[39%] xl:top-[25%] xl:left-[25%] 
+            xl:w-[45%] xl:top-[25%] xl:left-[22%] xl:rotate-4
             lg:w-[57%] lg:top-[23%] lg:left-[21%]  lg:-rotate-4 
             md:w-[57%] md:top-[27%] md:left-[21%]  md:-rotate-2 
             -translate-x-1/2 -translate-y-1/2' src='/Four/light.png' />

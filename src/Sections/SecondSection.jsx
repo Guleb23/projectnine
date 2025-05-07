@@ -64,33 +64,39 @@ const SecondSection = () => {
             }
         );
 
-        // Одновременное исчезновение in.png — чтобы выглядело как перекраска
-        gsap.to(
-            imgRef.current,
-            {
-                opacity: 0,
-                duration: 1,
-                delay: 2.3,
-                ease: 'power2.inOut',
-            }
-        );
-
-        // Появление AnimatedCircle
+        // 1. Показываем шарик через 1 сек после входа
         gsap.fromTo(
             circleRef.current,
             { opacity: 0 },
             {
                 opacity: 1,
-                duration: 1.5,
-                delay: 2.3,
-                ease: 'power2.out',
+                duration: 1,
+                delay: 2, // Задержка появления
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: circleRef.current,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none',
+                    start: "top 50%",
+                    toggleActions: "play none none none", // один раз проигрывается
+                    once: true,
                 },
             }
         );
+
+        gsap.to(circleRef.current, {
+            scrollTrigger: {
+                trigger: circleRef.current,
+                start: "top 25%",
+                endTrigger: "#three",
+                end: "92% 90%",
+                pin: true,
+                scrub: true,
+                anticipatePin: 1,
+
+
+            },
+        });
+
+
     }, []);
 
 
@@ -131,7 +137,16 @@ const SecondSection = () => {
                         alt="Final"
                     />
                     {/* Анимированный круг, который появляется в финале */}
-                    <AnimatedCircle ref={circleRef} />
+
+
+                    <img
+                        className={`absolute pt-[2%] select-none pointer-events-none `}
+                        ref={circleRef}
+                        width={250}
+                        height={250}
+                        src="/ball.gif"
+                        alt="Animated Ball"
+                    />
                 </div>
 
 
