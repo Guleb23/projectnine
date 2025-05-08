@@ -152,8 +152,6 @@ const HeroSection = ({ styles }) => {
                     end: "20% 90%",
                     scrub: 1,
                     pin: true,
-                    markers: true,
-                    // Отключаем мгновенный прыжок при старте
                     immediateRender: false
                 }
             }
