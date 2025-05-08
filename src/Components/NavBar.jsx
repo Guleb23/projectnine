@@ -70,14 +70,14 @@ const NavBar = ({ ref }) => {
             {/* Картинка в начале меню (абсолютное позиционирование) */}
             <img
                 src='/Hero/left.png' width={150}
-                className="absolute left-2 top-36 transform -translate-y-1/2"
+                className="absolute left-2 top-26 transform -translate-y-1/2"
                 alt="Start Image"
             />
 
             {/* Картинка в конце меню (абсолютное позиционирование) */}
             <img
                 src='/Hero/right.png' width={150}
-                className="absolute right-2 top-36 transform -translate-y-1/2"
+                className="absolute right-2 top-26  transform -translate-y-1/2"
                 alt="End Image"
             />
         </div>

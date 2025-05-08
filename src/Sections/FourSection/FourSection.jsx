@@ -5,6 +5,7 @@ import FourImage from '../../Components/FourImage'
 import FourLeft from '../../Components/FourLeft'
 import FourLastSection from './FourLastSection'
 import FiveSection from '../FiveSection/FiveSection'
+import SectionSix from '../SixSection/SectionSix'
 
 const FourSection = () => {
 
@@ -19,6 +20,7 @@ const FourSection = () => {
             </div>
             <FourLastSection />
             <FiveSection />
+            <SectionSix />
         </FourFone>
     )
 }
