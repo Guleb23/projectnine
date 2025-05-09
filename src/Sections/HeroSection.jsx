@@ -91,10 +91,10 @@ const HeroSection = ({ styles }) => {
         if (visibleLastLeft.length) {
             tl.fromTo(
                 visibleLastLeft,
-                { opacity: 0, yPercent: 20 },
+                { opacity: 0, xPercent: -40 },
                 {
                     opacity: 1,
-                    yPercent: 0,
+                    xPercent: 0,
                     duration: 1,
                     ease: 'power2.out',
                     stagger: 0.2,
@@ -108,10 +108,10 @@ const HeroSection = ({ styles }) => {
         if (visibleLastRight.length) {
             tl.fromTo(
                 visibleLastRight,
-                { opacity: 0, yPercent: 20 },
+                { opacity: 0, xPercent: 40 },
                 {
                     opacity: 1,
-                    yPercent: 0,
+                    xPercent: 0,
                     duration: 1,
                     ease: 'power2.out',
                     stagger: 0.2,

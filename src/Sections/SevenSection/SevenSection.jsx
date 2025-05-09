@@ -7,7 +7,7 @@ import Table from './Table'
 const SevenSection = () => {
     return (
         <Fone>
-            <div className='w-full h-full flex flex-col'>
+            <div className='w-full h-full flex flex-col pt-[5%]'>
                 <Header top={`BEHIND THE BREAKTHROUGH`} mid={`The Minds Rewriting<br/> AI’s Future`} bottom={`20+ years at IBM, Google, and top research labs<br/> — now united to solve AI’s hardest problem`} />
                 <div className='flex'>
                     <div className='flex-[0_0_50%]'>

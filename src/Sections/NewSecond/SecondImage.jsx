@@ -6,8 +6,8 @@ const SecondImage = () => {
         <div className='w-full h-full flex flex-col justify-center items-center relative mb-[80px] pt-2'>
             <img width={950} height={435} src="/NewSecond/secTwo.png" />
 
-            <img className=' select-none pointer-events-none w-[1008px] h-[263px]' src='/NewSecond/lines.png' />
-            <div className='flex max-w-[87%] justify-evenly gap-[70px] pt-8'>
+            <img className=' select-none pointer-events-none w-[1008px] h-[263px] hidden md:block' src='/NewSecond/lines.png' />
+            <div className='flex max-w-[87%] justify-evenly gap-[70px] pt-8 lg:flex-nowrap flex-wrap'>
                 <Card
                     customStyle={`text-center`}
                     num={`01`}
