@@ -10,7 +10,7 @@ const MainImage = () => {
                 <p className='absolute bottom-[18%] left-[4.5%] mono text-sm leading-[150%] bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text'>WITH SPINTRONIC TECHNOLOGY, IT<br /> COULD DROP TO LESS THAN $0.0005</p>
             </div>
             <img className='w-[1008px] select-none pointer-events-none hidden lg:block' src='/NewSecond/lines.png' />
-            <div className='flex max-w-[87%] justify-evenly gap-[70px] pt-8 flex-wrap lg:flex-nowrap'>
+            <div className='flex max-w-[87%] justify-evenly gap-[70px] pt-8 flex-wrap lg:flex-nowrap text-center'>
                 <Card
                     num={`01`}
                     text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">100× cheaper</span> → AI becomes <br/> truly global`}
@@ -21,7 +21,7 @@ const MainImage = () => {
                 />
                 <Card
                     num={`03`}
-                    text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models</span><br/> = more breakthroughs`}
+                    text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models</span> = more<br/> breakthroughs`}
                 />
                 <Card
 

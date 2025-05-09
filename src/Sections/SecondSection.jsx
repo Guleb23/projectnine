@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SecondFone from '../Components/SecondFone';
 import AnimatedCircle from "../Components/AnimatedCircle";
+import Header from './NewSecond/Header';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,16 +87,28 @@ const SecondSection = () => {
             scrollTrigger: {
                 trigger: circleRef.current,
                 start: "top 25%",
-                endTrigger: "#three",
-                end: "92% 90%",
+                endTrigger: "#card",
+                end: "bottom 70%", // исправлено, чтобы точка была стабильной
                 pin: true,
                 scrub: true,
                 anticipatePin: 1,
-
-
             },
         });
+        // Отдельно блюр, когда #card доходит до шарика
+        gsap.fromTo(
+            circleRef.current,
+            { filter: "blur(0px)" },
+            {
+                filter: "blur(10px)",
+                scrollTrigger: {
+                    trigger: "#card",
+                    start: "top 45%", // когда верх card доходит до уровня круга
+                    end: "top 25%",   // сильнее заезжает за шар
+                    scrub: true,
 
+                },
+            }
+        );
 
     }, []);
 
@@ -104,13 +117,10 @@ const SecondSection = () => {
 
         <SecondFone id="second">
             <div className="flex flex-col gap-10 z-50 overflow-hidden">
-                <div className="flex flex-col gap-6 text-center">
-                    <p className="mono text-sm gradient-text-green">AI’s Ticking Time Bomb</p>
-                    <h1 className="text-4xl font-bold gradient-text-green">
-                        The AI Energy Crisis:<br /> Why SpinEdge Matters
-                    </h1>
-                    <p className="mono text-sm gradient-text-green">AI is suffocating. Here’s why.</p>
-                </div>
+
+                <Header top={`AI’s Ticking Time Bomb`} mid={` The AI Energy Crisis:<br /> Why SpinEdge Matters`} bottom={`AI is suffocating. Here’s why.`}>
+
+                </Header>
                 <div className="flex justify-center items-center relative w-full h-full">
                     {/* Основная картинка */}
                     <img

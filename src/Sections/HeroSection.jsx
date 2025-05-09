@@ -201,7 +201,7 @@ const HeroSection = ({ styles }) => {
                 >
                     SpinEdge saves it.
                 </p>
-                <AnimatedCircle ref={circleRef} />
+                <AnimatedCircle customStyle={`!top-16`} ref={circleRef} />
                 <img
                     ref={el => lastRight.current[0] = el}
                     className="hidden lg:block absolute top-16 right-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
@@ -217,7 +217,7 @@ const HeroSection = ({ styles }) => {
                     }}
                 />
 
-                <p ref={el => lastLeft.current[0] = el} className="hidden lg:block absolute top-[84%] left-[6%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
+                <p ref={el => lastLeft.current[0] = el} className="hidden lg:block text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
                     The world’s first<br />
                     spintronic AI accelerator
                 </p>
@@ -249,7 +249,7 @@ const HeroSection = ({ styles }) => {
 
                         {/* Нижние блоки */}
                         <div className='flex w-full justify-between items-start pt-12'>
-                            <div ref={el => lastLeft.current[1] = el} className="hidden md:block relative w-[30%] text-sm lastLeft">
+                            <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] md:block relative w-[30%] text-sm lastLeft">
                                 <div className="gradient-text-green font-bold text-transparent bg-clip-text mono">
                                     AI's Energy Diet<br />Starts Here
                                 </div>
@@ -262,9 +262,12 @@ const HeroSection = ({ styles }) => {
                                 The revolution <span className='border-b-2 border-[#16F501]'>starts now.</span>
                             </div>
 
-                            <div ref={el => lastRight.current[1] = el} className="hidden md:block relative w-[30%] text-right text-sm">
+                            <div ref={el => lastRight.current[1] = el} className="hidden md:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
                                 <div className="gradient-text-green font-bold text-transparent bg-clip-text mono">
-                                    The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.
+                                    <p className=''>
+                                        The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.
+                                    </p>
+
                                 </div>
                                 <div className="absolute inset-0 font-bold text-black/50 mix-blend-multiply pointer-events-none mono">
                                     The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.
@@ -278,7 +281,7 @@ const HeroSection = ({ styles }) => {
             <p
                 onClick={() => gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' })}
                 ref={el => superLast.current[1] = el}
-                className='cursor-pointer flex justify-center gradient-text-green text-transparent bg-clip-text items-center w-full absolute bottom-32 mono text-sm font-normal super'
+                className='cursor-pointer flex justify-center gradient-text-green text-transparent bg-clip-text items-center w-full absolute bottom-12 mono text-sm font-normal super'
             >
                 Meet the Future ↓
             </p>

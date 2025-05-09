@@ -44,10 +44,10 @@ const ThreeScetion = () => {
     return (
         <ThreeFone id="three">
             <ThreeCard ref={addToRefs} img={`/Three/one.png`} mainText={`Physics’ Deadline`} customStyles={`justify-self-center lg:ml-[31%]`} subText={`GPUs hit limits — 3nm chips improve efficiency by just 15%`} />
-            <ThreeCard ref={addToRefs} img={`/Three/two.png`} mainText={`Billion-Dollar Burn`} customStyles={`self-end justify-self-center lg:ml-[7%] lg:-mb-[37%]`} subText={`AI hardware costs could exceed $880B by 2030 (Fortune)`} />
-            <ThreeCard ref={addToRefs} img={`/Three/three.png`} mainText={`Energy Apocalypse`} customStyles={`self-end justify-self-center lg:mr-[8%] lg:-mb-[10%] `} subText={`Data centers may consume 21% 
+            <ThreeCard ref={addToRefs} img={`/Three/two.png`} mainText={`Billion-Dollar Burn`} customStyles={`self-end justify-self-center lg:ml-[7%] lg:-mb-[26.6%]`} subText={`AI hardware costs could exceed $880B by 2030 (Fortune)`} />
+            <ThreeCard ref={addToRefs} img={`/Three/three.png`} mainText={`Energy Apocalypse`} customStyles={`self-start  justify-self-center lg:mr-[8%] lg:mt-[6%] `} subText={`Data centers may consume 21% 
 of global electricity`} />
-            <ThreeCard ref={addToRefs} img={`/Three/four.png`} mainText={`Precision Tax`} customStyles={`md:self-end justify-self-center lg:mr-[30%] lg:-mb-[35%]`} subText={`Every 1% accuracy increase 
+            <ThreeCard ref={addToRefs} img={`/Three/four.png`} mainText={`Precision Tax`} customStyles={`md:self-end justify-self-center lg:mr-[32%] lg:-mb-[32%]`} subText={`Every 1% accuracy increase 
 costs $10M in energy.`} />
 
         </ThreeFone>

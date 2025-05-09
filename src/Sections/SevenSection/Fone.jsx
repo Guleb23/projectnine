@@ -6,7 +6,7 @@ const Fone = ({ id, children }) => {
         <section id={id} className='bg-black w-screen h-full relative   pt-[1%] pb-[3%]'>
             <div className='w-screen min-h-screen h-[135vh] absolute'>
 
-                <img src='/Seven/Fone.png' className='absolute -translate-y-1/2 top-1/2 -translate-x-1/2 left-1/2' />
+                <img src='/Seven/Fone.png' className='absolute -translate-y-1/2 top-[55%] -translate-x-1/2 left-1/2' />
                 <img src='/Seven/Blur.png' className='absolute ' />
 
 

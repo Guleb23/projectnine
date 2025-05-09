@@ -1,17 +1,13 @@
 import React from 'react'
 import Card from './Card'
 import MiniCard from './MiniCard'
+import Head from './Head'
 
 const SectionSix = () => {
     return (
-        <div className='w-screen h-screen flex flex-row pt-[7%] relative mb-[125px]'>
-            <div className='flex-[0_0_72%] pl-[18%] z-10'>
-                <h1 className='text-[77px] gradient-text-green'>SpinEdge Key IP<br /> Advantages
-                </h1>
-                <div className='flex flex-col'>
-                    <p className='text-[77px] font-bold bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text'>32K×32K</p>
-                    <p className='mono text-[19px] gradient-text-green'>Massive crossbar architecture<br /> eliminating voltage imbalance</p>
-                </div>
+        <div className='w-screen h-screen flex flex-row pt-[8%] relative mb-[125px]'>
+            <div className='flex-[0_0_72%] pl-[17%] z-10'>
+                <Head />
                 <div className='flex gap-14 pt-18'>
                     <Card img={`/Six/left.png`} text={`Multi-bit non-volatile<br/> resistive synapse<br/> using SOT MTJ cells`} />
                     <Card img={`/Six/right.png`} text={`Proprietary algorithms<br/> that adapt neural networks<br/> to analog hardware physics`} />
@@ -19,7 +15,7 @@ const SectionSix = () => {
             </div>
             <div className='relative w-[670px] h-[710px] -ml-[11%] -mt-[4%]'>
                 <MiniCard />
-                <div className='w-[582px] h-[710px] relative'>
+                <div className='w-[582px] h-[710px] relative ml-0 mt-0 lg:-ml-[10%]  lg:mt-[6%]'>
                     <img src='/Six/btm.png' className='absolute top-[0px] left-[0px]' />
                     <img
                         className={`absolute select-none pointer-events-none top-[340px] left-[240px] -translate-y-1/2 -translate-x-1/2  z-50`}

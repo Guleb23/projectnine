@@ -10,10 +10,10 @@ const ThreeMiniSect = ({ num,
                 <img src='/Four/miniLeft.png' className='absolute bottom-0 left-0' />
                 <p className='font-bold text-lg text-center bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text'>{num}</p>
             </div>
-            <p className=' gradient-text-green font-bold text-2xl'>
+            <p className=' gradient-text-green font-bold text-[23px] leading-[150%]'>
                 {Title}
             </p>
-            <p className=' gradient-text-green mono text-base'>
+            <p className=' gradient-text-green mono text-[15px] leading-[150%]'>
                 {sub}
             </p>
         </div>

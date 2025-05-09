@@ -4,9 +4,9 @@ import LastCard from '../../Components/LastCard'
 
 const FourLastSection = () => {
     return (
-        <div className='w-screen h-screen relative flex lg:justify-start lg:items-start items-center justify-center'>
+        <div className='w-screen h-screen relative flex lg:justify-start lg:items-start items-center justify-center pt-[3%]'>
 
-            <div className='absolute w-[1259px] h-[904px] -top-[45%]  2xl:-left-[5%]  2xl:-top-[40%] xl:-left-[23%] lg:-left-[32.3%] hidden lg:block '>
+            <div className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[23%] lg:-left-[32.3%] hidden lg:block '>
                 <img src='/Four/bigLeft.png' className=' hidden lg:block ' width={1259} height={904} />
                 <div className='absolute w-[654px] h-[1009px] top-1/2 mt-16 -translate-y-1/2 -translate-x-1/2 left-1/2'>
                     <img src='/Four/leftLeft.png' className=' relative  hidden lg:block' />
@@ -37,9 +37,9 @@ const FourLastSection = () => {
                     four
                     customStyles={`lg:!text-left text-center lg:items-start items-center -mt-[14%] `}
                     top={`The Quantum Leap in AI Hardware`}
-                    mid={`Spintronics: Where<br/> physics meets profit.`}
-                    bottom={`Spintronics leverages the intrinsic spin of<br/> electrons, providing faster, more energy-efficient<br/> computation compared to tradition electronics`} />
-                <div className='flex flex-col lg:flex-row gap-15 '>
+                    mid={`From Lab to Launch — No Fab Needed`}
+                    bottom={`Our non-volatile memory and magnetic sensors are already built, tested, and production-ready. Spintronic components integrate seamlessly with existing microelectronics — no custom fabs, no exotic processes.`} />
+                <div className='flex flex-col lg:flex-row gap-15 pt-[6px]'>
                     <LastCard img={`/Four/cardLeft.png`} Title={`Non-Volatile<br/> Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
                     <LastCard img={`/Four/cardRight.png`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are<br/> the best fit for edge<br/> and IoT devices`} />
 
