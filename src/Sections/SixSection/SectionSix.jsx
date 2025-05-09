@@ -28,7 +28,7 @@ const SectionSix = () => {
                         src="/ball.gif"
                         alt="Animated Ball"
                     />
-                    <img src='/Six/topLayer.png' className='absolute -translate-y-1/2 -translate-x-1/2 top-[350px] left-[245px]' />
+                    <img src='/Six/topLayer.png' className='absolute -translate-y-1/2 -translate-x-1/2 top-[350px] left-[245px] z-40' />
                     <div
                         className='w-[335px] h-[295px] rounded-[55px] bg-white/5 rounded-br-lg rounded-tl-2xl opacity-30 backdrop-blur-2xl absolute -translate-y-1/2 -translate-x-1/2 top-[355px] left-[250px]
    -skew-x-[24.5deg]  skew-y-[6deg] z-10'
