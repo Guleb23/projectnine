@@ -2,6 +2,7 @@ import React from 'react'
 import Card from './Card'
 import MiniCard from './MiniCard'
 import Head from './Head'
+import AnimatedCircle from '../../Components/AnimatedCircle'
 
 const SectionSix = () => {
     return (
@@ -17,13 +18,9 @@ const SectionSix = () => {
                 <MiniCard />
                 <div className='w-[582px] h-[710px] relative ml-0 mt-0 lg:-ml-[10%]  lg:mt-[6%]'>
                     <img src='/Six/btm.png' className='absolute top-[0px] left-[0px]' />
-                    <img
-                        className={`absolute select-none pointer-events-none top-[340px] left-[240px] -translate-y-1/2 -translate-x-1/2  z-50`}
-                        width={249}
-                        height={249}
-                        src="/ball.gif"
-                        alt="Animated Ball"
-                    />
+
+
+                    <AnimatedCircle width={`230px`} height={`230px`} customStyle={`select-none pointer-events-none top-[332px] left-[240px] -translate-y-1/2 -translate-x-1/2  z-50`} />
                     <img src='/Six/topLayer.png' className='absolute -translate-y-1/2 -translate-x-1/2 top-[350px] left-[245px] z-40' />
                     <div
                         className='w-[335px] h-[295px] rounded-[55px] bg-white/5 rounded-br-lg rounded-tl-2xl opacity-30 backdrop-blur-2xl absolute -translate-y-1/2 -translate-x-1/2 top-[355px] left-[250px]

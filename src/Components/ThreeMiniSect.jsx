@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ThreeMiniSect = ({ num,
+const ThreeMiniSect = ({ num, ref = null,
     Title,
     sub }) => {
     return (
-        <div className='flex flex-col gap-4 w-80 h-60'>
+        <div ref={ref} className='flex flex-col gap-4 w-80 h-60'>
             <div className='w-16 h-11 bg-transparent relative text-center px-4 py-2.5'>
                 <img src='/Four/miniRight.png' className='absolute top-0 right-0' />
                 <img src='/Four/miniLeft.png' className='absolute bottom-0 left-0' />

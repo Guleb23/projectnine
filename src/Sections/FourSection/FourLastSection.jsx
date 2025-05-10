@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from "../NewSecond/Header"
 import LastCard from '../../Components/LastCard'
+import AnimatedCircle from '../../Components/AnimatedCircle'
 
 const FourLastSection = () => {
     return (
@@ -13,13 +14,8 @@ const FourLastSection = () => {
                     <div className='w-[954px] h-[258px] absolute top-1/2 -translate-y-1/2 left-[29%] ' >
 
                         <img src='/Four/centerImg.png' />
-                        <img
-                            className={`absolute select-none pointer-events-none top-[64%] left-[7.5%] -translate-y-1/2 hidden lg:block`}
-                            width={140}
-                            height={140}
-                            src="/ball.gif"
-                            alt="Animated Ball"
-                        />
+                        <AnimatedCircle width={`130px`} height={`130px`} customStyle={`!pt-0 select-none pointer-events-none top-[64%] left-[8%] -translate-y-1/2 hidden lg:block`} />
+
                     </div>
                 </div>
             </div>

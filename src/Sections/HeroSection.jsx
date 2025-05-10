@@ -201,7 +201,7 @@ const HeroSection = ({ styles }) => {
                 >
                     SpinEdge saves it.
                 </p>
-                <AnimatedCircle customStyle={`!top-16`} ref={circleRef} />
+                <AnimatedCircle lottieRef={circleRef} />
                 <img
                     ref={el => lastRight.current[0] = el}
                     className="hidden lg:block absolute top-16 right-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"

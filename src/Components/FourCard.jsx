@@ -1,9 +1,10 @@
 import React from 'react'
 
-const FourCard = ({ text, customPosition }) => {
+const FourCard = ({ text, customPosition, ref = null }) => {
     return (
 
         <div
+            ref={ref}
             style={{
                 clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)'
             }}

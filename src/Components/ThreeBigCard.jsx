@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import AnimatedCircle from './AnimatedCircle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ const ThreeBigCard = () => {
             left: "50%",
             top: '20%',
             display: "none",
-            scale: 0.7, // Начальный размер (меньше обычного)
+            scale: 0.8, // Начальный размер (меньше обычного)
         });
 
         // Анимация движения сверху вниз с увеличением размера
@@ -30,7 +31,8 @@ const ThreeBigCard = () => {
                 end: "bottom center",
                 scrub: true,
 
-            }
+            },
+            timeScale: 0.5, // Чем меньше значение, тем медленнее скролл
         });
     }, []);
 
@@ -40,19 +42,8 @@ const ThreeBigCard = () => {
             className="flex justify-center items-center pt-20 md:pt-35 relative w-full h-full md:h-[600px] min-h-[700px] px-4 overflow-hidden"
         >
             {/* Анимированный шарик */}
-            <img
-                className="absolute select-none pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100"
-                ref={circ}
-                width={250}
-                height={250}
-                src="/ball.gif"
-                alt="Animated Ball"
-                style={{
-                    top: '20%',
-                    left: "50%"
-                }}
-            />
 
+            <AnimatedCircle customStyle={`select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={'230px'} height={`230px`} lottieRef={circ} />
             {/* Фон карточки */}
             <img
                 id="card"

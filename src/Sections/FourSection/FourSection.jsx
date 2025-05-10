@@ -1,6 +1,4 @@
-import React from 'react'
 import FourFone from '../../Components/FourFone'
-
 import FourImage from '../../Components/FourImage'
 import FourLeft from '../../Components/FourLeft'
 import FourLastSection from './FourLastSection'

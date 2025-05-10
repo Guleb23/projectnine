@@ -72,13 +72,14 @@ const SecondSection = () => {
             {
                 opacity: 1,
                 duration: 1,
-                delay: 2, // Задержка появления
+                delay: 3, // Задержка появления
                 ease: "power2.out",
                 scrollTrigger: {
-                    trigger: circleRef.current,
+                    trigger: "#second",
                     start: "top 50%",
                     toggleActions: "play none none none", // один раз проигрывается
                     once: true,
+                    markers: true
                 },
             }
         );
@@ -149,14 +150,7 @@ const SecondSection = () => {
                     {/* Анимированный круг, который появляется в финале */}
 
 
-                    <img
-                        className={`absolute pt-[2%] select-none pointer-events-none `}
-                        ref={circleRef}
-                        width={250}
-                        height={250}
-                        src="/ball.gif"
-                        alt="Animated Ball"
-                    />
+                    <AnimatedCircle width={`200px`} height={`200px`} lottieRef={circleRef} />
                 </div>
 
 

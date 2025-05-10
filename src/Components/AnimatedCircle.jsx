@@ -1,18 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Lottie from 'lottie-react';
+import animationData from '../../public/Ball/Spin1_0008_250_80.json'; // путь к Lottie JSON-файлу
 
-const AnimatedCircle = ({ ref, customStyle }) => {
+const AnimatedCircle = ({ lottieRef, customStyle, width = 250, height = 250 }) => {
     return (
-
-        <img
+        <div
             className={`absolute pt-[2%] select-none pointer-events-none ${customStyle || ""}`}
-            ref={ref}
-            width={250}
-            height={250}
-            src="/ball.gif"
-            alt="Animated Ball"
-        />
+            ref={lottieRef}
+            style={{ width, height }}
+        >
+            <Lottie animationData={animationData} loop autoplay style={{ width: '100%', height: '100%' }} />
+        </div>
+    );
+};
 
-    )
-}
-
-export default AnimatedCircle
+export default AnimatedCircle;

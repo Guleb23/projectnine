@@ -1,46 +1,131 @@
-import React from 'react'
 import FourCard from './FourCard'
 import AnimatedCircle from './AnimatedCircle'
+import AnimatedImg from '../Sections/FourSection/AnimatedImg'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+
 const FourImage = () => {
+    const leftCards = useRef([])
+    const rightCards = useRef([])
+    const containerRef = useRef(null)
+    const lightRef = useRef(null)
+    const circleRef = useRef(null) // 🌀 Добавим реф на AnimatedCircle
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    const globalDelay = 2;
+
+                    // 💡 Анимация "включения света"
+                    if (lightRef.current) {
+                        gsap.fromTo(lightRef.current, {
+                            opacity: 0,
+                            filter: 'brightness(0.3) blur(10px)',
+                        }, {
+                            opacity: 1,
+                            filter: 'brightness(1) blur(0px)',
+                            duration: 1.5,
+                            ease: 'power2.out',
+                            delay: globalDelay + 0.5,
+                        });
+                    }
+
+                    // 🌀 Появление AnimatedCircle через 0.5 сек после света
+                    if (circleRef.current) {
+                        gsap.fromTo(circleRef.current, {
+                            opacity: 0,
+                            scale: 0.8,
+                        }, {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 1,
+                            ease: 'power2.out',
+                            delay: globalDelay - 0.5,
+                        });
+                    }
+
+                    // 🃏 Анимации карточек
+                    leftCards.current.forEach((el, i) => {
+                        if (el) {
+                            gsap.fromTo(el, {
+                                x: -100,
+                                opacity: 0,
+                            }, {
+                                x: 0,
+                                opacity: 1,
+                                duration: 1.6,
+                                ease: 'power2.out',
+                                delay: globalDelay + i * 0.3,
+                            });
+                        }
+                    });
+
+                    rightCards.current.forEach((el, i) => {
+                        if (el) {
+                            gsap.fromTo(el, {
+                                x: 100,
+                                opacity: 0,
+                            }, {
+                                x: 0,
+                                opacity: 1,
+                                duration: 1.5,
+                                ease: 'power2.out',
+                                delay: globalDelay + i * 0.3,
+                            });
+                        }
+                    });
+
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (containerRef.current) observer.observe(containerRef.current);
+
+        return () => observer.disconnect();
+    }, []);
     return (
 
 
-        <div className="relative hidden md:block md:sticky md:top-44 w-full h-[560px] sm:h-[700px] md:h-[752px] ">
+        <div ref={containerRef} className="relative hidden md:block md:sticky md:top-44 w-full h-[560px] sm:h-[700px] md:h-[752px] ">
 
-            <img
-                src="/Four/main.png"
-                className="absolute left-1/2 top-1/2  2xl:top-[42%] 2xl:left-1/2 xl:top-[43.5%] xl:left-[55%] lg:top-[43.5%] md:top-[35%] -translate-x-1/2 -translate-y-1/2
-               w-[260px] sm:w-[400px] md:w-[500px] lg:w-[668px]
-               h-auto object-contain z-0"
-                alt="main diagram"
-            />
 
+            <AnimatedImg />
             {/* FourCard — точно привязаны к точкам картинки */}
             <FourCard
-                customPosition="absolute 2xl:-right-[18%] 2xl:bottom-[2%]  xl:bottom-[2%] xl:-right-[4%] lg:left-[14.7%] lg:top-[0%] md:-bottom-[13%] md:-right-[3%]  -bottom-[22%] -right-[7%] "
+                ref={el => leftCards.current[0] = el}
+                customPosition="absolute 2xl:left-[10%] 2xl:top-[2%]  xl:top-[1%] xl:left-[12%] lg:left-[5%] lg:top-[0%] md:top-[3%] md:left-[6%]  -bottom-[22%] -right-[7%] "
                 text={`Analog inference<br /> through the Ohm’s<br /> law I = V G`}
             />
             <FourCard
-                customPosition="absolute 2xl:bottom-[16%] 2xl:-right-[58%] xl:left-[65.5%] xl:bottom-[15%] lg:-top-[13%] lg:left-[60%]  md:-bottom-[5%] md:-right-[60%] -right-[58%] -bottom-[14%] "
+                ref={el => rightCards.current[0] = el}
+                customPosition="absolute 2xl:-top-[8%] 2xl:left-[58%] xl:left-[65.5%] xl:bottom-[15%] lg:-top-[10%] lg:left-[70%]  md:-top-[2%] md:left-[60%] -right-[58%] -bottom-[14%] "
                 text={`Analog data<br/> (voltages)`}
             />
             <FourCard
-                customPosition="absolute 2xl:-right-[57%] 2xl:-bottom-[7%] xl:left-[65%] xl:-bottom-[4%] lg:top-[10%] lg:left-[60%] md:-bottom-[15%] md:-right-[59%] -bottom-[25%] -right-[55%] "
+                ref={el => rightCards.current[1] = el}
+                customPosition="absolute 2xl:left-[53%] 2xl:top-[22%] xl:left-[68%] xl:top-[23%] lg:top-[24%] lg:left-[67%] md:-bottom-[19%] md:left-[55%] -bottom-[25%] -right-[55%] "
                 text={`Analog output<br/> (currents) `}
             />
             <FourCard
-                customPosition="absolute 2xl:left-[32%] xl:bottom-[2%] xl:left-[29%] lg:left-[25%] lg:top-[2%] md:-bottom-[13%] md:left-[21%] left-[22%] -bottom-[20%] "
+                ref={el => leftCards.current[1] = el}
+                customPosition="absolute 2xl:left-[23%] xl:top-[10%] xl:left-[28%] lg:left-[17%] lg:top-[10%] md:-bottom-[13%] md:left-[21%] left-[22%] -bottom-[20%] "
                 text={`Integration with<br/> CMOS circuitry`}
             />
-            <FourCard customPosition={'!absolute hidden 2xl:bottom-[50%] 2xl:-left-[15%] xl:bottom-[45%] xl:-left-[15%] lg:bottom-[45%] lg:-left-[25%] lg:-right-[10%] md:bottom-[53%] md:-left-[22%] md:-right-[10%] md:block'} text={`Spintronic<br/> Synapse`} />
+            <FourCard ref={el => leftCards.current[2] = el}
+                customPosition={'!absolute hidden 2xl:bottom-[44%] 2xl:-left-[15%] xl:bottom-[45%] xl:-left-[15%] lg:bottom-[45%] lg:-left-[25%] lg:-right-[10%] md:bottom-[53%] md:-left-[22%] md:-right-[10%] md:block'} text={`Spintronic<br/> Synapse`} />
             <FourCard
-                customPosition={'!absolute !py-[5px] !px-[10px] hidden 2xl:bottom-[61%] 2xl:left-[2%] xl:bottom-[57%] xl:left-[6%] lg:bottom-[57%] lg:-left-[2%] lg:-right-[10%] md:bottom-[60%] md:-left-[2%] md:-right-[10%] md:block'} text={`100 nm`} />
+                ref={el => leftCards.current[3] = el}
+                customPosition={'!absolute !py-[5px] !px-[10px] hidden 2xl:bottom-[55%] 2xl:left-[2%] xl:bottom-[57%] xl:left-[6%] lg:bottom-[57%] lg:left-[5%] lg:-right-[10%] md:bottom-[60%] md:-left-[2%] md:-right-[10%] md:block'} text={`100 nm`} />
             <div className='relative 
-            2xl:-top-50 2xl:-left-40 2xl:rotate-8 
-            lg:-top-46 lg:-left-36 lg:rotate-2
+            2xl:-top-35 2xl:-left-40 2xl:rotate-2 
+            xl:rotate-4 
+            lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
-                <img className='absolute left-[96px] w-[350px] lg:h-[210px] h-[195px] 2xl:h-[210px] xl:h-[202px] -top-[22px]' src='/Four/light.png' />
-                <AnimatedCircle customStyle={`relative `} />
+                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[55px]' src='/Four/light.png' />
+                <AnimatedCircle lottieRef={circleRef} customStyle={`relative `} width={`200px`} height={`200px`} />
             </div>
 
         </div>
