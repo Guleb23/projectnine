@@ -94,31 +94,32 @@ const FourImage = () => {
 
             <AnimatedImg />
             {/* FourCard — точно привязаны к точкам картинки */}
+
             <FourCard
                 ref={el => leftCards.current[0] = el}
-                customPosition="absolute 2xl:left-[10%] 2xl:top-[2%]  xl:top-[1%] xl:left-[12%] lg:left-[5%] lg:top-[0%] md:top-[3%] md:left-[6%]  -bottom-[22%] -right-[7%] "
+                customPosition="absolute opacity-0 2xl:left-[10%] 2xl:top-[2%]  xl:top-[1%] xl:left-[12%] lg:left-[5%] lg:top-[0%] md:top-[3%] md:left-[6%]  -bottom-[22%] -right-[7%] "
                 text={`Analog inference<br /> through the Ohm’s<br /> law I = V G`}
             />
             <FourCard
                 ref={el => rightCards.current[0] = el}
-                customPosition="absolute 2xl:-top-[8%] 2xl:left-[58%] xl:left-[65.5%] xl:bottom-[15%] lg:-top-[10%] lg:left-[70%]  md:-top-[2%] md:left-[60%] -right-[58%] -bottom-[14%] "
+                customPosition="absolute opacity-0 2xl:-top-[8%] 2xl:left-[58%] xl:left-[65.5%] xl:bottom-[15%] lg:-top-[10%] lg:left-[70%]  md:-top-[2%] md:left-[60%] -right-[58%] -bottom-[14%] "
                 text={`Analog data<br/> (voltages)`}
             />
             <FourCard
                 ref={el => rightCards.current[1] = el}
-                customPosition="absolute 2xl:left-[53%] 2xl:top-[22%] xl:left-[68%] xl:top-[23%] lg:top-[24%] lg:left-[67%] md:-bottom-[19%] md:left-[55%] -bottom-[25%] -right-[55%] "
+                customPosition="absolute opacity-0 2xl:left-[53%] 2xl:top-[22%] xl:left-[68%] xl:top-[23%] lg:top-[24%] lg:left-[67%] md:-bottom-[19%] md:left-[55%] -bottom-[25%] -right-[55%] "
                 text={`Analog output<br/> (currents) `}
             />
             <FourCard
                 ref={el => leftCards.current[1] = el}
-                customPosition="absolute 2xl:left-[23%] xl:top-[10%] xl:left-[28%] lg:left-[17%] lg:top-[10%] md:-bottom-[13%] md:left-[21%] left-[22%] -bottom-[20%] "
+                customPosition="absolute opacity-0 2xl:left-[23%] xl:top-[10%] xl:left-[28%] lg:left-[17%] lg:top-[10%] md:-bottom-[13%] md:left-[21%] left-[22%] -bottom-[20%] "
                 text={`Integration with<br/> CMOS circuitry`}
             />
             <FourCard ref={el => leftCards.current[2] = el}
-                customPosition={'!absolute hidden 2xl:bottom-[44%] 2xl:-left-[15%] xl:bottom-[45%] xl:-left-[15%] lg:bottom-[45%] lg:-left-[25%] lg:-right-[10%] md:bottom-[53%] md:-left-[22%] md:-right-[10%] md:block'} text={`Spintronic<br/> Synapse`} />
+                customPosition={'!absolute opacity-0 hidden 2xl:bottom-[44%] 2xl:-left-[15%] xl:bottom-[45%] xl:-left-[15%] lg:bottom-[45%] lg:-left-[25%] lg:-right-[10%] md:bottom-[53%] md:-left-[22%] md:-right-[10%] md:block'} text={`Spintronic<br/> Synapse`} />
             <FourCard
                 ref={el => leftCards.current[3] = el}
-                customPosition={'!absolute !py-[5px] !px-[10px] hidden 2xl:bottom-[55%] 2xl:left-[2%] xl:bottom-[57%] xl:left-[6%] lg:bottom-[57%] lg:left-[5%] lg:-right-[10%] md:bottom-[60%] md:-left-[2%] md:-right-[10%] md:block'} text={`100 nm`} />
+                customPosition={'!absolute opacity-0 !py-[5px] !px-[10px] hidden 2xl:bottom-[55%] 2xl:left-[2%] xl:bottom-[57%] xl:left-[6%] lg:bottom-[57%] lg:left-[5%] lg:-right-[10%] md:bottom-[60%] md:-left-[2%] md:-right-[10%] md:block'} text={`100 nm`} />
             <div className='relative 
             2xl:-top-35 2xl:-left-40 2xl:rotate-2 
             xl:rotate-4 

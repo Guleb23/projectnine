@@ -66,7 +66,7 @@ const FiveSection = () => {
 
             {/* Только эту часть мы анимируем */}
             <div ref={containerRef} className='flex flex-col lg:flex-row mt-4 min-h-[500px]'>
-                <div ref={leftRef} className='flex-[0_0_30%] flex justify-center lg:justify-end lg:pt-[3%]'>
+                <div ref={leftRef} className='flex-[0_0_30%] opacity-0 flex justify-center lg:justify-end lg:pt-[3%]'>
                     <Card
                         img={`/Five/Left.png`}
                         text={`Delivers up to 1000 TOPS/W, 20<br/> TOPS/mm², and unparalleled<br/> cost-effectiveness opacity-0`}
@@ -78,7 +78,7 @@ const FiveSection = () => {
                     <AnimatedImg customStyle={`z-50`} />
                 </div>
 
-                <div ref={rightRef} className='flex-[0_0_30%] flex lg:items-end lg:justify-start items-center justify-center opacity-0'>
+                <div ref={rightRef} className='flex-[0_0_30%] opacity-0 flex lg:items-end lg:justify-start items-center justify-center opacity-0'>
                     <Card
                         img={`/Five/Right.png`}
                         text={`Can be deployed as a chiplet or<br/> IP core, compatible with<br/> existing AI chips`}

@@ -1,6 +1,5 @@
-import React from 'react';
 import Lottie from 'lottie-react';
-import animationData from '../../public/Ball/Spin1_0008_250_80.json'; // путь к Lottie JSON-файлу
+import animationData from '/public/Ball/Spin1_0008_250_80.json'; // путь к Lottie JSON-файлу
 
 const AnimatedCircle = ({ lottieRef, customStyle, width = 250, height = 250 }) => {
     return (
