@@ -21,15 +21,15 @@ const NewSecondSection = () => {
                 bottom={`AI now consumes as much power as nations.`} />
             <SecondImage />
             <div className='w-full flex justify-center items-center pt-[1%] flex-col gap-[85px] mb-50'>
-                <p className='text-[37px] leading-[120%] font-bold gradient-text-green'>— and these are just two<br /> sectors out of hundreds…</p>
+                <p className='sm:text-[37px] text-[23px] text-center leading-[120%] font-bold gradient-text-green'>— and these are just two<br /> sectors out of hundreds…</p>
                 <ThreeIMage />
             </div>
 
 
-            <div className='absolute -bottom-[1%] flex max-w-[732px] w-full justify-between ' >
+            <div className='absolute -bottom-[15px] flex sm:max-w-[732px] max-w-[335px] w-full justify-between ' >
                 {word.map((w, index) => (
                     <p
-                        className='text-[77px] leading-[120%] font-bold gradient-text-green text-center'
+                        className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'
                         key={index}
                     >
                         {w}

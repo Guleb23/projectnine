@@ -33,20 +33,20 @@ const Head = () => {
         <div ref={containerRef}>
             <p
                 ref={(el) => (elementsRef.current[0] = el)}
-                className="mono text-sm  gradient-text-green pb-6"
+                className="mono text-[10px] sm:text-sm  gradient-text-green pb-6"
             >
                 Our Solution
             </p>
             <div className="flex flex-col gap-2">
                 <h2
                     ref={(el) => (elementsRef.current[1] = el)}
-                    className="text-[37px] font-bold gradient-text-green leading-[120%]"
+                    className="sm:text-[37px] text-[23px] font-bold gradient-text-green leading-[120%]"
                 >
                     SpinEdge cuts energy use vs. GPUs/TPUs
                 </h2>
                 <h2
                     ref={(el) => (elementsRef.current[2] = el)}
-                    className="text-[97px] xl:text-8xl font-bold bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text h-29"
+                    className="sm:text-[97px] text-[48px] xl:text-8xl font-bold bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text h-full"
                 >
                     by 200x
                 </h2>

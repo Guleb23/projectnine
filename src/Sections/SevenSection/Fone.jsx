@@ -4,9 +4,9 @@ import Header from '../NewSecond/Header'
 const Fone = ({ id, children }) => {
     return (
         <section id={id} className='bg-black w-screen h-full relative   pt-[1%] pb-[3%]'>
-            <div className='w-screen min-h-screen h-[135vh] absolute'>
+            <div className='min-w-screen min-h-screen h-[135vh] absolute'>
 
-                <img src='/Seven/Fone.png' className='absolute -translate-y-1/2 top-[55%] -translate-x-1/2 left-1/2' />
+                <img src='/Seven/Fone.png' className='absolute hidden md:block -translate-y-1/2 top-[55%] -translate-x-1/2 left-1/2' />
                 <img src='/Seven/Blur.png' className='absolute ' />
 
 
@@ -18,7 +18,12 @@ const Fone = ({ id, children }) => {
             />
             {children}
             <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
-            <div className="absolute  bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
+
+            <img
+                className="absolute md:hidden bottom-0 left-1/2 -translate-y-1/2  h-full  select-none pointer-events-none z-0 "
+                src="/Seven/btm.png"
+                alt="White Blur"
+            />
         </section>
     )
 }

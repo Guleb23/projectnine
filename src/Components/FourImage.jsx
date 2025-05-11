@@ -126,7 +126,7 @@ const FourImage = () => {
             lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
                 <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[55px]' src='/Four/light.png' />
-                <AnimatedCircle lottieRef={circleRef} customStyle={`relative `} width={`200px`} height={`200px`} />
+                <AnimatedCircle lottieRef={circleRef} customStyle={`relative `} width={`200`} height={`200`} />
             </div>
 
         </div>

@@ -6,14 +6,14 @@ const ThreeFone = ({ children, id }) => {
     return (
         <section
             id={id}
-            className="bg-black w-screen min-h-screen h-full relative pb-30 overflow-x-hidden overflow-y-visible pt-[8.5%]"
+            className="bg-black w-screen min-h-screen pb-20 h-full relative md:pb-30 overflow-x-hidden overflow-y-visible pt-[8.5%]"
         >
             <img
                 className="absolute inset-0 min-h-screen h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />
-            <div className="grid 2xl:mx-[3%] grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 w-screen mb-[14%] min-h-screen h-full  md:h-[130vh]  ">
+            <div className="grid 2xl:mx-[3%] grid-rows-4 gap-[50px] sm:gap-6 md:grid-cols-2 md:grid-rows-2 w-screen mb-[14%] min-h-screen h-full  md:h-[130vh] px-[20px] ">
                 {children}
             </div>
             <ThreeBigCard />

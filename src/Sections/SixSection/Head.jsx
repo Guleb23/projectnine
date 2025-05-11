@@ -33,20 +33,20 @@ const Head = () => {
         <div ref={containerRef}>
             <h1
                 ref={(el) => (elementsRef.current[0] = el)}
-                className="text-[77px] leading-[120%] gradient-text-green"
+                className="md:text-[77px] text-[23px] leading-[120%] gradient-text-green"
             >
                 SpinEdge Key IP<br /> Advantages
             </h1>
             <div className="flex flex-col">
                 <p
                     ref={(el) => (elementsRef.current[1] = el)}
-                    className="text-[77px] pt-[4%] font-bold bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text"
+                    className="md:text-[77px] text-[48px] pt-[4%] font-bold bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text"
                 >
                     32K×32K
                 </p>
                 <p
                     ref={(el) => (elementsRef.current[2] = el)}
-                    className="mono text-[19px] gradient-text-green"
+                    className="mono sm:text-[19px] text-sm gradient-text-green"
                 >
                     Massive crossbar architecture<br /> eliminating voltage imbalance
                 </p>

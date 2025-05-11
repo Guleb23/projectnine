@@ -17,17 +17,15 @@ const Fone = ({ id, children }) => {
             <img src='/Nine/BottomBlur.png' className='absolute -bottom-[15%] w-full' />
             <img src='/Seven/Blur.png' className='absolute top-[30%]' />
             {children}
-            <div className='flex w-full justify-center items-center absolute bottom-3'>
-                <div className='absolute flex max-w-[732px] w-full justify-between ' >
-                    {word.map((w, index) => (
-                        <p
-                            className='text-[77px] leading-[120%] font-bold gradient-text-green text-center'
-                            key={index}
-                        >
-                            {w}
-                        </p>
-                    ))}
-                </div>
+            <div className='absolute -bottom-[15px] flex sm:max-w-[732px] max-w-[335px] w-full justify-between -translate-x-1/2 left-1/2 ' >
+                {word.map((w, index) => (
+                    <p
+                        className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'
+                        key={index}
+                    >
+                        {w}
+                    </p>
+                ))}
             </div>
             <div className="absolute opacity-50 top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
 

@@ -24,7 +24,7 @@ function App() {
 
       <FourSection />
       <SevenSection />
-      <EightSection />
+
       <NineSection />
 
     </main>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = ({ img, title, text }) => {
     return (
-        <div className='px-[30px] py-[32px] bg-white/5 backdrop-blur-md flex flex-col gap-6 w-[346px] h-[246px]'
+        <div className='sm:px-[30px] py-[24px] px-[24px] sm:py-[32px] bg-white/5 backdrop-blur-md flex flex-col gap-6 md:w-[346px] w-[335px] md:h-[246px] h-[190px] z-50'
             style={{
                 clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)'
             }}>
@@ -10,8 +10,8 @@ const Card = ({ img, title, text }) => {
                 <img src={img} />
             </div>
             <div className='flex flex-col text-left gap-1.5 gradient-text-green'>
-                <p className='font-bold text-[23px]'>{title}</p>
-                <p className='font-medium mono text-[15px]' dangerouslySetInnerHTML={{ __html: text }} />
+                <p className='font-bold sm:text-[23px] text-[15px]'>{title}</p>
+                <p className='font-medium mono sm:text-[15px] text-[13px]' dangerouslySetInnerHTML={{ __html: text }} />
             </div>
             <img src='/Four/left.png' className='absolute  top-0 left-0 ' />
             <img src='/Four/right.png' className='absolute bottom-0 right-0 ' />

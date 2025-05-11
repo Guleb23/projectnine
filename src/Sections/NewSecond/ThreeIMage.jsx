@@ -10,7 +10,8 @@ const ThreeIMage = () => {
                 alt="Blur Effect"
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             />
-            <AnimatedCircle customStyle={`mb-[4%]`} />
+
+            <AnimatedCircle customStyle={`mb-[4%]`} width={window.innerWidth < 640 ? 150 : 250} height={window.innerWidth < 640 ? 150 : 250} />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import NavBar from '../Components/NavBar'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -10,13 +10,16 @@ const HeroSection = ({ styles }) => {
     const overlayRef = useRef(null)
     const firstElems = useRef([])
     const lastLeft = useRef([])
-    const circleRef = useRef(null)
+    const ballRef = useRef(null)
     const lastRight = useRef([])
     const superLast = useRef([])
     const navbarRef = useRef(null);
     const toumanRef = useRef(null);
     const getVisible = (arr) =>
         arr.filter(el => el && el.offsetParent !== null);
+
+
+
     useGSAP(() => {
         const tl = gsap.timeline();
 
@@ -73,7 +76,7 @@ const HeroSection = ({ styles }) => {
             '-=1' // Синхронизируем с Navbar, чтобы они анимировались одновременно
         );
         tl.fromTo(
-            circleRef.current,
+            ballRef.current,
             {
                 opacity: 0,
                 scale: 0.5,
@@ -138,7 +141,7 @@ const HeroSection = ({ styles }) => {
 
 
         }
-        gsap.fromTo(circleRef.current,
+        gsap.fromTo(ballRef.current,
             {
                 scale: 1 // Начальное значение (нормальный размер)
             },
@@ -146,7 +149,7 @@ const HeroSection = ({ styles }) => {
                 scale: 0.7,
                 ease: "power2.out",
                 scrollTrigger: {
-                    trigger: circleRef.current,
+                    trigger: ballRef.current,
                     start: "50% 20%",
                     endTrigger: "#sec",
                     end: "20% 90%",
@@ -158,13 +161,40 @@ const HeroSection = ({ styles }) => {
         );
     }, []);
 
+    const [isMobile, setIsMobile] = useState(false);
+    const [reorderedSubText, setReorderedSubText] = useState([
+        "200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"
+    ]); // Изначальный порядок
 
+    const subText = ["200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"];
+
+    // useEffect без зависимости от subText, чтобы избежать перерисовок.
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+
+            if (window.innerWidth < 640) {
+                // На мобильных устройствах показываем только 3 элемента в новом порядке
+                setReorderedSubText([
+                    "200x faster", "500W → 2W per chip", ">$1.2M saving"
+                ]);
+            } else {
+                // На больших экранах возвращаем все 4 элемента в исходном порядке
+                setReorderedSubText(subText);
+            }
+        };
+
+        handleResize(); // При первом рендере
+        window.addEventListener('resize', handleResize); // Подписка на изменение размера экрана
+
+        return () => window.removeEventListener('resize', handleResize); // Очистка при размонтировании
+    }, []); // Пустой массив зависимостей
 
 
 
 
     const word = ["S", "P", "I", "N", "E", "D", "G", "E"];
-    const subText = ["200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"]
+
 
     return (
         <FirstFone id='main' >
@@ -188,20 +218,20 @@ const HeroSection = ({ styles }) => {
 
 
             {/* TEXT */}
-            <div className="relative flex flex-col items-center text-white text-center pb-32 pt-30 2xl:pb-40 w-full mx-auto">
+            <div className="relative flex flex-col items-center text-white text-center pb-32 sm:pt-30 pt-26 2xl:pb-40 w-full mx-auto">
                 <p
                     ref={el => firstElems.current[0] = el}
-                    className="gradient-text-green font-bold text-3xl leading-[120%] first"
+                    className="gradient-text-green font-bold sm:text-3xl text-[23px]  leading-[120%] first"
                 >
                     GPUs crave power.
                 </p>
                 <p
                     ref={el => firstElems.current[1] = el}
-                    className="gradient-text-green font-bold text-3xl leading-[120%] first"
+                    className="gradient-text-green font-bold sm:text-3xl text-[23px] leading-[120%] first"
                 >
                     SpinEdge saves it.
                 </p>
-                <AnimatedCircle lottieRef={circleRef} />
+                <AnimatedCircle width={window.innerWidth < 640 ? 150 : 250} height={window.innerWidth < 640 ? 150 : 250} customStyle={`sm:mt-0 mt-[12%]`} lottieRef={ballRef} />
                 <img
                     ref={el => lastRight.current[0] = el}
                     className="hidden lg:block absolute top-16 right-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
@@ -217,20 +247,20 @@ const HeroSection = ({ styles }) => {
                     }}
                 />
 
-                <p ref={el => lastLeft.current[0] = el} className="hidden lg:block text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
+                <p ref={el => lastLeft.current[0] = el} className="hidden lg:block  text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
                     The world’s first<br />
                     spintronic AI accelerator
                 </p>
             </div>
 
             {/* SpinEdge letters */}
-            <div className="font-bold flex flex-col justify-center items-center w-screen gap-7 pt-[5%]">
+            <div className="font-bold flex flex-col justify-center items-center w-screen gap-7 sm:pt-[5%] pt-[8%]">
                 <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[87%] flex flex-col items-center gap-7">
+                    <div className="w-full max-w-[87%] flex flex-col items-center sm:gap-7 ">
                         <div className='flex w-full justify-between first' ref={el => firstElems.current[2] = el}>
                             {word.map((w, index) => (
                                 <p
-                                    className='text-5xl lg:text-7xl 2xl:text-8xl gradient-text-green text-center'
+                                    className='sm:text-5xl text-[35px] lg:text-7xl 2xl:text-8xl gradient-text-green text-center'
                                     key={index}
                                 >
                                     {w}
@@ -240,13 +270,21 @@ const HeroSection = ({ styles }) => {
 
                         {/* Подписи под буквами */}
                         <div className='flex w-full justify-between mono pt-[5px]' ref={el => firstElems.current[3] = el}>
-                            {subText.map((w, index) => (
-                                <p className={`gradient-text-green text-[12px] lg:text-sm w-44 text-center ${index === 0 && "text-start"} ${index === 3 && "text-end"}`} key={index}>
+                            {reorderedSubText.map((w, index) => (
+                                <p
+                                    className={`gradient-text-green sm:text-[12px] text-[11px] lg:text-sm sm:w-44 w-fit text-center 
+                    ${index === 0 && "text-start"} 
+                    ${index === 3 && "text-end"}`}
+                                    key={index}
+                                >
                                     {w}
                                 </p>
                             ))}
                         </div>
-
+                        <p className='mono gradient-text-green text-[13px] text-center pt-18 sm:hidden'>
+                            The world’s first spintronic<br />
+                            AI accelerator
+                        </p>
                         {/* Нижние блоки */}
                         <div className='flex w-full justify-between items-start pt-12'>
                             <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] md:block relative w-[30%] text-sm lastLeft">
@@ -258,7 +296,7 @@ const HeroSection = ({ styles }) => {
                                 </div>
                             </div>
 
-                            <div ref={el => superLast.current[0] = el} className='w-full md:w-[30%] text-center gradient-text-green md:text-lg super'>
+                            <div ref={el => superLast.current[0] = el} className='w-full md:w-[30%] sm:pt-0 pt-4 text-center gradient-text-green md:text-lg super'>
                                 The revolution <span className='border-b-2 border-[#16F501]'>starts now.</span>
                             </div>
 
@@ -281,7 +319,7 @@ const HeroSection = ({ styles }) => {
             <p
                 onClick={() => gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' })}
                 ref={el => superLast.current[1] = el}
-                className='cursor-pointer flex justify-center gradient-text-green text-transparent bg-clip-text items-center w-full absolute bottom-12 mono text-sm font-normal super'
+                className='cursor-pointer flex justify-center gradient-text-green text-transparent bg-clip-text items-center w-full absolute bottom-24  sm:bottom-12 mono text-sm font-normal super'
             >
                 Meet the Future ↓
             </p>

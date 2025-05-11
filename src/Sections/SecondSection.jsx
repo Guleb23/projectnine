@@ -15,6 +15,7 @@ const SecondSection = () => {
     const circleRef = useRef(null);  // Реф для AnimatedCircle
 
     useGSAP(() => {
+        const isMobile = window.innerWidth < 640;
         // Появление main.png
         gsap.fromTo(
             mainRef.current,
@@ -84,32 +85,34 @@ const SecondSection = () => {
             }
         );
 
-        gsap.to(circleRef.current, {
-            scrollTrigger: {
-                trigger: circleRef.current,
-                start: "top 25%",
-                endTrigger: "#card",
-                end: "bottom 70%", // исправлено, чтобы точка была стабильной
-                pin: true,
-                scrub: true,
-                anticipatePin: 1,
-            },
-        });
-        // Отдельно блюр, когда #card доходит до шарика
-        gsap.fromTo(
-            circleRef.current,
-            { filter: "blur(0px)" },
-            {
-                filter: "blur(10px)",
+        if (!isMobile) {
+            // Только если экран >= sm
+            gsap.to(circleRef.current, {
                 scrollTrigger: {
-                    trigger: "#card",
-                    start: "top 45%", // когда верх card доходит до уровня круга
-                    end: "top 25%",   // сильнее заезжает за шар
+                    trigger: circleRef.current,
+                    start: "top 25%",
+                    endTrigger: "#card",
+                    end: "bottom 70%",
+                    pin: true,
                     scrub: true,
-
+                    anticipatePin: 1,
                 },
-            }
-        );
+            });
+
+            gsap.fromTo(
+                circleRef.current,
+                { filter: "blur(0px)" },
+                {
+                    filter: "blur(10px)",
+                    scrollTrigger: {
+                        trigger: "#card",
+                        start: "top 45%",
+                        end: "top 25%",
+                        scrub: true,
+                    },
+                }
+            );
+        }
 
     }, []);
 
@@ -117,25 +120,25 @@ const SecondSection = () => {
     return (
 
         <SecondFone id="second">
-            <div className="flex flex-col gap-10 z-50 overflow-hidden">
+            <div className="flex flex-col gap-10 z-50 overflow-hidden sm:pt-0 pt-[21%]">
 
                 <Header top={`AI’s Ticking Time Bomb`} mid={` The AI Energy Crisis:<br /> Why SpinEdge Matters`} bottom={`AI is suffocating. Here’s why.`}>
 
                 </Header>
-                <div className="flex justify-center items-center relative w-full h-full">
+                <div className="flex justify-center items-center relative w-full h-full sm:mb-0 mb-[165px]">
                     {/* Основная картинка */}
                     <img
                         ref={mainRef}
 
 
-                        className="max-w-full max-h-full opacity-0  select-none pointer-events-none"
+                        className="sm:max-w-full max-w-[213px] sm:max-h-full max-h-[222px] opacity-0  select-none pointer-events-none"
                         src="/Second/main.png"
                         alt="Main"
                     />
                     {/* Картинка in.png, которая появляется после main.png */}
                     <img
                         ref={imgRef}
-                        className="absolute pt-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0  select-none pointer-events-none"
+                        className="absolute pt-2 top-1/2 left-1/2 transform md:scale-100 scale-50 -translate-x-1/2 -translate-y-1/2 opacity-0  select-none pointer-events-none"
                         src="/Second/in.png"
                         alt="In"
                     />
@@ -149,8 +152,7 @@ const SecondSection = () => {
                     />
                     {/* Анимированный круг, который появляется в финале */}
 
-
-                    <AnimatedCircle width={`200px`} height={`200px`} lottieRef={circleRef} />
+                    <AnimatedCircle width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
                 </div>
 
 
