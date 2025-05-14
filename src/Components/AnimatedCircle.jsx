@@ -2,10 +2,11 @@ import Lottie from 'lottie-react';
 import animationData from '/public/Ball/Spin1_0008_250_80.json'; // путь к Lottie JSON-файлу
 import { useEffect } from 'react';
 
-const AnimatedCircle = ({ lottieRef, customStyle, width, height }) => {
+const AnimatedCircle = ({ lottieRef, customStyle, width, height, id }) => {
 
     return (
         <div
+            id={id}
             ref={lottieRef}
             className={`absolute pt-[2%] select-none pointer-events-none ${customStyle || ""}`}
 

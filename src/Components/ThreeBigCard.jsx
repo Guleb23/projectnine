@@ -4,23 +4,25 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import AnimatedCircle from './AnimatedCircle';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const ThreeBigCard = () => {
     const circ = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [isXl, setIsXl] = useState(false);
 
     // Определяем, мобильный ли экран
     useEffect(() => {
         setIsMobile(window.innerWidth < 640);
+        setIsXl(window.innerWidth > 1279)
     }, []);
 
 
 
     useGSAP(() => {
         const isMobile = window.innerWidth < 640;
+        const isXl = window.innerWidth > 1279
 
-        if (!isMobile && circ.current) {
+        if (!isMobile && circ.current && !isXl) {
             gsap.set(circ.current, {
                 y: 0,
                 opacity: 1, // Шарик сразу видимый
@@ -45,12 +47,16 @@ const ThreeBigCard = () => {
         }
     }, []);
 
+
+
+
+
     return (
-        <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[600px] min-h-[370px] px-4 overflow-hidden">
-            {/* Только для desktop */}
-            {!isMobile && (
+        <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[700px] min-h-[370px] px-4 overflow-hidden">
+            {(!isMobile && !isXl) && (
                 <AnimatedCircle customStyle={`select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={'200'} height={`200`} lottieRef={circ} />
             )}
+
 
             {/* Фон карточки */}
             <img
@@ -75,9 +81,11 @@ const ThreeBigCard = () => {
                     To sustainably manage AI's energy consumption,<br className="hidden md:block" />
                     radical new approaches in computation are essential.
                 </p>
-                <button className="bg-[radial-gradient(circle,_#16F501,_#00DA90)] w-48 md:w-56 h-10 md:h-12 rounded-lg text-sm md:text-[16px] font-bold">
-                    Meet the Future →
+                <button className="relative overflow-hidden w-52 md:w-64 min-h-[50px] md:min-h-[50px] rounded-lg text-sm md:text-[18px] font-bold text-white group flex items-center justify-center">
+                    <span className="absolute inset-0 bg-[linear-gradient(90deg,#16F501,#00DA90)] bg-[length:200%_100%] bg-left rounded-lg transition-[background-position] duration-500 ease-in-out group-hover:bg-right"></span>
+                    <span className="relative z-10 text-black">Meet the Future →</span>
                 </button>
+
             </div>
         </div>
     );

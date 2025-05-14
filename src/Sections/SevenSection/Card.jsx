@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Card = ({ img, name, work, desc, customPosition }) => {
+const Card = ({ img, name, work, desc, customPosition, ref }) => {
     return (
-        <div className={`md:w-[260px] w-[200px]  flex flex-col gap-5 ${customPosition || " "}`}>
+        <div ref={ref} className={`md:w-[260px] w-[200px]  flex flex-col gap-5 ${customPosition || " "}`}>
             <img width={260} height={260} className='md:w-[260px] md:h-[260px] w-[200px] h-[200px]' src={img} />
             <div className='flex flex-col gap-2 gradient-text-green text-left'  >
                 <p className='font-bold md:text-[23px]  text-[15px]  ' dangerouslySetInnerHTML={{ __html: name }} />

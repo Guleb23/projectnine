@@ -1,13 +1,14 @@
 import React from 'react'
 
-const FourFone = ({ id, children }) => {
+const FourFone = ({ id, children, heightBlur }) => {
     return (
         <section
             id={id}
-            className="bg-black w-screen h-full relative z-50"
+            className="bg-black w-screen h-full relative "
         >
             <img
-                className="absolute inset-0  h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
+                className={`absolute inset-0 top-0    mx-auto select-none pointer-events-none z-0 rounded-4xl`}
+                style={{ height: `${heightBlur}px` }}
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />

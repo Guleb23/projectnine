@@ -39,11 +39,11 @@ const ImageModal = ({ imageUrl, onClose }) => {
                 <img
                     src={imageUrl}
                     alt="Modal content"
-                    className="max-h-[90vh] h-[400px] w-[400px] max-w-full rounded-lg shadow-lg object-contain transition-transform duration-200"
+                    className="max-h-[70vh] w-full h-full max-w-full rounded-lg shadow-lg object-contain transition-transform duration-200"
                 />
                 <button
                     onClick={handleClose}
-                    className="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-red-500 hover:text-white transition duration-200"
+                    className="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-[#00A968] hover:text-white transition duration-200"
                     aria-label="Close modal"
                 >
                     ✕

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from '../NewSecond/Header'
 import ImageModal from '../../Components/ImageModal';
 import { HiMagnifyingGlassPlus } from "react-icons/hi2";
+import { Crad } from './Crad';
 
 const NewSevenSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +13,7 @@ const NewSevenSection = () => {
         setIsModalOpen(true);
     };
     return (
-        <div className='w-screen h-screen bg-black flex justify-center items-center -mt-[2%] '>
+        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center -mt-[2%] '>
             {isModalOpen && (
                 <ImageModal
                     imageUrl={selectedImage}
@@ -22,29 +23,39 @@ const NewSevenSection = () => {
             <img src='/Nine/Fone.png' className='absolute bottom-[100vh] -left-[70%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute bottom-[70vh] -right-[45%] z-0 ' />
             <div className='w-full h-full flex justify-center items-center ms:px-[17.5%] px-[5%] gap-[50px] z-10'>
-                <img width={400} height={610} className='w-[400px] h-[610px] md:block hidden' src='/NewSeven/house.png' />
+                <div className='relative  md:block hidden'>
+                    <img width={400} height={610} className='w-[400px] h-[610px]' src='/NewSeven/house.png' />
+                    <div className='absolute bottom-2 left-2'>
+                        <Crad />
+                    </div>
+                </div>
+
+
                 <div className='flex flex-col w-full md:w-[400px] h-[610px]'>
                     <Header customStyles={`justify-start !text-left md:!w-[490px]`} top={`Israeli-Founded. Globally Oriented.`} mid={`SpinEdge: A Company<br/> Built for Impact`} bottom={`SpinEdge is an Israeli deep tech company founded in 2022, uniting industry leaders and scientific minds to drive innovation in AI hardware.
                     With expertise spanning spintronics, microelectronics, and systems engineering, the team blends technical depth with real-world execution.
                     The company is a graduate of the INNOFENSE Innovation Center (iHLS & Israeli MoD) and is supported by the European Innovation Council and the JU Chips Act.`} />
                     <div className=' gap-2.5 pt-[30px] flex md:hidden'>
+
                         <img width={168} height={270} className='' src='/NewSeven/house.png' />
+
+
                         <div className='flex flex-col w-full h-full'>
-                            <p className='text-[15px] font-bold gradient-text-green mt-auto pb-3.5'>
-                                2 PCT patents granted,<br /> 5+ in pipeline:
+                            <p className='text-[11px] font-bold gradient-text-green mt-auto pb-3.5 w-full' >
+                                2 PCT patents granted, 5+ in pipeline:
                             </p>
-                            <div className="flex gap-4">
+                            <div className=" flex gap-4    ">
                                 {["/NewSeven/left.png", "/NewSeven/right.png"].map((src, index) => (
                                     <div
                                         key={index}
-                                        className="group relative cursor-pointer"
+                                        className="group flex-1 relative cursor-pointer w-[76px] h-[97px]"
                                         onClick={() => openModal(src)}
                                     >
                                         <img
                                             src={src}
-                                            width={103}
-                                            height={130}
-                                            className="object-contain object-center"
+                                            width={76}
+                                            height={97}
+                                            className="object-cover w-full h-full object-center"
                                             alt={`Preview ${index}`}
                                         />
                                         <div className="absolute inset-0 flex items-center justify-center bg-black/20  opacity-0 transition-opacity group-hover:opacity-100">
@@ -65,14 +76,15 @@ const NewSevenSection = () => {
                             {["/NewSeven/left.png", "/NewSeven/right.png"].map((src, index) => (
                                 <div
                                     key={index}
-                                    className="group relative cursor-pointer"
+                                    className="group  relative cursor-pointer w-[103px] h-[130px]"
                                     onClick={() => openModal(src)}
                                 >
+
                                     <img
                                         src={src}
                                         width={103}
                                         height={130}
-                                        className="object-contain object-center"
+                                        className="object-cover w-full h-full object-center"
                                         alt={`Preview ${index}`}
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center bg-black/20  opacity-0 transition-opacity group-hover:opacity-100">
@@ -83,6 +95,7 @@ const NewSevenSection = () => {
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -18,29 +18,42 @@ const ThreeScetion = () => {
     };
 
     useEffect(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#three", // Триггер на секцию
-                start: "top 80%",  // Когда секция попадет в 80% видимости
-                toggleActions: "play none none none",
-            }
-        });
-
-        // Анимация для карточек, которые должны выезжать слева и справа
         cardRefs.current.forEach((card, index) => {
-            const direction = index % 2 === 0 ? -200 : 200;  // Чередуем направления (лево/право)
-            const opacityStart = 0;
-            const opacityEnd = 1;
-            const xStart = direction;
-            const xEnd = 0;
+            const image = card.querySelector('.card-img');
+            const title = card.querySelector('.card-title');
+            const subtitle = card.querySelector('.card-sub');
+            const fromX = index % 2 === 0 ? -50 : 50; // чередуем вылет слева/справа
 
-            tl.fromTo(
-                card,
-                { x: xStart, opacity: opacityStart },
-                { x: xEnd, opacity: opacityEnd, duration: 1, ease: "power3.out" }
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top center',
+                    toggleActions: 'play none none none',
+                }
+            });
+
+            // Zoom-in для картинки
+            tl.fromTo(image,
+                { scale: 0.9, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }
+            );
+
+            // Вылет заголовка
+            tl.fromTo(title,
+                { x: fromX, opacity: 0 },
+                { x: 0, opacity: 1, duration: 1.5, ease: 'power2.out' },
+                "-=1.2" // почти одновременно с концом картинки
+            );
+
+            // Вылет подзаголовка с задержкой
+            tl.fromTo(subtitle,
+                { x: fromX, opacity: 0 },
+                { x: 0, opacity: 1, duration: 1.5, ease: 'power2.out' },
+                "-=1.0" // 0.2 сек позже заголовка
             );
         });
     }, []);
+
     return (
         <ThreeFone id="three">
             <ThreeCard ref={addToRefs} img={`/Three/one.png`} mainText={`Physics’ Deadline`} customStyles={`sm:justify-self-center justify-self-start lg:ml-[31%]`} subText={`GPUs hit limits — 3nm chips improve efficiency by just 15%`} />

@@ -3,15 +3,17 @@ import AnimatedCircle from './AnimatedCircle'
 import AnimatedImg from '../Sections/FourSection/AnimatedImg'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-
+import ScrollTrigger from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 const FourImage = () => {
     const leftCards = useRef([])
     const rightCards = useRef([])
     const containerRef = useRef(null)
     const lightRef = useRef(null)
-    const circleRef = useRef(null) // 🌀 Добавим реф на AnimatedCircle
+    const circleRef = useRef(null)
 
     useEffect(() => {
+        const mm = gsap.matchMedia();
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -32,18 +34,48 @@ const FourImage = () => {
                     }
 
                     // 🌀 Появление AnimatedCircle через 0.5 сек после света
-                    if (circleRef.current) {
-                        gsap.fromTo(circleRef.current, {
-                            opacity: 0,
-                            scale: 0.8,
-                        }, {
-                            opacity: 1,
-                            scale: 1,
-                            duration: 1,
-                            ease: 'power2.out',
-                            delay: globalDelay - 0.5,
-                        });
-                    }
+                    mm.add("(min-width: 1280px)", () => {
+                        gsap.fromTo("#btm",
+                            {
+                                opacity: 0,
+                                scale: 0.8,
+                            },
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                ease: "power2.out",
+                                scrollTrigger: {
+                                    trigger: "#stop",
+                                    start: "63% 10%",
+                                    end: "63% 10%",
+                                    toggleActions: "play none none reverse", // в конце запускаем reverse
+                                    duration: 0.2,
+                                    markers: true
+                                }
+                            }
+                        );
+                    })
+
+                    mm.add("(max-width: 1280px)", () => {
+                        if (circleRef.current) {
+                            gsap.fromTo(circleRef.current, {
+                                opacity: 0,
+                                scale: 0.8,
+                            }, {
+                                opacity: 1,
+                                scale: 1,
+                                duration: 1,
+                                ease: 'power2.out',
+                                delay: globalDelay - 0.5,
+                            });
+                        }
+                    })
+
+
+
+
+
+
 
                     // 🃏 Анимации карточек
                     leftCards.current.forEach((el, i) => {
@@ -89,7 +121,7 @@ const FourImage = () => {
     return (
 
 
-        <div ref={containerRef} className="relative hidden md:block md:sticky md:top-44 w-full h-[560px] sm:h-[700px] md:h-[752px] ">
+        <div ref={containerRef} className="relative hidden md:block md:sticky md:top-16 w-full h-[560px] sm:h-[700px] md:h-[752px] ">
 
 
             <AnimatedImg />
@@ -126,7 +158,9 @@ const FourImage = () => {
             lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
                 <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[55px]' src='/Four/light.png' />
-                <AnimatedCircle lottieRef={circleRef} customStyle={`relative `} width={`200`} height={`200`} />
+                <AnimatedCircle id={`btm`} customStyle={`opacity-0 ml-4`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} />
+
+                <AnimatedCircle lottieRef={circleRef} customStyle={`relative xl:hidden block`} width={`200`} height={`200`} />
             </div>
 
         </div>

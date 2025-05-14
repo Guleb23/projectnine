@@ -1,11 +1,11 @@
 import React from 'react'
 
-const LastCard = ({ customStyles,
+const LastCard = ({ customStyles, ref,
     Title,
     sub,
     img }) => {
     return (
-        <div className={`flex flex-col gap-4  sm:w-80 w-[165px] h-60 ${customStyles || " "}`}>
+        <div ref={ref} className={`flex flex-col gap-4  sm:w-80 w-[165px] h-60 ${customStyles || " "}`}>
             <div className='w-16 h-11 bg-transparent relative text-center '>
                 <img src={img} />
             </div>

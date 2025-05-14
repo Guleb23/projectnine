@@ -7,19 +7,19 @@ const NavBar = ({ ref }) => {
     const items = [
         {
             name: "ABOUT",
-            link: "#main",
+            link: "#sec",
         },
         {
             name: "TECHNOLOGY",
-            link: "#second",
+            link: "#four",
         },
         {
             name: "OUR TEAM",
-            link: "#three",
+            link: "#house",
         },
         {
             name: "ROADMAP",
-            link: "#four",
+            link: "#diagramm",
         }
     ];
     '', '', '', ''

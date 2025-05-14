@@ -2,7 +2,7 @@ import Header from '../NewSecond/Header'
 
 const LastFourSection = () => {
     return (
-        <div className='w-screen h-screen pt-[1%] flex flex-col items-center gap-14'>
+        <div id='diagramm' className='w-screen h-screen pt-[1%] flex flex-col items-center gap-14'>
             <Header
                 top={`TECHNOLOGY DEVELOPMENT`}
                 mid={`From Lab to Global Dominance`}

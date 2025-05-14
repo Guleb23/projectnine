@@ -23,26 +23,26 @@ const HeroSection = ({ styles }) => {
     useGSAP(() => {
         const tl = gsap.timeline();
 
-        // 1. Скрытие overlay
+        // 1. Скрытие overlay — быстрее
         tl.to(overlayRef.current, {
             opacity: 0,
-            duration: 1.5,
+            duration: 0.8,
             ease: 'power2.inOut',
-            delay: 0.5,
+            delay: 0.2, // меньше задержка
         });
 
-        // 2. Появление текста
+        // 2. Текст появляется быстрее и плотнее
         tl.fromTo(
             firstElems.current,
-            { opacity: 0, y: 50 },
+            { opacity: 0, y: 40 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                duration: 0.6,
                 ease: 'power2.out',
-                stagger: 0.1,
+                stagger: 0.08,
             },
-            '-=1'
+            '-=0.6'
         );
 
         // 3. Navbar
@@ -52,29 +52,30 @@ const HeroSection = ({ styles }) => {
             {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                duration: 0.6,
                 ease: 'power2.out',
             },
-            '+=0.2'
+            '-=0.4' // быстрее после текста
         );
 
-        // ✅ 4. Touman (падает сверху и появляется одновременно с Navbar)
+        // 4. Touman + Ball (одновременно с Navbar)
         tl.fromTo(
             toumanRef.current,
             {
                 opacity: 0,
-                yPercent: -100, // Начало выше экрана (падение сверху)
-                transform: 'translateX(-50%)', // Центрируем по горизонтали
+                yPercent: -100,
+                transform: 'translateX(-50%)',
             },
             {
                 opacity: 1,
-                yPercent: 0, // Падаем на место
-                duration: 1,
+                yPercent: 0,
+                duration: 0.6,
                 ease: 'power2.out',
-                transform: 'translateX(-50%)', // Сохраняем центрирование
+                transform: 'translateX(-50%)',
             },
-            '-=1' // Синхронизируем с Navbar, чтобы они анимировались одновременно
+            '-=0.6'
         );
+
         tl.fromTo(
             ballRef.current,
             {
@@ -84,12 +85,13 @@ const HeroSection = ({ styles }) => {
             {
                 opacity: 1,
                 scale: 1,
-                duration: 1,
+                duration: 0.6,
                 ease: 'power2.out',
             },
-            '-=1' // одновременно с toumanRef и navbarRef
+            '-=0.6'
         );
-        // 5. Анимация для lastLeft элементов
+
+        // 5. lastLeft
         const visibleLastLeft = getVisible(lastLeft.current);
         if (visibleLastLeft.length) {
             tl.fromTo(
@@ -98,11 +100,10 @@ const HeroSection = ({ styles }) => {
                 {
                     opacity: 1,
                     xPercent: 0,
-                    duration: 1,
+                    duration: 0.6,
                     ease: 'power2.out',
-                    stagger: 0.2,
-                },
-                '+=0.5'
+                    stagger: 0.12,
+                }
             );
         }
 
@@ -115,11 +116,10 @@ const HeroSection = ({ styles }) => {
                 {
                     opacity: 1,
                     xPercent: 0,
-                    duration: 1,
+                    duration: 0.6,
                     ease: 'power2.out',
-                    stagger: 0.2,
-                },
-                '-=0.5'
+                    stagger: 0.12,
+                }
             );
         }
 
@@ -128,22 +128,20 @@ const HeroSection = ({ styles }) => {
         if (visibleSuperLast.length) {
             tl.fromTo(
                 visibleSuperLast,
-                { opacity: 0, yPercent: 0 },
+                { opacity: 0, yPercent: 10 },
                 {
                     opacity: 1,
                     yPercent: 0,
-                    duration: 1,
+                    duration: 0.6,
                     ease: 'power2.out',
-                    stagger: 0.2,
-                },
-                '+=0.2'
+                }
             );
-
-
         }
+
+        // 🎯 ScrollTrigger на шар
         gsap.fromTo(ballRef.current,
             {
-                scale: 1 // Начальное значение (нормальный размер)
+                scale: 1,
             },
             {
                 scale: 0.7,
@@ -155,11 +153,12 @@ const HeroSection = ({ styles }) => {
                     end: "20% 90%",
                     scrub: 1,
                     pin: true,
-                    immediateRender: false
+                    immediateRender: false,
                 }
             }
         );
     }, []);
+
 
     const [isMobile, setIsMobile] = useState(false);
     const [reorderedSubText, setReorderedSubText] = useState([
@@ -297,7 +296,7 @@ const HeroSection = ({ styles }) => {
                             </div>
 
                             <div ref={el => superLast.current[0] = el} className='w-full md:w-[30%] sm:pt-0 pt-4 text-center gradient-text-green md:text-lg super'>
-                                The revolution <span className='border-b-2 border-[#16F501]'>starts now.</span>
+                                The revolution <span className='border-b-2 border-[#00DA90]'>starts now.</span>
                             </div>
 
                             <div ref={el => lastRight.current[1] = el} className="hidden md:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
@@ -319,7 +318,7 @@ const HeroSection = ({ styles }) => {
             <p
                 onClick={() => gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' })}
                 ref={el => superLast.current[1] = el}
-                className='cursor-pointer flex justify-center gradient-text-green text-transparent bg-clip-text items-center w-full absolute bottom-24  sm:bottom-12 mono text-sm font-normal super'
+                className='cursor-pointer flex justify-center bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent items-center w-full absolute bottom-24  sm:bottom-12 mono text-sm font-normal super'
             >
                 Meet the Future ↓
             </p>

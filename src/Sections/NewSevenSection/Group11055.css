@@ -1,0 +1,64 @@
+.group-1105-5,
+.group-1105-5 * {
+    box-sizing: border-box;
+}
+
+.group-1105-5 {
+    background: rgba(3, 4, 3, 0.55);
+    border-radius: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    backdrop-filter: blur(7.5px);
+}
+
+.group-1105-5 .group {
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 35px;
+    height: auto;
+    position: relative;
+    overflow: visible;
+}
+
+.group-1105-5 .frame-1410103863 {
+    margin: 0 0 0 -15px;
+    padding: 15px 0px 15px 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.group-1105-5 .haifa-israel {
+    background: radial-gradient(closest-side,
+            rgba(225, 255, 222, 1) 0%,
+            rgba(225, 255, 222, 0.25) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
+    font-family: "Orbitron-Bold", sans-serif;
+    font-size: 15px;
+    line-height: 140%;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.group-1105-5 .group2 {
+    margin: 0 0 0 -15px;
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 35px;
+    height: auto;
+    position: relative;
+    overflow: visible;
+}
