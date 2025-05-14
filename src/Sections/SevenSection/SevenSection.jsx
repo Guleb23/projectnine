@@ -81,7 +81,7 @@ const SevenSection = () => {
                 <div className='w-full overflow-x-hidden sm:hidden block'>
                     <img
                         src='/Seven/Fone.png'
-                        className='w-[1057px] h-[512px] object-center object-cover sm:hidden block'
+                        className='w-[1057px] h-[512px] object-center object-cover'
                     />
                 </div>
 

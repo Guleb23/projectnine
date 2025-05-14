@@ -13,11 +13,11 @@ const Fone = ({ id, children }) => {
 
     useEffect(() => {
         gsap.fromTo(foneRef.current, {
-            scale: 0.9,
+
             opacity: 0,
         }, {
             opacity: 1,
-            scale: 1,
+
             duration: 3,
             scrollTrigger: {
                 trigger: sectionRef.current,

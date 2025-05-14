@@ -99,7 +99,7 @@ const NewSecondSection = () => {
             </div>
 
 
-            <div ref={wordRef} className='absolute -bottom-[15px] flex sm:max-w-[732px] max-w-[335px] w-full justify-between ' >
+            <div ref={wordRef} className='absolute -bottom-[1%] flex sm:max-w-[732px] max-w-[335px] w-full justify-between ' >
                 {word.map((w, index) => (
                     <p
                         className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'

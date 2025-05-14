@@ -50,7 +50,7 @@ const FourImage = () => {
                                     end: "63% 10%",
                                     toggleActions: "play none none reverse", // в конце запускаем reverse
                                     duration: 0.2,
-                                    markers: true
+
                                 }
                             }
                         );
