@@ -53,7 +53,7 @@ const SectionSix = () => {
         <div className='w-screen h-full md:h-screen flex flex-row  pt-[8%] relative md:mb-[125px]'>
             <div className='flex-[0_0_72%] md:pl-[17%] pl-[5%] z-10'>
                 <Head />
-                <div className='flex flex-col  md:flex-row gap-14 pt-18'>
+                <div className='flex flex-col  md:flex-row md:gap-14 gap-[35px] md:pt-18 pt-[35px]'>
                     <Card ref={el => subRef.current[0] = el} img={`/Six/left.png`} text={`Multi-bit non-volatile<br/> resistive synapse<br/> using SOT MTJ cells`} />
 
                     <Card ref={el => subRef.current[1] = el} img={`/Six/right.png`} text={`Proprietary algorithms<br/> that adapt neural networks<br/> to analog hardware physics`} />
@@ -71,10 +71,10 @@ const SectionSix = () => {
             </div>
 
 
-            <div className='relative -ml-[50%] -mt-12'>
+            <div className='relative -ml-[55%] -mt-12'>
 
                 <div className='w-[582px] h-[710px] relative ml-0 mt-0 lg:-ml-[10%]  lg:mt-[6%] block md:hidden'>
-                    <img src='/Six/btm.png' className='absolute -translate-y-1/2 -translate-x-1/2 top-[350px]  left-[245px] w-[367px]' />
+                    <img src='/Six/btm.png' className='absolute -translate-y-1/2 -translate-x-1/2 top-[350px]  left-[245px] w-[393px] h-[546px]' />
 
 
                     <AnimatedCircle width={`150`} height={`150`} customStyle={`select-none pointer-events-none top-[332px] left-[240px] -translate-y-1/2 -translate-x-1/2  z-50`} />
@@ -86,7 +86,7 @@ const SectionSix = () => {
                     <img src='/Six/mainBlur.png' className='absolute -ml-[10%]' />
                 </div>
             </div>
-            <img ref={leftBlur} src='/Six/LeftBigBlur.png' className='absolute w-[1004px] h-[1004px] -top-[20%] -left-[10%] z-1' />
+            <img ref={leftBlur} src='/Six/LeftBigBlur.png' className='absolute w-[1004px] h-[1004px] -top-[25%] -left-[10%] z-1' />
 
         </div>
     )

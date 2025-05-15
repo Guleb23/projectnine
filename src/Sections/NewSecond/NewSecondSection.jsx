@@ -87,19 +87,22 @@ const NewSecondSection = () => {
                 top={`Beyond Silicon. Beyond Limits.`}
                 mid={`Imagine the True Potential<br /> Technology of Spintronics`}
                 bottom={`Spintronic computing slashes costs, saves<br /> energy, and reshapes the future.`} />
+
             <MainImage />
 
             <Header top={`BThe Hidden Cost of Artificial Intelligence`}
                 mid={`And Let’s Talk About<br/> Data Centers`}
                 bottom={`AI now consumes as much power as nations.`} />
             <SecondImage />
-            <div ref={containerRef} className='w-full flex justify-center items-center pt-[1%] flex-col gap-[85px] mb-50'>
+            <div ref={containerRef} className='w-full relative flex justify-center items-center pt-[1%] flex-col gap-[85px] mb-50'>
+                <img src='/right.png' className='absolute w-[960px] top-0 right-0 rounded-4xl' />
+                <img src='/threeLeft.png' className='absolute  -top-[35%] left-0 rounded-4xl' />
                 <p ref={headRef} className='sm:text-[37px] text-[23px] text-center leading-[120%] font-bold gradient-text-green'>— and these are just two<br /> sectors out of hundreds…</p>
                 <ThreeIMage />
             </div>
 
 
-            <div ref={wordRef} className='absolute -bottom-[1%] flex sm:max-w-[732px] max-w-[335px] w-full justify-between ' >
+            <div ref={wordRef} className='absolute xl:-bottom-[1%] -bottom-[15px] flex sm:max-w-[732px] max-w-[335px] w-full justify-between ' >
                 {word.map((w, index) => (
                     <p
                         className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'

@@ -6,10 +6,12 @@ import AnimatedCircle from '../../Components/AnimatedCircle'
 const NineSection = () => {
     return (
         <Fone>
-            <div className='w-full h-full flex justify-center items-center flex-col'>
+            <div className='w-full h-full relative flex justify-center items-center flex-col'>
+
                 <div className='relative w-fit h-fit ml-[5%]'>
                     <img src='/Nine/MainBlur.png' className='absolute z-0 -top-[9%] left-0 select-none pointer-events-none' />
                     <img src='/Nine/Main.png' className=' relative z-20 select-none pointer-events-none' />
+
                     <AnimatedCircle width={window.innerWidth < 640 ? 120 : 160} height={window.innerWidth < 640 ? 120 : 160} customStyle={`select-none pointer-events-none top-[30%] left-[45.5%] -translate-y-1/2 -translate-x-1/2 z-50 `} />
                 </div>
                 <h2 className='md:text-[46px] text-[27px] text-center mb-[25px] md:mt-0 md:text-left font-bold gradient-text-green 2xl:-mt-[4%] xl:-mt-[6%]'>

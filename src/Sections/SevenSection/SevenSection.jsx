@@ -69,7 +69,7 @@ const SevenSection = () => {
 
     return (
         <Fone>
-            <div className='w-full h-full flex flex-col'>
+            <div className='w-full h-full flex flex-col pt-8'>
                 <div className='w-full px-[21px]'>
                     <Header
                         top={`BEHIND THE BREAKTHROUGH`}
@@ -85,7 +85,7 @@ const SevenSection = () => {
                     />
                 </div>
 
-                <div className='flex flex-col md:flex-row px-[20px] gap-[35px] md:gap-0'>
+                <div className='flex flex-col md:flex-row px-[20px] gap-[35px] md:gap-0 -mt-20 pb-10 md:-mt-0' >
                     <div className='flex-[0_0_50%]'>
                         <Card
                             ref={el => (cardsRef.current[0] = el)}

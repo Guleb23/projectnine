@@ -75,14 +75,14 @@ const ThreeBigCard = () => {
             {/* Контент карточки */}
             <div className="flex flex-col items-center gap-4 md:gap-[25px] z-50 text-center ">
                 <p className=" md:text-[37px] sm:text-[19px]  font-bold gradient-text-green max-w-[20ch] md:max-w-4xl leading-tight md:leading-[3rem]">
-                    The global data volume is 200 trillion gigabytes now and <span className='bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text'>set to double</span><br /> within the next 4 years
+                    The global data volume is 200 trillion gigabytes now and <span className='text-[#00DA90]'>set to double</span><br /> within the next 4 years
                 </p>
                 <p className="mono sm:text-[15px] text-[13px] md:text-sm gradient-text-green leading-snug">
                     To sustainably manage AI's energy consumption,<br className="hidden md:block" />
                     radical new approaches in computation are essential.
                 </p>
-                <button className="relative overflow-hidden w-52 md:w-64 min-h-[50px] md:min-h-[50px] rounded-lg text-sm md:text-[18px] font-bold text-white group flex items-center justify-center">
-                    <span className="absolute inset-0 bg-[linear-gradient(90deg,#16F501,#00DA90)] bg-[length:200%_100%] bg-left rounded-lg transition-[background-position] duration-500 ease-in-out group-hover:bg-right"></span>
+                <button className="relative overflow-hidden w-[194px] md:w-64 min-h-[43px] md:min-h-[50px] rounded-lg text-sm md:text-[18px] font-bold text-white group flex items-center justify-center">
+                    <span className="absolute inset-0 bg-[radial-gradient(circle,_#16F501_0%,_#00DA90_100%)] bg-[length:200%_100%] bg-left rounded-lg transition-[background-position] duration-500 ease-in-out group-hover:bg-right"></span>
                     <span className="relative z-10 text-black">Meet the Future →</span>
                 </button>
 

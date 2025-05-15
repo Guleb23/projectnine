@@ -76,7 +76,7 @@ const FiveSection = () => {
             />
 
             {/* Только эту часть мы анимируем */}
-            <div ref={containerRef} className='flex flex-col lg:flex-row gap-4 sm:gap-0 mt-4 min-h-[500px]'>
+            <div ref={containerRef} className='flex flex-col lg:flex-row gap-4 sm:gap-0 mt-4 min-h-[500px] md:mb-[0] mb-[20%]'>
 
                 {/* Картинка — первая на мобилках, в центре на десктопе */}
                 <div className='flex-[0_0_40%] flex justify-center lg:order-2 order-1'>
@@ -111,7 +111,7 @@ const FiveSection = () => {
                 * SpinEdge Digital twin modeling
             </h3>
 
-            <div className='flex justify-center items-center sm:pt-[2%] pt-[6%]'>
+            <div className='flex justify-center items-center sm:pt-[2%] pt-[6%] px-2'>
                 <Table />
             </div>
         </FiveFone>

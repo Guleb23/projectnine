@@ -49,11 +49,8 @@ const SecondFone = ({ children, id }) => {
                 src="/Second/step2.png"
                 alt="Step 2"
             />
-            <img
-                className="absolute inset-0 m-auto select-none pointer-events-none z-1 opacity-40"
-                src="/Second/blur.png"
-                alt="Blur"
-            />
+            <img src='/right.png' className='absolute w-[960px] top-0 right-0' />
+            <img src='/left.png' className='absolute  w-[960px] top-0 left-0' />
             <img
                 className="absolute inset-0 h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
                 src="/Second/whiteblur.png"

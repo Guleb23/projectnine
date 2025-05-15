@@ -47,7 +47,7 @@ const FourLastSection = () => {
             );
             tl.fromTo(bottomCircle.current,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }, "-=0.7"
+                { y: 0, opacity: 1, duration: 1 },
             );
             tl.fromTo(topImage.current,
                 { y: -100, opacity: 0 },
@@ -78,7 +78,7 @@ const FourLastSection = () => {
 
     }, []);
     return (
-        <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] pt-[20%]'>
+        <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] pt-[20%] md:pb-[0] pb-[20%]'>
 
             <div ref={containerRef} className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[23%] lg:-left-[32.3%] hidden lg:block '>
                 <img ref={bigImgRef} src='/Four/bigLeft.png' className=' hidden lg:block ' width={1259} height={904} />
@@ -118,7 +118,7 @@ const FourLastSection = () => {
                     mid={`From Lab to Launch — No Fab Needed`}
                     bottom={`Our non-volatile memory and magnetic sensors are already built, tested, and production-ready. Spintronic components integrate seamlessly with existing microelectronics — no custom fabs, no exotic processes.`} />
 
-                <div className='  w-[500px] h-[704px]  relative lg:hidden block'>
+                <div className='  w-[500px] h-[704px]  relative lg:hidden block -mt-[16%]'>
                     <img src='/Four/bigLeft.png' className=' absolute ' width={1259} height={904} />
 
                     <img src='/Four/leftLeft.png' className='absolute  right-[19%] h-[700px]' />
@@ -128,7 +128,7 @@ const FourLastSection = () => {
 
 
                 </div>
-                <div className='flex  sm:gap-15  pt-[6px]'>
+                <div className='flex  sm:gap-15 gap-1.5  pt-[6px] -mt-[7%] md:-mt-[0]'>
                     <LastCard ref={el => cardsRef.current[0] = el} img={`/Four/cardLeft.png`} Title={`Non-Volatile<br/> Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
                     <LastCard ref={el => cardsRef.current[1] = el} img={`/Four/cardRight.png`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are<br/> the best fit for edge<br/> and IoT devices`} />
 
