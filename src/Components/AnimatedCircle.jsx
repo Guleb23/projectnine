@@ -8,7 +8,7 @@ const AnimatedCircle = ({ lottieRef, customStyle, width, height, id }) => {
         <div
             id={id}
             ref={lottieRef}
-            className={`absolute pt-[2%] select-none pointer-events-none ${customStyle || ""}`}
+            className={`absolute pt-[2%] select-none pointer-events-none z-50 ${customStyle || ""}`}
 
             style={{ width: `${width}px`, height: `${height}px` }}
         >
