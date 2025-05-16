@@ -38,12 +38,12 @@ const Fone = ({ id, children }) => {
 
             <div className="absolute opacity-100 top-0 left-0 w-full h-12 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
             <img
-                className="absolute w-screen   -bottom-[10%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
+                className="block md:hidden absolute w-screen   -bottom-[10%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
                 src="/bb.png"
                 alt="White Blur"
             />
             <img
-                className="absolute w-screen   -bottom-[15%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
+                className="block md:hidden absolute w-screen   -bottom-[15%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
                 src="/bb.png"
                 alt="White Blur"
             />
