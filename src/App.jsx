@@ -19,8 +19,11 @@ function App() {
 
       <HeroSection />
       <NewSecondSection />
-      <SecondSection />
-      <ThreeScetion />
+      <div>
+        <SecondSection />
+        <ThreeScetion />
+      </div>
+
 
       <FourSection />
       <SevenSection />
