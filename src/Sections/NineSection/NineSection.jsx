@@ -29,7 +29,7 @@ const NineSection = () => {
                 </div>
                 <div className='flex justify-center items-center flex-col gap-6 pb-26 z-50 md:px-0 px-5'>
                     <div className='relative  '>
-                        <img className='w-[335px] h-[270px] object-cover object-top md:h-auto md:w-auto' src='/Nine/btmHouse.png' />
+                        <img className='w-[335px] h-[270px] object-cover object-top md:h-[362px] md:w-[730px]' src='/Nine/btmHouse.png' />
 
 
                         <div className='absolute bottom-2 left-2 z-50'>
