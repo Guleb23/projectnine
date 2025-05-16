@@ -285,7 +285,7 @@ const SecondSection = () => {
                     />
                     {/* Анимированный круг, который появляется в финале */}
 
-                    <AnimatedCircle id={`fromTop`} customStyle={`z-50`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
+                    <AnimatedCircle id={`fromTop`} customStyle={`z-20`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
                 </div>
 
 
