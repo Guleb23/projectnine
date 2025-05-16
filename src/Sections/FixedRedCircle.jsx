@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
-const FixedRedCircle = ({ ref }) => {
-
+const FixedRedCircle = () => {
+    const circleRef = useRef(null);
 
     useEffect(() => {
         // Просто для проверки — лог, что компонент смонтировался
@@ -10,7 +10,7 @@ const FixedRedCircle = ({ ref }) => {
 
     return (
         <div
-            ref={ref}
+            ref={circleRef}
             style={{
                 position: 'fixed',
                 top: '50%',
