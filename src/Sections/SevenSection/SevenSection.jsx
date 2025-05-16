@@ -106,7 +106,7 @@ const SevenSection = () => {
                         />
                     </div>
                     <div></div>
-                    <div className="justify-self-center self-start md:self md:-mt-[25%] mt-[35px]">
+                    <div className="justify-self-start self-start md:self md:-mt-[25%] mt-[35px]">
                         <Card
                             ref={el => (cardsRef.current[2] = el)}
                             img={`/Seven/People.png`}
