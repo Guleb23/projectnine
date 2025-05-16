@@ -247,7 +247,7 @@ const SecondSection = () => {
     return (
 
         <SecondFone id="second">
-            <div className="flex flex-col gap-10 z-20 overflow-visible md:overflow-hidden sm:pt-0 pt-[21%]">
+            <div className="flex flex-col gap-10 z-30 overflow-visible md:overflow-hidden sm:pt-0 pt-[21%]">
 
                 <Header top={`AI’s Ticking Time Bomb`} mid={` The AI Energy Crisis:<br /> Why SpinEdge Matters`} bottom={`AI is suffocating. Here’s why.`}>
 
@@ -285,7 +285,7 @@ const SecondSection = () => {
                     />
                     {/* Анимированный круг, который появляется в финале */}
 
-                    <AnimatedCircle id={`fromTop`} customStyle={`z-20`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
+                    <AnimatedCircle id={`fromTop`} customStyle={`z-30`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
                 </div>
 
 
