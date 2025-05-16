@@ -207,7 +207,7 @@ const HeroSection = ({ styles }) => {
 
             <img
                 ref={toumanRef}
-                className="absolute z-1 top-10 left-1/2 max-w-full h-auto select-none pointer-events-none"
+                className="absolute z-1 top-10 left-1/2 max-w-full h-auto select-none pointer-events-none min-w-[485px] min-h-[520px]"
                 src="/Hero/touman.png"
                 alt="Touman"
                 style={{

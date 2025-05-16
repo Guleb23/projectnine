@@ -69,23 +69,23 @@ const Diagramm = () => {
 
 
     return (
-        <div className='min-w-[1360px] max-w-[1360px] min-h-[452px]  flex flex-col gap-[20px] diagramm-wrapper'>
-            <div className='flex gap-[20px]'>
+        <div className='lg:min-w-[1360px] lg:max-w-[1360px] lg:min-h-[452px] h-fit w-fit    flex flex-col lg:gap-[20px] gap-[12px] diagramm-wrapper'>
+            <div className='flex lg:gap-[20px] gap-[12px]'>
                 <div className='flex flex-col w-full h-full'>
                     <div className='flex flex-col ' >
-                        <div ref={el => rightRef.current[0] = el} className='flex justify-center items-center h-[60px] border-t-0 border-2 border-[#455658] '>
-                            <p className='text-[19px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent font-bold'>
+                        <div ref={el => rightRef.current[0] = el} className='flex justify-center items-center lg:h-[60px] h-[40px] border-t-0 border-2 border-[#455658] '>
+                            <p className='lg:text-[19px] text-[12px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent font-bold'>
                                 Seed Round: $7M
                             </p>
                         </div>
-                        <div className='flex justify-center items-center h-[60px] border-2 border-[#455658]  border-t-0  border-b-0'>
+                        <div className='flex justify-center items-center lg:h-[60px] h-[40px] border-2 border-[#455658]  border-t-0  border-b-0'>
 
                         </div>
-                        <div className='flex flex-col items-center gap-[20px]'>
-                            <MainCards ref={el => rightRef.current[1] = el} text={`Digital Twin Release`} customStyles={`-mt-[30px]`} />
-                            <div className='flex gap-[20px]'>
-                                <MainCards ref={el => rightRef.current[2] = el} text={`Digital Twin Release`} />
-                                <MainCards ref={el => rightRef.current[3] = el} text={`Digital Twin Release`} />
+                        <div className='flex flex-col items-center lg:gap-[20px] gap-[12px]'>
+                            <MainCards ref={el => rightRef.current[1] = el} text={`Digital Twin Release`} customStyles={`lg:-mt-[30px] -mt-[15px]`} />
+                            <div className='flex lg:gap-[20px] gap-[12px]'>
+                                <MainCards ref={el => rightRef.current[2] = el} text={`Modeling Proof, Core design`} />
+                                <MainCards ref={el => rightRef.current[3] = el} text={`Silicon Proof – Test Chip 4Kb`} />
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ const Diagramm = () => {
                 <div ref={fromTopRef} className='flex  justify-center items-center w-[50px]'>
                     <div className='flex  transform origin-center  text-white  -rotate-90 w-fit'>
                         <div className='w-[320px] h-[50px] bg-[#0ACF83]/5 border border-[#4C7F6A] border-dashed flex justify-center items-center' >
-                            <p className='mono text-[15px] gradient-text-green'>
+                            <p className='mono mono text-[10px] lg:text-[15px] gradient-text-green '>
                                 Round A / Strategic Partnership
                             </p>
                         </div>
@@ -109,41 +109,41 @@ const Diagramm = () => {
                 </div>
 
                 <div className='w-full flex flex-col  gap-[55px]'>
-                    <div ref={el => leftRef.current[0] = el} className='w-full flex flex-col gap-[25px]'>
+                    <div ref={el => leftRef.current[0] = el} className='w-full flex flex-col lg:gap-[20px] gap-[12px]'>
                         <div className='w-full flex items-center justify-between pr-[10px]'>
                             <div className={`w-[230px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
-                                <p className='mono text-[15px] gradient-text-green '>
+                                <p className='mono mono text-[10px] lg:text-[15px] gradient-text-green '>
                                     Technology Licensing
                                 </p>
 
                             </div>
-                            <p className='font-bold text-[19px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Support</p>
-                            <p className='font-bold text-[19px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Royalties</p>
+                            <p className='font-bold lg:text-[19px] text-[12px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Support</p>
+                            <p className='font-bold lg:text-[19px] text-[12px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Royalties</p>
                         </div>
                         <img src='/arrow.svg' />
                     </div>
-                    <div ref={el => leftRef.current[1] = el} className='w-full flex flex-col gap-[25px]'>
+                    <div ref={el => leftRef.current[1] = el} className='w-full flex flex-col lg:gap-[20px] gap-[12px]'>
                         <div className='w-full flex items-center gap-[45px] pr-[10px]'>
                             <div className={`w-[230px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
-                                <p className='mono text-[15px] gradient-text-green '>
+                                <p className='mono  text-[10px] lg:text-[15px] gradient-text-green '>
                                     Products
                                 </p>
 
                             </div>
 
-                            <p className='font-bold text-[19px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Sales</p>
+                            <p className='font-bold lg:text-[19px] text-[12px] bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Sales</p>
                         </div>
                         <img src='/arrow.svg' />
                     </div>
                     <div ref={el => leftRef.current[2] = el} className='w-full flex justify-between' >
                         <div className={`w-[230px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
-                            <p className='mono text-[15px] gradient-text-green '>
+                            <p className='mono  text-[10px] lg:text-[15px] gradient-text-green '>
                                 Inference Accelerator
                             </p>
 
                         </div>
                         <div className={`w-[230px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
-                            <p className='mono text-[15px] gradient-text-green '>
+                            <p className='mono  text-[10px] lg:text-[15px] gradient-text-green '>
                                 Training Accelerator
                             </p>
 
@@ -152,17 +152,17 @@ const Diagramm = () => {
                 </div>
 
             </div>
-            <div className='flex justify-between w-full'>
+            <div className='flex lg:justify-between  w-full'>
                 {years.map((text, index) => (
                     <YearCard ref={el => yearsRef.current[index] = el} key={index} text={`YEAR ${text}`} />
                 ))}
             </div>
-            <div className='flex justify-between w-full gap-[20px]'>
+            <div className='flex justify-between w-full lg:gap-[20px] gap-[12px]'>
                 <div ref={el => btmRef.current[0] = el} className='h-[53px] flex justify-center items-center w-full border-t border-t-[#15D795]'>
-                    <p className='text-center text-[15px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Funds raised</p>
+                    <p className='text-center lg:text-[15px] text-[12px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Funds raised</p>
                 </div>
                 <div ref={el => btmRef.current[1] = el} className='h-[53px] flex justify-center items-center w-full border-t border-t-[#3B4A42]'>
-                    <p className='text-center text-[15px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>High Volume Manufacturing Fab</p>
+                    <p className='text-center lg:text-[15px] text-[12px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>High Volume Manufacturing Fab</p>
                 </div>
             </div>
         </div>

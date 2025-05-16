@@ -66,22 +66,22 @@ const SecondSection = () => {
         });
 
         // Замена final.png на red.png при выходе шарика
-        if (!isMobile) {
-            ScrollTrigger.create({
-                trigger: circleRef.current,
-                start: "top 20%",
-                end: "top 10%",
-                scrub: true,
-                onEnter: () => {
-                    gsap.to(finalRef.current, { opacity: 0, duration: 0.5 });
-                    gsap.to(redCircleRef.current, { opacity: 1, duration: 0.5 });
-                },
-                onLeaveBack: () => {
-                    gsap.to(redCircleRef.current, { opacity: 0, duration: 0.5 });
-                    gsap.to(finalRef.current, { opacity: 1, duration: 0.5 });
-                },
-            });
-        }
+
+        ScrollTrigger.create({
+            trigger: circleRef.current,
+            start: "top 20%",
+            end: "top 10%",
+            scrub: true,
+            onEnter: () => {
+                gsap.to(finalRef.current, { opacity: 0, duration: 0.5 });
+                gsap.to(redCircleRef.current, { opacity: 1, duration: 0.5 });
+            },
+            onLeaveBack: () => {
+                gsap.to(redCircleRef.current, { opacity: 0, duration: 0.5 });
+                gsap.to(finalRef.current, { opacity: 1, duration: 0.5 });
+            },
+        });
+
 
 
         // Появление круга
@@ -101,6 +101,36 @@ const SecondSection = () => {
                 },
             }
         );
+        if (isMobile) {
+            mm.add("(max-width: 768px) ", () => {
+
+                gsap.to(circleRef.current, {
+                    scrollTrigger: {
+                        trigger: circleRef.current,
+                        start: "top 25%",
+                        endTrigger: "#card",
+                        end: "90% 68%",
+                        pin: true,
+                        scrub: true,
+                        anticipatePin: 1,
+                    },
+                });
+
+                gsap.fromTo(
+                    circleRef.current,
+                    { filter: "blur(0px)" },
+                    {
+                        filter: "blur(10px)",
+                        scrollTrigger: {
+                            trigger: "#card",
+                            start: "top 45%",
+                            end: "top 25%",
+                            scrub: true,
+                        },
+                    }
+                )
+            })
+        }
         if (!isMobile) {
             mm.add("(max-width: 1280px) ", () => {
 
@@ -217,7 +247,7 @@ const SecondSection = () => {
     return (
 
         <SecondFone id="second">
-            <div className="flex flex-col gap-10 z-50 overflow-hidden sm:pt-0 pt-[21%]">
+            <div className="flex flex-col gap-10 z-20 overflow-hidden sm:pt-0 pt-[21%]">
 
                 <Header top={`AI’s Ticking Time Bomb`} mid={` The AI Energy Crisis:<br /> Why SpinEdge Matters`} bottom={`AI is suffocating. Here’s why.`}>
 

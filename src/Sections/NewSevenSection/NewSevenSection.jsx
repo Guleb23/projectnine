@@ -21,12 +21,12 @@ const NewSevenSection = () => {
                     onClose={() => setIsModalOpen(false)}
                 />
             )}
-            <img src='/right.png' className='absolute w-[960px] top-0 right-0 z-50' />
-            <img src='/left.png' className='absolute  w-[960px] top-[10%] left-[40%] z-0 ' />
+            <img src='/right.png' className='absolute w-[960px]  top-0 right-0 z-50' />
+            <img src='/left.png' className='absolute  w-[960px] lg:left-[40%]  top-[10%] left-[0] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute -translate-y-1/2 top-1/2 -left-[70%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute -translate-y-1/2 top-1/2 -right-[45%] z-0 ' />
             <div className='w-full h-full flex justify-center items-center ms:px-[17.5%] px-[5%] gap-[50px] z-10'>
-                <img src='/rec.png' className='absolute -translate-y-1/2 top-1/2 h-screen -translate-x-1/2 left-[30%] z-0 ' />
+                <img src='/rec.png' className='absolute hidden lg:block -translate-y-1/2 top-1/2 h-screen -translate-x-1/2 left-[30%] z-0 ' />
 
                 <div className='relative  md:block hidden'>
                     <img width={400} height={610} className='w-[400px] h-[610px]  z-50' src='/NewSeven/house.png' />

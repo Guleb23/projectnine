@@ -14,9 +14,28 @@ const FourLeft = () => {
     const firstLeft = useRef(null);
     const leftCard = useRef([])
     const containerRef = useRef(null);
+    const lightRef = useRef(null);
     useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
-
+        ScrollTrigger.create({
+            trigger: circleRef.current,
+            start: 'center center',     // когда circle входит в зону видимости
+            end: 'center center',
+            onLeave: () => {
+                gsap.to(lightRef.current, {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                });
+            },
+            onEnterBack: () => {
+                gsap.to(lightRef.current, {
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                });
+            },
+        });
         // Пример липкой анимации, если circle движется вместе с блоком
         gsap.to(circleRef.current, {
             y: () => {
@@ -112,7 +131,7 @@ const FourLeft = () => {
                     customPosition={'!absolute  !py-[5px] !px-[10px] hidden 2xl:bottom-[55%] 2xl:left-[2%] xl:bottom-[57%] xl:left-[6%] lg:bottom-[57%] lg:left-[5%] lg:-right-[10%] md:bottom-[60%] md:-left-[2%] md:-right-[10%] md:block'} text={`100 nm`} />
                 <div className='relative 
             -top-42 -left-10 '>
-                    <img className='absolute left-[56px] w-[150px] -top-[28px]' src='/Four/light.png' />
+                    <img ref={lightRef} className='absolute left-[56px] w-[150px] -top-[28px]' src='/Four/light.png' />
                     <AnimatedCircle lottieRef={circleRef} customStyle={`sticky `} width={`100`} height={`100`} />
                 </div>
             </div>

@@ -33,7 +33,7 @@ const MainImage = () => {
                 />
                 <Card
                     num={`03`}
-                    customStyle={`ext-left sm:text-center items-start sm:items-center`}
+                    customStyle={`text-left sm:text-center items-start sm:items-center`}
                     text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models</span> = more<br/> breakthroughs`}
                 />
                 <Card

@@ -22,12 +22,12 @@ const ThreeBigCard = () => {
         const isMobile = window.innerWidth < 640;
         const isXl = window.innerWidth > 1279
 
-        if (!isMobile && circ.current && !isXl) {
+        if (circ.current && !isXl) {
             gsap.set(circ.current, {
                 y: 0,
                 opacity: 1, // Шарик сразу видимый
                 left: "50%",
-                top: '30%',
+                top: !isMobile ? '30%' : '-15%',
                 display: "none",
             });
 
@@ -37,9 +37,10 @@ const ThreeBigCard = () => {
                 display: "block",
                 scrollTrigger: {
                     trigger: '#card',
-                    start: "top 28%",
+                    start: !isMobile ? "top 28%" : "-10% 30%",
                     end: "bottom center",
                     scrub: 0,
+
 
                 },
                 timeScale: 0.5, // Чем меньше значение, тем медленнее скролл
@@ -53,8 +54,8 @@ const ThreeBigCard = () => {
 
     return (
         <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[700px] min-h-[370px] px-4 overflow-hidden">
-            {(!isMobile && !isXl) && (
-                <AnimatedCircle customStyle={`select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={'200'} height={`200`} lottieRef={circ} />
+            {(!isXl) && (
+                <AnimatedCircle customStyle={` select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} lottieRef={circ} />
             )}
 
 
@@ -77,7 +78,7 @@ const ThreeBigCard = () => {
                 <p className=" md:text-[37px] sm:text-[19px]  font-bold gradient-text-green max-w-[20ch] md:max-w-4xl leading-tight md:leading-[3rem]">
                     The global data volume is 200 trillion gigabytes now and <span className='text-[#00DA90]'>set to double</span><br /> within the next 4 years
                 </p>
-                <p className="mono sm:text-[15px] text-[13px] md:text-sm gradient-text-green leading-snug">
+                <p className="mono sm:text-[15px] md:w-auto w-[350px] text-[13px] md:text-sm gradient-text-green leading-snug">
                     To sustainably manage AI's energy consumption,<br className="hidden md:block" />
                     radical new approaches in computation are essential.
                 </p>

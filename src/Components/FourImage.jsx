@@ -30,6 +30,7 @@ const FourImage = () => {
                             duration: 1.5,
                             ease: 'power2.out',
                             delay: globalDelay + 0.5,
+
                         });
                     }
 
@@ -67,6 +68,7 @@ const FourImage = () => {
                                 duration: 1,
                                 ease: 'power2.out',
                                 delay: globalDelay - 0.5,
+
                             });
                         }
                     })

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
-import LogoComponent from '../Components/LogoComponent'
+import LogoComponent from '../Components/LogoComponent';
+
 const NavItem = ({ name, link }) => {
     const underlineRef = useRef(null);
     const textRef = useRef(null);
@@ -29,8 +30,9 @@ const NavItem = ({ name, link }) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             ref={textRef}
-            className="cursor-pointer text-[12px] hidden xl:block px-2.5 leading-4 text-center
-        text-transparent bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] bg-clip-text font-medium relative"
+            className="cursor-pointer text-[12px] px-2.5 leading-4 text-center text-transparent 
+                bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
+                bg-clip-text font-medium relative"
             style={{ opacity: 1 }}
         >
             {name}
@@ -44,11 +46,16 @@ const NavItem = ({ name, link }) => {
 };
 
 const NavBar = ({ ref }) => {
-    const items = [
+    const fullItems = [
         { name: "ABOUT", link: "#sec" },
         { name: "TECHNOLOGY", link: "#four" },
         { name: "OUR TEAM", link: "#house" },
         { name: "ROADMAP", link: "#diagramm" },
+    ];
+
+    const compactItems = [
+        { name: "ABOUT", link: "#sec" },
+        { name: "MENU", link: "#menu" },
     ];
 
     return (
@@ -56,33 +63,63 @@ const NavBar = ({ ref }) => {
             ref={ref}
             className="fixed top-0 left-0 w-full flex items-center justify-center bg-gradient-to-b from-black to-transparent py-6 z-[100]"
         >
-            <div className="hidden xl:flex w-full flex-wrap items-center justify-center 2xl:gap-4 gap-8">
-                {items.map((item, index) => (
+            <div className="flex w-full flex-wrap items-center justify-center 2xl:gap-4 gap-8">
+                {/* Menu rendering based on screen size */}
+                {fullItems.map((item, index) => (
                     <React.Fragment key={index}>
-                        <NavItem name={item.name} link={item.link} />
+                        <div className="hidden lg:block">
+                            <NavItem name={item.name} link={item.link} />
+                        </div>
 
-                        {/* Логотип и разделители */}
+                        {/* Logo and dividers for lg */}
                         {index === 1 && (
                             <>
                                 <div className="hidden lg:flex items-center gap-1 px-2">
-                                    <div className="h-0.5 w-20 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                                    <div className="h-0.5 lg:w-10 xl:w-16 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                                 </div>
-                                <LogoComponent />
+                                <div className="hidden lg:block">
+                                    <LogoComponent />
+                                </div>
                                 <div className="hidden lg:flex items-center gap-1 px-2">
-                                    <div className="h-0.5 w-20 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                                    <div className="h-0.5 lg:w-10 xl:w-16 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                                 </div>
                             </>
                         )}
-                        {index !== items.length - 1 && index !== 1 && (
+
+                        {/* Divider if not last or logo spot */}
+                        {index !== fullItems.length - 1 && index !== 1 && (
                             <div className="hidden lg:flex items-center gap-1 px-2">
-                                <div className="h-0.5 w-26 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                                <div className="h-0.5 lg:w-10 xl:w-16 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                             </div>
                         )}
                     </React.Fragment>
                 ))}
+
+                {/* Compact md menu */}
+                <div className="flex lg:hidden items-center gap-2">
+                    <p className="cursor-pointer text-[12px] leading-4 text-center text-transparent 
+                bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
+                bg-clip-text font-medium relative">
+                        ABOUT
+                    </p>
+                    <div className=" items-center gap-1">
+                        <div className="h-0.5 w-6  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                    </div>
+
+                    <LogoComponent />
+
+                    <div className=" items-center gap-1">
+                        <div className="h-0.5 w-6  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                    </div>
+                    <p className="cursor-pointer text-[12px] leading-4 text-center text-transparent 
+                bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
+                bg-clip-text font-medium relative">
+                        MENU
+                    </p>
+                </div>
             </div>
 
-            {/* Картинки в начале и конце меню */}
+            {/* Картинки по краям */}
             <img
                 src="/Hero/left.png"
                 width={150}

@@ -41,11 +41,11 @@ const SecondFone = ({ children, id }) => {
         <section
             ref={sectionRef}
             id={id}
-            className="bg-black w-screen sm:h-screen h-full relative z-50 flex  justify-center items-center overflow-hidden pt-[8%]"
+            className="bg-black w-full md:w-screen sm:h-screen h-full relative z-20 flex  justify-center items-center overflow-hidden pt-[8%]"
         >
             <img
                 ref={el => firstAnimation.current[2] = el}
-                className="absolute top-0 h-full max-h-screen max-w-full m-auto select-none pointer-events-none z-0"
+                className="absolute top-0 h-full max-h-screen min-w-[760px] max-w-full m-auto select-none pointer-events-none z-0"
                 src="/Second/step2.png"
                 alt="Step 2"
             />

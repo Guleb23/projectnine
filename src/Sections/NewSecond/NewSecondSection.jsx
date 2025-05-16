@@ -90,7 +90,7 @@ const NewSecondSection = () => {
 
             <MainImage />
 
-            <Header top={`BThe Hidden Cost of Artificial Intelligence`}
+            <Header customStyles={`!gap-2`} top={`BThe Hidden Cost of Artificial Intelligence`}
                 mid={`And Let’s Talk About<br/> Data Centers`}
                 bottom={`AI now consumes as much power as nations.`} />
             <SecondImage />

@@ -13,7 +13,7 @@ const NewSecondFone = ({ children, id }) => {
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />
-            <div className='flex flex-col w-full h-full justify-center items-center gap-[50px] relative'>
+            <div className='flex flex-col w-full h-full justify-center items-center gap-[45px] relative'>
                 {children}
             </div>
         </section>
