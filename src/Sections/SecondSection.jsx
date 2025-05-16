@@ -248,7 +248,7 @@ const SecondSection = () => {
     return (
 
         <SecondFone id="second">
-            <div className="flex flex-col gap-10 z-30  sm:pt-0 pt-[21%]">
+            <div className="flex flex-col gap-10 z-30  sm:pt-0 pt-[21%] z-50">
 
                 <Header top={`AI’s Ticking Time Bomb`} mid={` The AI Energy Crisis:<br /> Why SpinEdge Matters`} bottom={`AI is suffocating. Here’s why.`}>
 
