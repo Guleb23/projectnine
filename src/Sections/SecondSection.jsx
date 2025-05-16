@@ -286,8 +286,9 @@ const SecondSection = () => {
                     />
                     {/* Анимированный круг, который появляется в финале */}
 
-                    <AnimatedCircle id={`fromTop`} customStyle={`z-30`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
-                    {ReactDOM.createPortal(<FixedRedCircle />, document.body)}
+
+                    {ReactDOM.createPortal(<AnimatedCircle id={`fromTop`} customStyle={`z-30`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />, document.body)}
+
                 </div>
 
 
