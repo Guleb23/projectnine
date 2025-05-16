@@ -47,17 +47,17 @@ const Fone = ({ id, children }) => {
             {children}
             <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
             <img
-                className="absolute w-screen   -bottom-[10%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
+                className="absolute md:hidden block w-screen   -bottom-[10%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
                 src="/bb.png"
                 alt="White Blur"
             />
             <img
-                className="absolute w-screen   -bottom-[15%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
+                className="absolute md:hidden block w-screen   -bottom-[15%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
                 src="/bb.png"
                 alt="White Blur"
             />
             <div className=" absolute opacity-100 -bottom-[1%]  left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
-            <img src='/Nine/Blur.png' className=' absolute z-50 select-none -bottom-[13%] -left-[20%] pointer-events-none' />
+            <img src='/Nine/Blur.png' className='md:hidden block absolute z-50 select-none -bottom-[13%] -left-[20%] pointer-events-none' />
         </section>
     )
 }

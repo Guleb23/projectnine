@@ -85,30 +85,30 @@ const SevenSection = () => {
                     />
                 </div>
 
-                <div className='flex flex-col md:flex-row px-[20px] gap-[35px] md:gap-0 -mt-20 pb-10 md:-mt-0' >
-                    <div className='flex-[0_0_50%]'>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[35px] md:gap-y-[0px] px-[20px] -mt-20 pb-10 md:-mt-0">
+                    <div className="justify-self-start md:ml-[13%] md:mt-[17%]">
                         <Card
                             ref={el => (cardsRef.current[0] = el)}
-                            customPosition={`md:ml-[13%] md:mt-[17%] justify-self-start`}
                             img={`/Seven/People.png`}
                             name={`Dr. Dmitry<br/> Leshchiner`}
                             work={`Chief Technology Officer`}
-                            desc={`AI algorithms & neuromorphic<br/> technologies; SW development:<br/> 
-20+ years @ Google, Yahoo, Yandex`}
+                            desc={`AI algorithms & neuromorphic<br/> technologies; SW development:<br/> 20+ years @ Google, Yahoo, Yandex`}
                         />
                     </div>
-                    <div className='flex-[0_0_50%] '>
+
+                    <div className="justify-self-end md:mr-[12%] md:-mt-[29%]">
                         <Card
                             ref={el => (cardsRef.current[1] = el)}
-                            customPosition={`justify-self-end md:mr-[12%] md:-mt-[29%]`}
                             img={`/Seven/People.png`}
                             name={`Dr. Konstantin<br/> Zvezdin`}
                             work={`CEO`}
                             desc={`R&D MRAM and microwave<br/> spintronics: 20+ years @ Fiat,<br/> European Projects`}
                         />
+                    </div>
+                    <div></div>
+                    <div className="justify-self-center self-start md:self md:-mt-[25%] mt-[35px]">
                         <Card
                             ref={el => (cardsRef.current[2] = el)}
-                            customPosition={`md:justify-self-center justify-self-start md:ml-[15%] md:mt-[20%] mt-[35px]`}
                             img={`/Seven/People.png`}
                             name={`Dr. Nir Karasikov`}
                             work={`Chairman`}
