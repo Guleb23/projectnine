@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SecondFone from '../Components/SecondFone';
 import AnimatedCircle from "../Components/AnimatedCircle";
 import Header from './NewSecond/Header';
+import FixedRedCircle from './FixedRedCircle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -285,7 +286,8 @@ const SecondSection = () => {
                     />
                     {/* Анимированный круг, который появляется в финале */}
 
-                    <AnimatedCircle id={`fromTop`} customStyle={`z-30`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} lottieRef={circleRef} />
+
+                    <FixedRedCircle ref={circleRef} />
                 </div>
 
 
