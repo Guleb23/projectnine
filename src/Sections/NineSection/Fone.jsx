@@ -13,7 +13,7 @@ const Fone = ({ id, children }) => {
             <img src='/Nine/Fone.png' className='absolute hidden lg:block -bottom-[32%] 2xl:-right-[33%] xl:-right-[36%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-left-[44%] xl:-left-[64%] z-0 ' />
             <img
-                className="absolute min-w-[762px] -bottom-[30%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none"
+                className="block md:hidden absolute min-w-[762px] -bottom-[30%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none"
                 src="/Nine/Fone.png"
             />
             <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-right-[44%] xl:-right-[64%] z-0 ' />
@@ -22,7 +22,7 @@ const Fone = ({ id, children }) => {
             <img src='/Seven/Blur.png' className='absolute hidden lg:block top-[10%]  w-screen' />
             <img src='/Nine/LeftDirBlur.png' className='absolute z-20 rotate-90 select-none top-0 -right-[30%] pointer-events-none' />
             <img src='/Seven/Blur.png' className='absolute hidden lg:block top-[30%]' />
-            <img src='/nine.png' className='absolute w-[760px] bottom-[15%]' />
+            <img src='/nine.png' className='block lg:hidden absolute w-[760px] bottom-[15%]' />
             <img src='/Nine/Blur.png' className=' hidden lg:block absolute z-20 rotate-90 select-none top-[10%] -right-[30%] pointer-events-none' />
             {children}
             <div className='absolute lg:-bottom-[2%] bottom-1  flex sm:max-w-[732px] max-w-[335px] w-full justify-between -translate-x-1/2 left-1/2 z-50' >
