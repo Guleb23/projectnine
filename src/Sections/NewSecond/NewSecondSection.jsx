@@ -43,11 +43,10 @@ const NewSecondSection = () => {
         const letters = wordRef.current.querySelectorAll('p');
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: containerRef.current,
-                start: ' top center ',
+                trigger: wordRef.current,
+                start: 'top 80%',
                 end: 'bottom bottom',
-
-
+                toggleActions: 'play none none none',
             }
         });
 
@@ -60,12 +59,11 @@ const NewSecondSection = () => {
                 opacity: 1,
                 y: 0,
                 stagger: 0.1,
-                duration: 0.5,
+                duration: 1,
                 ease: 'power2.out',
             }
         );
 
-        // Появление света после букв
         tl.fromTo(lightRef.current,
             {
                 opacity: 0,
@@ -77,7 +75,7 @@ const NewSecondSection = () => {
                 duration: 1,
                 ease: 'power2.out',
             },
-            '+=0.2'
+            '+=0.1' // немного задержки после букв
         );
     }, []);
     return (

@@ -54,9 +54,9 @@ const Spirit = ({ customStyle }) => {
 
                 <div className="flex flex-col flex-[1_1_50%] w-full z-10">
                     <h3 className="spirit-text text-[#FF6286] text-[14px] font-medium mb-4 tracking-widest mono">TODAY</h3>
-                    <div className="spirit-text items-end-safe w-full">
-                        <div className="text-[#FF6286] text-[46px] font-bold mb-2">
-                            100<span className="text-[#FF6286] text-2xl">mw</span>
+                    <div className="spirit-text  w-full h-full items-end flex flex-col justify-end">
+                        <div className=" text-transparent text-[46px] font-bold mb-2 w-full">
+                            <span className="bg-[radial-gradient(circle_at_center,_#FF6286_0%,_rgba(255,98,134,0.25)_100%)] bg-clip-text">100</span><span className="bg-[radial-gradient(circle_at_center,_#FF6286_0%,_rgba(255,98,134,0.25)_100%)] bg-clip-text text-2xl">mw</span>
                         </div>
                         <p className="text-[#FF6286] text-[13px] mono leading-snug">
                             A single data center<br />
@@ -83,9 +83,10 @@ const Spirit = ({ customStyle }) => {
 
                 <div className="flex flex-col flex-[1_1_50%] w-full h-full z-10">
                     <h3 className="spirit-text text-[#00E599] mb-4 text-[14px] font-medium mono tracking-widest">WITH SPINTRONIC</h3>
-                    <div className="spirit-text items-end-safe w-full">
+                    <div className="spirit-text w-full flex flex-col justify-end h-full items-start ">
                         <div className="text-[#00E599] text-[46px] font-bold mb-2">
-                            200<span className="text-2xl">x less</span>
+                            <span className="bg-[radial-gradient(circle_at_center,_#00E599_0%,_rgba(0,229,153,0.25)_100%)] bg-clip-text text-transparent">
+                                200</span><span className="text-2xl bg-[radial-gradient(circle_at_center,_#00E599_0%,_rgba(0,229,153,0.25)_100%)] bg-clip-text text-transparent">x less</span>
                         </div>
                         <p className="text-[#00E599] text-[13px] mono leading-snug max-w-xs">
                             Spintronic chips<br />

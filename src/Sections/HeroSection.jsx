@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react'
 import AnimatedCircle from '../Components/AnimatedCircle'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import FirstFone from '../Components/FirstFone'
+import Code from './Code'
 gsap.registerPlugin(ScrollToPlugin);
 const HeroSection = ({ styles }) => {
     const overlayRef = useRef(null)
@@ -230,22 +231,10 @@ const HeroSection = ({ styles }) => {
                 >
                     SpinEdge saves it.
                 </p>
-                <AnimatedCircle width={window.innerWidth < 640 ? 150 : 250} height={window.innerWidth < 640 ? 150 : 250} customStyle={`sm:mt-0 mt-[12%]`} lottieRef={ballRef} />
-                <img
-                    ref={el => lastRight.current[0] = el}
-                    className="hidden lg:block absolute top-16 right-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
-                    src="/Hero/Code.png"
-                    alt="code"
-                    style={{
-                        WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
-                        WebkitMaskRepeat: 'no-repeat',
-                        WebkitMaskSize: '100% 100%',
-                        maskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
-                        maskRepeat: 'no-repeat',
-                        maskSize: '100% 100%',
-                    }}
-                />
-
+                <div ref={ballRef} className='reltive w-full h-full'>
+                    <AnimatedCircle width={window.innerWidth < 640 ? 150 : 220} height={window.innerWidth < 640 ? 150 : 220} customStyle={`sm:mt-0 mt-[12%] -translate-x-1/2 left-1/2 `} />
+                </div>
+                <Code ref={el => lastRight.current[0] = el} />
                 <p ref={el => lastLeft.current[0] = el} className="hidden lg:block  text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
                     The world’s first<br />
                     spintronic AI accelerator
@@ -287,12 +276,10 @@ const HeroSection = ({ styles }) => {
                         {/* Нижние блоки */}
                         <div className='flex w-full justify-between items-start pt-12'>
                             <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] md:block relative w-[30%] text-sm lastLeft">
-                                <div className="gradient-text-green font-bold text-transparent bg-clip-text mono">
+                                <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
                                     AI's Energy Diet<br />Starts Here
                                 </div>
-                                <div className="absolute inset-0 font-bold text-black/50 mix-blend-multiply pointer-events-none mono">
-                                    AI's Energy Diet<br />Starts Here
-                                </div>
+
                             </div>
 
                             <div ref={el => superLast.current[0] = el} className='w-full md:w-[30%] sm:pt-0 pt-4 text-center gradient-text-green md:text-lg super'>
@@ -300,15 +287,13 @@ const HeroSection = ({ styles }) => {
                             </div>
 
                             <div ref={el => lastRight.current[1] = el} className="hidden md:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
-                                <div className="gradient-text-green font-bold text-transparent bg-clip-text mono">
+                                <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
                                     <p className=''>
                                         The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.
                                     </p>
 
                                 </div>
-                                <div className="absolute inset-0 font-bold text-black/50 mix-blend-multiply pointer-events-none mono">
-                                    The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.
-                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ const NewSevenSection = () => {
                     onClose={() => setIsModalOpen(false)}
                 />
             )}
-            <img src='/right.png' className='absolute w-[960px]  top-0 right-0 z-50' />
+            <img src='/right.png' className='absolute w-[960px]  top-0 right-0 z-0' />
             <img src='/left.png' className='absolute  w-[960px] lg:left-[40%]  top-[10%] left-[0] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute -translate-y-1/2 top-1/2 -left-[70%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute -translate-y-1/2 top-1/2 -right-[45%] z-0 ' />

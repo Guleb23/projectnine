@@ -38,7 +38,7 @@ const NineSection = () => {
 
                     </div>
 
-                    <div className='flex gradient-text-green mono md:text-[13px] text-[9px] justify-between w-full'>
+                    <div className='flex gradient-text-green mono md:text-[13px] text-[9px] justify-between w-full opacity-50'>
                         <p>
                             © 2025, SpinEdge.
                         </p>

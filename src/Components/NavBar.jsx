@@ -38,8 +38,8 @@ const NavItem = ({ name, link }) => {
             {name}
             <span
                 ref={underlineRef}
-                className="absolute bottom-0 left-0 h-[2px] bg-[#E1FFDE]"
-                style={{ width: '0%', transition: 'width 0.3s ease' }}
+                className="absolute -bottom-1 left-0 h-[2px] bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]"
+                style={{ width: '0%', transition: 'width 0.1s ease' }}
             />
         </span>
     );
@@ -103,13 +103,13 @@ const NavBar = ({ ref }) => {
                         ABOUT
                     </p>
                     <div className=" items-center gap-1">
-                        <div className="h-0.5 w-6  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                        <div className="h-0.5 w-10  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                     </div>
 
                     <LogoComponent />
 
                     <div className=" items-center gap-1">
-                        <div className="h-0.5 w-6  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                        <div className="h-0.5 w-10  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                     </div>
                     <p className="cursor-pointer text-[12px] leading-4 text-center text-transparent 
                 bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
@@ -123,13 +123,26 @@ const NavBar = ({ ref }) => {
             <img
                 src="/Hero/left.png"
                 width={150}
-                className="absolute sm:left-2 -left-10 sm:top-26 top-24 transform -translate-y-1/2"
+                className="absolute hidden md:block -left-10 sm:top-26 top-24 transform -translate-y-1/2"
                 alt="Start Image"
             />
             <img
                 src="/Hero/right.png"
                 width={150}
-                className="absolute sm:right-2 -right-10 sm:top-26 top-24 transform -translate-y-1/2"
+                className="absolute hidden md:block -right-10 sm:top-26 top-24 transform -translate-y-1/2"
+                alt="End Image"
+            />
+
+            <img
+                src="/Hero/miniLeft.png"
+                width={21}
+                className="absolute block md:hidden top-12.5 -left-1 transform -translate-y-1/2"
+                alt="Start Image"
+            />
+            <img
+                src="/Hero/miniRight.png"
+                width={21}
+                className="absolute block md:hidden top-12.5 -right-1  transform -translate-y-1/2"
                 alt="End Image"
             />
         </div>

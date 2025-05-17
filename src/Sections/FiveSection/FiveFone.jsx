@@ -9,7 +9,7 @@ const FiveFone = ({ id, children }) => {
             <div className='w-full'>
                 {children}
             </div>
-            <div className="absolute opacity-100 -bottom-20 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
+            <div className="absolute opacity-100 -bottom-0 left-0 w-full h-36 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
         </div>
     )
 }

@@ -91,7 +91,10 @@ const FourLastSection = () => {
                     <div className='w-[954px] h-[258px] absolute top-1/2 -translate-y-1/2 left-[29%] ' >
                         <div className='relative w-[284px] h-[258px]'>
                             <img ref={centerImgRef} width={284} height={258} src='/center.png' />
-                            <AnimatedCircle lottieRef={circle} width={`130`} height={`130`} customStyle={`!pt-0 select-none pointer-events-none top-[64%] left-1/2 -translate-y-1/2 -translate-x-1/2 hidden lg:block`} />
+                            <div ref={circle} className={` select-none pointer-events-none hidden lg:block`}>
+                                <AnimatedCircle customStyle={`!pt-0 select-none pointer-events-none top-[64%] left-1/2 -translate-y-1/2 -translate-x-1/2 hidden lg:block`} width={`100`} height={`100`} />
+                            </div>
+
                             <Vector3419 customStyle={`absolute left-1/2 -top-[34%]`} />
                         </div>
 

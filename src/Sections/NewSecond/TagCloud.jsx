@@ -197,6 +197,7 @@ const TagCloud = ({ customStyle }) => {
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
+                    whiteSpace: "nowrap"
                 }}
             >
                 AI agents{" "}
@@ -212,6 +213,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -227,6 +229,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -242,6 +245,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -257,6 +261,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -272,6 +277,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -287,6 +293,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -302,6 +309,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR Tech{" "}
@@ -330,6 +338,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR-процессы{" "}
@@ -345,6 +354,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR-процессы{" "}
@@ -360,6 +370,7 @@ const TagCloud = ({ customStyle }) => {
                     WebkitTextFillColor: "transparent",
                     opacity: "0.6",
                     filter: "blur(3.27px)",
+                    whiteSpace: "nowrap"
                 }}
             >
                 HR-процессы{" "}

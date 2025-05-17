@@ -25,7 +25,7 @@ const Fone = ({ id, children }) => {
             <img src='/nine.png' className='block lg:hidden absolute w-[760px] bottom-[15%]' />
             <img src='/Nine/Blur.png' className=' hidden lg:block absolute z-20 rotate-90 select-none top-[10%] -right-[30%] pointer-events-none' />
             {children}
-            <div className='absolute lg:-bottom-[2%] bottom-1  flex sm:max-w-[732px] max-w-[335px] w-full justify-between -translate-x-1/2 left-1/2 z-50' >
+            <div className='absolute lg:-bottom-[1.5%] bottom-1  flex sm:max-w-[732px] max-w-[335px] w-full justify-between -translate-x-1/2 left-1/2 z-20' >
                 {word.map((w, index) => (
                     <p
                         className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'
@@ -37,16 +37,53 @@ const Fone = ({ id, children }) => {
             </div>
 
             <div className="absolute opacity-100 top-0 left-0 w-full h-12 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
-            <img
-                className="block md:hidden absolute w-screen   -bottom-[10%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
-                src="/bb.png"
-                alt="White Blur"
-            />
-            <img
-                className="block md:hidden absolute w-screen   -bottom-[15%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
-                src="/bb.png"
-                alt="White Blur"
-            />
+
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-40 pointer-events-none" />
+
+
+
+            <svg
+                width={1725}
+                height={632}
+                viewBox="0 0 1725 632"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className=' absolute 2xl:-bottom-[360px] xl:-bottom-[260px] w-[1725px] h-[632px] select-none pointer-events-none z-[100]  '
+            >
+                <g filter="url(#filter0_f_341_398)">
+                    <ellipse
+                        cx={862.5}
+                        cy={316}
+                        rx={632.5}
+                        ry={86}
+                        fill="#01FFFF"
+                        fillOpacity={0.2}
+                    />
+                </g>
+                <defs>
+                    <filter
+                        id="filter0_f_341_398"
+                        x={0}
+                        y={0}
+                        width={1725}
+                        height={632}
+                        filterUnits="userSpaceOnUse"
+                        colorInterpolationFilters="sRGB"
+                    >
+                        <feFlood floodOpacity={0} result="BackgroundImageFix" />
+                        <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                        />
+                        <feGaussianBlur
+                            stdDeviation={115}
+                            result="effect1_foregroundBlur_341_398"
+                        />
+                    </filter>
+                </defs>
+            </svg>
         </div>
     )
 }

@@ -16,23 +16,21 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
     const textRef = useRef([]);
 
     useGSAP(() => {
-        // Защита от попытки доступа к несуществующему элементу
         if (!containerRef.current || !graphRef.current || !fillRef.current) return;
 
-        // Проверка на отрисованность polyline
         const polyline = graphRef.current;
         const fill = fillRef.current;
 
+        let length = 1000;
         try {
-            const length = polyline.getTotalLength?.() || 1000;
-
+            length = polyline.getTotalLength?.() || 1000;
             gsap.set(polyline, {
                 strokeDasharray: length,
                 strokeDashoffset: length,
             });
         } catch (error) {
             console.warn("Graph polyline is not rendered or invalid:", error);
-            return; // Выход, если polyline не валиден
+            return;
         }
 
         const tl = gsap.timeline({
@@ -48,36 +46,30 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
         const dashedLines = dashedLineRefs.current;
         const dashedLinesVertical = dashedLineRefsVertical.current;
 
-        const length = polyline.getTotalLength?.() || 1000;
+        // ✅ Текст появляется первым
+        tl.fromTo(
+            text,
+            { x: -200, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+                stagger: 0.2,
+            }
+        );
 
-
-
-        // Инициализация основной линии (графика)
-        gsap.set(polyline, {
-            strokeDasharray: length,
-            strokeDashoffset: length,
-        });
-
-        // Инициализация пунктирных линий с нулевой длиной для strokeDasharray
-        dashedLines.forEach((line) => {
-            const len = line.getTotalLength?.() || 100;
-            gsap.set(line, {
-                strokeDasharray: 0, // Начальная длина 0
-                strokeDashoffset: 0,
-            });
-        });
-
-        // Анимация основной линии (polyline)
+        // ✅ Основной график
         tl.to(polyline, {
             strokeDashoffset: 0,
-            duration: 2.5,
+            duration: 1.5,
             ease: "power2.inOut",
         })
             .fromTo(
                 fill,
                 { opacity: 0 },
-                { opacity: 1, duration: 1.5, ease: "power2.inOut" },
-                "-=1.5"
+                { opacity: 1, duration: 0.9, ease: "power2.inOut" },
+                "-=1"
             )
             .fromTo(
                 [priceBlock1.current, priceBlock2.current],
@@ -85,63 +77,45 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
                 {
                     opacity: 1,
                     scale: 1,
-                    duration: 0.6,
-                    stagger: 0.2,
+                    duration: 0.4,
+                    stagger: 0.15,
                     ease: "back.out(1.7)",
                 },
-                "+=0.3"
+                "+=0.2"
             );
 
         dashedLines.forEach((line, index) => {
             let length = "470px";
-            if (index == 0)
-                length = "622px"
-
+            if (index === 0) length = "622px";
 
             tl.fromTo(
                 line,
-                {
-                    width: '0',
-                },
+                { width: "0" },
                 {
                     width: length,
-                    duration: 1,
+                    duration: 0.6,
                     ease: "power2.out",
                 },
-                "-=1" // это синхронизирует анимацию с предыдущей
+                "-=0.6"
             );
         });
-        dashedLinesVertical.forEach((line, index) => {
-            let length = "346px";
-            if (index == 0)
-                length = "46px"
 
+        dashedLinesVertical.forEach((line, index) => {
+            let height = "346px";
+            if (index === 0) height = "46px";
 
             tl.fromTo(
                 line,
+                { height: "0" },
                 {
-                    height: '0',
-                },
-                {
-                    height: length,
-                    duration: 1,
+                    height,
+                    duration: 0.6,
                     ease: "power2.out",
                 },
-                "-=1" // это синхронизирует анимацию с предыдущей
+                "-=0.6"
             );
         });
 
-        tl.fromTo(text, {
-            x: -200,
-            opacity: 0,
-        },
-            {
-                x: 0,
-                opacity: 1,
-                duration: 1.5
-            }
-        )
-        // Анимация изображения
         tl.fromTo(
             img,
             { x: -300, rotate: -360, opacity: 0 },
@@ -149,10 +123,10 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
                 x: 0,
                 rotate: 0,
                 opacity: 1,
-                duration: 2,
+                duration: 1.2,
                 ease: "power4.out",
             },
-            '-=1'
+            "-=0.8"
         );
     }, []);
 

@@ -60,7 +60,7 @@ const SectionSix = () => {
                 </div>
             </div>
             <div className='relative w-[670px] h-[710px] -ml-[11%] -mt-[4%] hidden md:block'>
-                <MiniCard />
+
                 <img src={`/Six/bl.png`} className='absolute top-[40%] left-[25%]  w-[923px] h-[923px] -translate-y-1/2 -translate-x-1/2' />
                 <div className='w-[582px] h-[710px] relative ml-0 mt-0 lg:-ml-[10%]  lg:mt-[6%]'>
                     <Group ref={groupRef} />
