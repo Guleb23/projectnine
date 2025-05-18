@@ -106,7 +106,7 @@ const FourLastSection = () => {
 
 
 
-
+            <img src='/Four/mobLight.png' className='absolute  block lg:hidden -translate-y-1/2 top-[40%]' />
 
             <img src='/Four/Blur.png' className='absolute xl:-top-[25%] xl:-right-[15%] hidden lg:block' width={1442} height={815} />
 
@@ -117,7 +117,7 @@ const FourLastSection = () => {
                 <Header
                     four={innerWidth > 640}
                     customStyles={`lg:!text-left text-left lg:items-start items-center -mt-[14%] sm:w-[500px] w-[335px] `}
-                    top={`The Quantum Leap in AI Hardware`}
+                    top={`THE QUANTUM LEAP IN AI HARDWARE`}
                     mid={`From Lab to Launch — No Fab Needed`}
                     bottom={`Our non-volatile memory and magnetic sensors are already built, tested, and production-ready. Spintronic components integrate seamlessly with existing microelectronics — no custom fabs, no exotic processes.`} />
 

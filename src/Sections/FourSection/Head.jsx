@@ -33,9 +33,9 @@ const Head = () => {
         <div ref={containerRef}>
             <p
                 ref={(el) => (elementsRef.current[0] = el)}
-                className="mono text-[10px] sm:text-sm  gradient-text-green pb-6"
+                className="mono text-[10px] sm:text-sm  bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_80%)] bg-clip-text text-transparent pb-6"
             >
-                Our Solution
+                OUR SOLUTION
             </p>
             <div className="flex flex-col gap-2">
                 <h2
@@ -46,7 +46,7 @@ const Head = () => {
                 </h2>
                 <h2
                     ref={(el) => (elementsRef.current[2] = el)}
-                    className="sm:text-[97px] text-[48px] xl:text-8xl font-bold bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text h-full"
+                    className="sm:text-[97px] text-[48px] xl:text-8xl font-bold bg-[radial-gradient(circle,_#00DA90_20%,_#16F501)] text-transparent bg-clip-text h-full"
                 >
                     by 200x
                 </h2>

@@ -6,6 +6,15 @@ const FourFone = ({ id, children, heightBlur }) => {
             id={id}
             className="bg-black w-screen h-full relative "
         >
+
+
+
+            <img
+                className={`absolute block lg:hidden left-0 min-h-[1662px] select-none pointer-events-none z-0 rounded-4xl`}
+
+                src="/Four/heightBlut.png"
+                alt="White Blur"
+            />
             <img
                 className={`absolute inset-0 top-0    mx-auto select-none pointer-events-none z-0 rounded-4xl`}
                 style={{ height: `${heightBlur}px` }}

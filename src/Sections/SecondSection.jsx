@@ -248,12 +248,12 @@ const SecondSection = () => {
     return (
 
         <SecondFone id="second">
-            <div className="flex flex-col gap-10 sm:pt-0 pt-[21%] z-50">
+            <div className="flex flex-col gap-10 sm:pt-0 pt-[21%] z-30">
 
                 <Header top={`AI’s Ticking Time Bomb`} mid={` The AI Energy Crisis:<br /> Why SpinEdge Matters`} bottom={`AI is suffocating. Here’s why.`}>
 
                 </Header>
-                <div className="flex justify-center items-center relative w-full h-full sm:mb-0 mb-[165px]">
+                <div className="flex justify-center items-center relative w-full h-full sm:mb-0 mb-[165px] z-[60]">
                     {/* Основная картинка */}
                     <img
                         ref={mainRef}
@@ -286,10 +286,10 @@ const SecondSection = () => {
                     />
                     {/* Анимированный круг, который появляется в финале */}
 
-                    <div ref={circleRef} className='absolute w-[170px] h-[170px]' >
 
-                        <AnimatedCircle id={`fromTop`} width={window.innerWidth < 640 ? 130 : 170} height={window.innerWidth < 640 ? 130 : 170} />
-                    </div>
+
+                    <AnimatedCircle id={`fromTop`} customStyle={`z-30`} width={window.innerWidth < 640 ? 100 : 180} height={window.innerWidth < 640 ? 100 : 180} lottieRef={circleRef} />
+
 
                 </div>
 

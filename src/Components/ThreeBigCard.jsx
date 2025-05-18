@@ -53,9 +53,9 @@ const ThreeBigCard = () => {
 
 
     return (
-        <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[700px] min-h-[370px] px-4 overflow-hidden z-40">
+        <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[700px] min-h-[370px] px-4 overflow-hidden">
             {(!isXl) && (
-                <AnimatedCircle customStyle={` select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} lottieRef={circ} />
+                <AnimatedCircle customStyle={` select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={isMobile ? 100 : 200} height={isMobile ? 100 : 200} lottieRef={circ} />
             )}
 
 
@@ -74,11 +74,11 @@ const ThreeBigCard = () => {
             />
 
             {/* Контент карточки */}
-            <div className="flex flex-col items-center gap-4 md:gap-[25px]  text-center z-50 ">
-                <p className=" md:text-[37px] sm:text-[19px]  font-bold gradient-text-green max-w-[20ch] md:max-w-4xl leading-tight md:leading-[3rem]">
+            <div className="flex flex-col items-center gap-4 md:gap-[25px] z-50 text-center ">
+                <p className=" md:text-[37px] text-[19px]  font-bold gradient-text-green max-w-[20ch] md:max-w-4xl leading-tight md:leading-[3rem]">
                     The global data volume is 200 trillion gigabytes now and <span className='text-[#00DA90]'>set to double</span><br /> within the next 4 years
                 </p>
-                <p className="mono sm:text-[15px] md:w-auto w-[350px] text-[13px] md:text-sm gradient-text-green leading-snug">
+                <p className="mono  md:w-auto w-[350px]  text-[13px] md:text-sm gradient-text-green leading-[1.5rem]">
                     To sustainably manage AI's energy consumption,<br className="hidden md:block" />
                     radical new approaches in computation are essential.
                 </p>
@@ -93,4 +93,3 @@ const ThreeBigCard = () => {
 };
 
 export default ThreeBigCard;
-

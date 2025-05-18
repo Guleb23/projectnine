@@ -41,8 +41,10 @@ const SecondFone = ({ children, id }) => {
         <section
             ref={sectionRef}
             id={id}
-            className="bg-black w-full md:w-screen sm:h-screen h-full relative z-20 flex  justify-center items-center overflow-hidden pt-[8%]"
+            className="bg-black w-full md:w-screen sm:h-screen h-full relative z-20 flex  justify-center items-center  pt-[8%]"
         >
+
+
             <img
                 ref={el => firstAnimation.current[2] = el}
                 className="absolute top-0 h-full max-h-screen min-w-[760px] max-w-full m-auto select-none pointer-events-none z-0"
@@ -69,6 +71,7 @@ const SecondFone = ({ children, id }) => {
             />
             {children}
             <div className="absolute opacity-70 bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
+            <div className="absolute w-[90px] h-[300px] bottom-[20%] left-1/2 -translate-x-1/2 translate-y-1/2 top-[70%] blur-[120px] rounded-full bg-[#16CDDE] opacity-60 pointer-events-none z-50" />
         </section>
     );
 };

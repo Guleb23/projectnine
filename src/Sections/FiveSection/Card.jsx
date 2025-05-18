@@ -7,7 +7,7 @@ const Card = ({ img, title, text }) => {
                 clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)'
             }}>
             <div className='w-16 h-11 bg-transparent relative text-center '>
-                <img src={img} />
+                <img src={img} width={window.innerWidth < 640 ? 35 : 45} height={window.innerWidth < 640 ? 35 : 45} />
             </div>
             <div className='flex flex-col text-left gap-1.5 gradient-text-green'>
                 <p className='font-bold sm:text-[23px] text-[15px]'>{title}</p>

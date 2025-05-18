@@ -40,7 +40,7 @@ const Head = () => {
             <div className="flex flex-col">
                 <p
                     ref={(el) => (elementsRef.current[1] = el)}
-                    className="md:text-[77px] text-[48px] pt-[4%] font-bold bg-[radial-gradient(circle,_#00DA90_30%,_#16F501_70%)] text-transparent bg-clip-text"
+                    className="md:text-[77px] text-[48px] pt-[4%] font-bold bg-[radial-gradient(circle,_#00DA90_70%,_#16F501)] text-transparent bg-clip-text"
                 >
                     32K×32K
                 </p>

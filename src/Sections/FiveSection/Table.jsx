@@ -24,12 +24,12 @@ const Table = () => {
             </div>
 
             {/* Ячейка 2-2 */}
-            <div className="border-[0.5px] mono sm:text-[23px] text-[13px] font-bold px-[15px] bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent mono py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
+            <div className="border-[0.5px] mono sm:text-[23px] text-[13px] font-bold px-[15px] bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_100%)] bg-clip-text text-transparent mono py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
                 x236
             </div>
 
             {/* Ячейка 2-3 */}
-            <div className="border-[0.5px] sm:text-[23px] text-[13px] font-bold px-[15px] bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent mono py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
+            <div className="border-[0.5px] sm:text-[23px] text-[13px] font-bold px-[15px] bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_100%)] bg-clip-text text-transparent mono py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
                 x205
             </div>
 
@@ -39,13 +39,13 @@ const Table = () => {
             </div>
 
             {/* Ячейка 3-2 */}
-            <div className=" relative border-[0.5px] sm:text-[23px] text-[13px] font-bold px-[15px] bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent mono py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
+            <div className=" relative border-[0.5px] sm:text-[23px] text-[13px] font-bold px-[15px] bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_100%)] bg-clip-text text-transparent mono py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
                 x145
                 <img src='/Five/first.png' className='absolute z-50 sm:right-0 w-[52px] h-[100px] -right-2 -bottom-3 ' />
             </div>
 
             {/* Ячейка 3-3 */}
-            <div className="border-[0.5px] relative sm:text-[23px] text-[13px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent mono px-[15px] py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
+            <div className="border-[0.5px] relative sm:text-[23px] text-[13px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_100%)] bg-clip-text text-transparent mono px-[15px] py-[15px] border-gray-700 flex items-center justify-start bg-transparent backdrop-blur-md">
                 x115
                 <img src='/Five/sec.png' className='absolute z-50 sm:right-0 w-[72px] h-[120px]  -right-2 -bottom-3' />
             </div>

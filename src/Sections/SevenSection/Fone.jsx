@@ -58,6 +58,7 @@ const Fone = ({ id, children }) => {
             />
             <div className=" absolute opacity-100 -bottom-[1%]  left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
             <img src='/Nine/Blur.png' className='md:hidden block absolute z-50 select-none -bottom-[13%] -left-[20%] pointer-events-none' />
+            <div className="absolute w-[190px] h-[300px] -bottom-[10%] left-1/2 -translate-x-1/2  blur-[120px] rounded-full bg-[#16CDDE] opacity-60 pointer-events-none z-0" />
         </section>
     )
 }

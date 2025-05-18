@@ -92,7 +92,7 @@ const NewSecondSection = () => {
                 mid={`And Let’s Talk About<br/> Data Centers`}
                 bottom={`AI now consumes as much power as nations.`} />
             <SecondImage />
-            <div ref={containerRef} className='w-full relative flex justify-center items-center pt-[1%] flex-col gap-[85px] mb-50'>
+            <div ref={containerRef} className='w-full relative flex justify-center items-center pt-[1%] flex-col gap-[85px] lg:mb-50 mb-26'>
                 <img src='/right.png' className='absolute w-[960px] top-0 right-0 rounded-4xl' />
                 <img src='/threeLeft.png' className='absolute  -top-[35%] left-0 rounded-4xl' />
                 <p ref={headRef} className='sm:text-[37px] text-[23px] text-center leading-[120%] font-bold gradient-text-green'>— and these are just two<br /> sectors out of hundreds…</p>

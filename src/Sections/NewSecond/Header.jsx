@@ -36,7 +36,7 @@ const Header = ({ top, mid, bottom, customStyles, four = false }) => {
         >
             <p
                 ref={el => (elementsRef.current[0] = el)}
-                className={`${four ? "w-[500px]" : ""} bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent w-full mono sm:text-sm text-[10px] font-normal`}
+                className={`${four ? "w-[500px]" : ""} bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_80%)] bg-clip-text text-transparent w-full mono sm:text-sm text-[10px] font-normal`}
                 dangerouslySetInnerHTML={{ __html: top }}
             />
             <h1

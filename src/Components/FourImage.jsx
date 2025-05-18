@@ -160,7 +160,7 @@ const FourImage = () => {
             lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
                 <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[55px]' src='/Four/light.png' />
-                <AnimatedCircle id={`btm`} customStyle={`opacity-0 ml-4`} width={window.innerWidth < 640 ? 130 : 200} height={window.innerWidth < 640 ? 130 : 200} />
+                <AnimatedCircle id={`btm`} customStyle={`opacity-0 ml-4`} width={window.innerWidth < 640 ? 130 : 180} height={window.innerWidth < 640 ? 130 : 180} />
 
                 <AnimatedCircle lottieRef={circleRef} customStyle={`relative xl:hidden block`} width={`200`} height={`200`} />
             </div>

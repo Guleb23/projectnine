@@ -6,10 +6,10 @@ const ThreeFone = ({ children, id }) => {
     return (
         <section
             id={id}
-            className="bg-black w-screen min-h-screen pb-20 h-full relative md:pb-30 overflow-x-hidden z-0 overflow-y-visible pt-[8.5%] "
+            className="bg-black w-screen min-h-screen pb-20 h-full relative md:pb-30 overflow-x-hidden overflow-y-visible pt-[8.5%]   "
         >
             <img
-                className=" absolute inset-0 z-0 min-h-screen h-full m-auto select-none pointer-events-none rounded-4xl"
+                className="absolute inset-0 z-0 min-h-screen h-full m-auto select-none pointer-events-none rounded-4xl"
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />

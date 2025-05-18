@@ -2,7 +2,8 @@ import React from 'react'
 import Fone from './Fone'
 import CustomInput from './CustomInput'
 import AnimatedCircle from '../../Components/AnimatedCircle'
-import { Crad } from '../NewSevenSection/Crad'
+import MiniCard from "./MiniCard"
+
 
 const NineSection = () => {
     return (
@@ -18,14 +19,14 @@ const NineSection = () => {
                 <h2 className='md:text-[46px] text-[27px] text-center mb-[25px] -mt-[15%] md:mt-0 md:text-left font-bold gradient-text-green 2xl:-mt-[4%] xl:-mt-[6%]'>
                     $7M buys the future. Miss it,{window.innerWidth < 640 ? "" : <br />} and your competitors won’t.
                 </h2>
-                <div className='flex flex-col gap-3 pb-11 px-5'>
+                <div className='flex flex-col gap-3 pb-11 px-5 z-50'>
                     <CustomInput customStyle={`md:w-[730px] w-full`} placeholder={`Business / Website`} id={`first`} />
                     <CustomInput customStyle={`md:w-[730px] w-full`} placeholder={`E-mail address`} id={`second`} />
                     <CustomInput customStyle={`md:w-[730px] w-full`} isBig={true} placeholder={`Business / Website`} id={`three`} />
                     <button className="bg-[radial-gradient(circle,_#16F501,_#00DA90)]  w-full h-10 md:h-12 rounded-lg text-sm md:text-[16px] font-bold">
                         Meet the Future →
                     </button>
-                    <p className='gradient-text-green mono md:text-[12px] text-center md:text-left text-[10px]'>By clicking the button, I consent to the processing of my personal data.</p>
+                    <p className='lg:gradient-text-green lg:w-full   text-[#5B6765] mono md:text-[12px] text-center md:text-left text-[10px]'>By clicking the button, I consent to the processing of my <span className='underline'>personal data</span>.</p>
                 </div>
                 <div className='flex justify-center items-center flex-col gap-6 pb-26 z-50 md:px-0 px-5'>
                     <div className='relative  '>
@@ -33,7 +34,7 @@ const NineSection = () => {
 
 
                         <div className='absolute bottom-2 left-2 z-50'>
-                            <Crad />
+                            <MiniCard />
                         </div>
 
                     </div>

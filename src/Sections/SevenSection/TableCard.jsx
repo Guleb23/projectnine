@@ -5,7 +5,7 @@ const TableCard = ({ img, name, work, desc, ref }) => {
     const cleanWork = sanitize(work);
     const cleanDesc = sanitize(desc);
     return (
-        <div ref={ref} className='md:w-[344px] md:h-[118px] w-[125px] h-[148px] flex-col flex gap-2  gradient-text-green'>
+        <div ref={ref} className='md:w-[344px] md:h-[118px] w-[125px] h-[160px] flex-col flex gap-2  gradient-text-green'>
             <div className='flex text-left gap-[15px] items-center'>
                 <img width={70} height={70} src={img} className='rounded-full w-[45px] h-[45px] md:w-[70px] md:h-[70px]' />
                 <div className=' flex-col hidden md:flex'>

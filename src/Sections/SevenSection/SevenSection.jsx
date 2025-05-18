@@ -117,16 +117,20 @@ const SevenSection = () => {
                     </div>
                 </div>
 
-                <div className='px-[6%] mt-[10px]'>
+                <div className='px-[6%] mt-[10px] pb-[5%]'>
                     <p ref={el => teamHeaderRef.current[0] = el} className='md:text-[13px] text-[10px] mono bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text pt-[35px] pb-2'>
                         AND ALSO
                     </p>
-                    <h2
-                        ref={el => teamHeaderRef.current[1] = el}
-                        className='gradient-text-green md:text-[37px] text-[19px] font-bold pb-[25px]'
-                    >
-                        Team members<br /> and Advisors
-                    </h2>
+                    <div className='flex '>
+                        <h2
+                            ref={el => teamHeaderRef.current[1] = el}
+                            className='gradient-text-green md:text-[37px] text-[19px] font-bold pb-[25px] flex-1'
+                        >
+                            Team members<br /> and Advisors
+                        </h2>
+                        <img src='/hand.svg' className='block lg:hidden' />
+                    </div>
+
                     <div className='flex justify-start'>
                         <Table />
                     </div>

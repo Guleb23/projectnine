@@ -231,8 +231,8 @@ const HeroSection = ({ styles }) => {
                 >
                     SpinEdge saves it.
                 </p>
-                <div ref={ballRef} className='reltive w-full h-full'>
-                    <AnimatedCircle width={window.innerWidth < 640 ? 150 : 220} height={window.innerWidth < 640 ? 150 : 220} customStyle={`sm:mt-0 mt-[12%] -translate-x-1/2 left-1/2 `} />
+                <div className='reltive w-full h-full'>
+                    <AnimatedCircle lottieRef={ballRef} width={window.innerWidth < 640 ? 110 : 220} height={window.innerWidth < 640 ? 110 : 220} customStyle={`sm:mt-0 mt-[12%] -translate-x-1/2 left-1/2 `} />
                 </div>
                 <Code ref={el => lastRight.current[0] = el} />
                 <p ref={el => lastLeft.current[0] = el} className="hidden lg:block  text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">

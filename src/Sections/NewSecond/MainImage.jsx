@@ -23,28 +23,36 @@ const MainImage = () => {
                 <p className='block lg:hidden absolute bottom-[18%] left-[4.5%] mono sm:text-sm text-[11px] leading-[150%] bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text' dangerouslySetInnerHTML={{ __html: sText }} />
             </div>
 
-            <FlowLines />
+            <FlowLines id="main-image" />
             <div className=' grid grid-cols-2 sm:flex max-w-full sm:max-w-[87%] justify-evenly sm:gap-[70px] gap-y-3 px-4 pt-8 flex-wrap lg:flex-nowrap text-center'>
                 <Card
                     num={`01`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
-                    text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">100× cheaper</span> → AI becomes <br/> truly global`}
+                    text={`${innerWidth > 640 ?
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">100× cheaper</span> → AI becomes <br/> truly global`
+                        : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">100× cheaper</span><br/> → AI becomes<br/>  truly global`}`}
                 />
                 <Card
                     num={`02`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
-                    text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">No longer just for Big Tech</span><br/> — democratizing intelligence`}
+                    text={`${innerWidth > 640 ?
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">No longer just for<br/> Big Tech —<br/> </span> democratizing intelligence`
+                        : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">No longer just for<br/> Big Tech —<br/> </span> democratizing intelligence`}`}
                 />
                 <Card
                     num={`03`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
-                    text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models</span> = more<br/> breakthroughs`}
+                    text={`${innerWidth > 640 ?
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models =<br/></span>more<br/> breakthroughs`
+                        : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models =<br/></span>more<br/> breakthroughs`}`}
                 />
                 <Card
 
                     num={`04`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
-                    text={`<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every level</span><br/> — from research to edge`}
+                    text={`${innerWidth > 640 ?
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every <br/>level<br/></span>— from research<br/> to edge`
+                        : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every <br/>level<br/></span>— from research<br/> to edge`}`}
                 />
             </div>
         </div>
