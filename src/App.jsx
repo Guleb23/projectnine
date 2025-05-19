@@ -1,24 +1,26 @@
-import FourSection from "./Sections/FourSection/FourSection"
-import HeroSection from "./Sections/HeroSection"
-import NewSecondSection from "./Sections/NewSecond/NewSecondSection"
-import NineSection from "./Sections/NineSection/NineSection"
-import SecondSection from "./Sections/SecondSection"
-import SevenSection from "./Sections/SevenSection/SevenSection"
+import { Suspense, lazy } from 'react'
+import Loader from './Components/Loader'
 
-import ThreeScetion from "./Sections/ThreeScetion"
+const HeroSection = lazy(() => import("./Sections/HeroSection"))
+const NewSecondSection = lazy(() => import("./Sections/NewSecond/NewSecondSection"))
+const SecondSection = lazy(() => import("./Sections/SecondSection"))
+const ThreeScetion = lazy(() => import("./Sections/ThreeScetion"))
+const FourSection = lazy(() => import("./Sections/FourSection/FourSection"))
+const SevenSection = lazy(() => import("./Sections/SevenSection/SevenSection"))
+const NineSection = lazy(() => import("./Sections/NineSection/NineSection"))
 
 function App() {
-
-
   return (
-    <main >
-      <HeroSection />
-      <NewSecondSection />
-      <SecondSection />
-      <ThreeScetion />
-      <FourSection />
-      <SevenSection />
-      <NineSection />
+    <main>
+      <Suspense fallback={<Loader />}>
+        <HeroSection />
+        <NewSecondSection />
+        <SecondSection />
+        <ThreeScetion />
+        <FourSection />
+        <SevenSection />
+        <NineSection />
+      </Suspense>
     </main>
   )
 }
