@@ -107,7 +107,6 @@ const Diagramm = () => {
 
                     </div>
                 </div>
-
                 <div className='w-full flex flex-col  gap-[55px]'>
                     <div ref={el => leftRef.current[0] = el} className='w-full flex flex-col lg:gap-[20px] gap-[12px]'>
                         <div className='w-full flex items-center justify-between pr-[10px]'>
@@ -152,12 +151,12 @@ const Diagramm = () => {
                 </div>
 
             </div>
-            <div className='flex lg:justify-between  w-full'>
+            <div className='flex justify-between w-full min-w-[820px]'>
                 {years.map((text, index) => (
                     <YearCard ref={el => yearsRef.current[index] = el} key={index} text={`YEAR ${text}`} />
                 ))}
             </div>
-            <div className='flex justify-between w-full lg:gap-[20px] gap-[12px]'>
+            <div className='flex justify-between w-full min-w-[820px] lg:gap-[20px] gap-[12px]'>
                 <div ref={el => btmRef.current[0] = el} className='h-[53px] flex justify-center items-center w-full border-t border-t-[#15D795]'>
                     <p className='text-center lg:text-[15px] text-[12px] font-bold bg-[radial-gradient(circle,_#00DA90_0%,_#496758_100%)] bg-clip-text text-transparent'>Funds raised</p>
                 </div>

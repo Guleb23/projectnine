@@ -46,7 +46,7 @@ const Header = ({ top, mid, bottom, customStyles, four = false }) => {
             />
             <p
                 ref={el => (elementsRef.current[2] = el)}
-                className={`${four ? "w-[500px]" : ""} mono text-[12px] sm:text-[19px] gradient-text-green`}
+                className={`${four ? "w-[500px]" : ""} mono text-[12px] sm:text-[19px] lg:text-[15px] gradient-text-green`}
                 dangerouslySetInnerHTML={{ __html: bottom }}
             />
         </div>

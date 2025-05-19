@@ -20,8 +20,8 @@ const FourSection = () => {
         }
     }, []);
     return (
-        <FourFone heightBlur={blurHeight} id={"four"}>
-            <div ref={topSectionRef}>
+        <FourFone heightBlur={blurHeight} >
+            <div id={"four"} ref={topSectionRef}>
                 <div id="stop" className='flex flex-col 2xl:pl-[25%] xl:pl-[17%] px-9 md:flex-row  items-start relative h-fit  '>
                     <FourLeft />
 

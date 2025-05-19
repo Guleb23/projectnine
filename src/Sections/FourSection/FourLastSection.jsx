@@ -71,6 +71,7 @@ const FourLastSection = () => {
                 { opacity: 0 },
                 { opacity: 1, duration: 1.2 }, "-=0.2"
             );
+            ScrollTrigger.refresh();
         });
 
 
@@ -78,7 +79,7 @@ const FourLastSection = () => {
 
     }, []);
     return (
-        <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] pt-[20%] md:pb-[0] pb-[20%]'>
+        <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] sm:px-[50px] pt-[20%] md:pb-[0] pb-[20%]'>
 
             <div ref={containerRef} className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[32.3%]  lg:-left-[25%] hidden lg:block '>
                 <img ref={bigImgRef} src='/Four/bigLeft.png' className=' hidden lg:block ' width={1259} height={904} />
@@ -95,7 +96,7 @@ const FourLastSection = () => {
                                 <AnimatedCircle customStyle={`!pt-0 select-none pointer-events-none top-[64%] left-1/2 -translate-y-1/2 -translate-x-1/2 hidden lg:block`} width={`100`} height={`100`} />
                             </div>
 
-                            <Vector3419 customStyle={`absolute left-1/2 -top-[34%]`} />
+
                         </div>
 
 
@@ -113,7 +114,7 @@ const FourLastSection = () => {
             <div className='flex-[0_0_49%] w-0 hidden lg:block  '>
 
             </div>
-            <div className='lg:flex-[0_0_51%] flex-[1_1_100%] w-full lg:items-start  items-center flex flex-col  lg:gap-46'>
+            <div className='lg:flex-[0_0_51%] flex-[1_1_100%] w-full sm:items-start   items-center flex flex-col  lg:gap-46'>
                 <Header
                     four={innerWidth > 640}
                     customStyles={`lg:!text-left text-left lg:items-start items-center -mt-[14%] sm:w-[500px] w-[335px] `}
@@ -127,11 +128,11 @@ const FourLastSection = () => {
                     <img src='/Four/leftLeft.png' className='absolute  right-[19%] h-[700px]' />
 
                     <img src='/Four/fone.png' className='absolute   -translate-y-1/2  -translate-x-1/2 left-[36%] top-[50%]' />
-                    <AnimatedCircle width={`80`} height={`80`} customStyle={`!pt-0 select-none pointer-events-none top-[53%] left-[28%] -translate-y-1/2 `} />
+                    <AnimatedCircle width={`60`} height={`60`} customStyle={`!pt-0 select-none pointer-events-none top-[53%] left-[30%] -translate-y-1/2 `} />
 
 
                 </div>
-                <div className='flex  xl:gap-15 lg:gap-6  gap-1.5  pt-10 -mt-[7%] md:-mt-[0]'>
+                <div className='flex  xl:gap-15 lg:gap-6 sm:gap-8 sm:pb-16  gap-1.5  pt-10 sm:-mt-[17%] -mt-[7%] lg:-mt-[0]'>
                     <LastCard ref={el => cardsRef.current[0] = el} img={`/Four/cardLeft.png`} Title={`Non-Volatile<br/> Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
                     <LastCard ref={el => cardsRef.current[1] = el} img={`/Four/cardRight.png`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are<br/> the best fit for edge<br/> and IoT devices`} />
 

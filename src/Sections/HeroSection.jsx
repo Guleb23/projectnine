@@ -297,14 +297,14 @@ const HeroSection = ({ styles }) => {
                             AI accelerator
                         </p>
                         {/* Нижние блоки */}
-                        <div className='flex w-full sm:flex-col lg:flex-row  justify-between items-start pt-12 sm:gap-16 lg:gap-0'>
+                        <div className='flex w-full sm:flex-col lg:flex-row  justify-between items-start pt-12 sm:gap-8 lg:gap-0'>
                             <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] lg:block relative w-[30%] text-sm lastLeft">
                                 <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
                                     AI's Energy Diet<br />Starts Here
                                 </div>
 
                             </div>
-                            <p className='block lg:hidden mono text-center gradient-text-green w-full opacity-85 text-[19px]'>
+                            <p className='hidden  sm:block lg:hidden mono text-center gradient-text-green w-full opacity-85 text-[19px]'>
                                 The world’s first
                                 spintronic<br /> AI accelerator
                             </p>

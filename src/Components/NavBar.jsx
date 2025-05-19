@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import LogoComponent from '../Components/LogoComponent';
+import MobileMenu from '../Sections/MobileMenu';
 
 const NavItem = ({ name, link }) => {
     const underlineRef = useRef(null);
@@ -46,6 +47,7 @@ const NavItem = ({ name, link }) => {
 };
 
 const NavBar = ({ ref }) => {
+    const [isMenuOpen, setMenuOpen] = useState(false);
     const fullItems = [
         { name: "ABOUT", link: "#sec" },
         { name: "TECHNOLOGY", link: "#four" },
@@ -111,9 +113,11 @@ const NavBar = ({ ref }) => {
                     <div className=" items-center gap-1">
                         <div className="h-0.5 w-10 sm:w-24   bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                     </div>
-                    <p className="cursor-pointer sm:px-6 text-[12px] leading-4 text-center text-transparent 
-                bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
-                bg-clip-text font-medium relative">
+                    <p
+                        onClick={() => setMenuOpen(true)}
+                        className="cursor-pointer sm:px-6 text-[12px] leading-4 text-center text-transparent 
+    bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
+    bg-clip-text font-medium relative">
                         MENU
                     </p>
                 </div>
@@ -145,6 +149,7 @@ const NavBar = ({ ref }) => {
                 className="absolute block md:hidden top-12.5 -right-1  transform -translate-y-1/2"
                 alt="End Image"
             />
+            <MobileMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />
         </div>
     );
 };
