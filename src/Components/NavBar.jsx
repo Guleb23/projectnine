@@ -96,22 +96,22 @@ const NavBar = ({ ref }) => {
                 ))}
 
                 {/* Compact md menu */}
-                <div className="flex lg:hidden items-center gap-2">
-                    <p className="cursor-pointer text-[12px] leading-4 text-center text-transparent 
+                <div className="flex lg:hidden items-center justify-between">
+                    <p className="cursor-pointer sm:px-6 text-[12px] leading-4 text-center text-transparent 
                 bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
                 bg-clip-text font-medium relative">
                         ABOUT
                     </p>
                     <div className=" items-center gap-1">
-                        <div className="h-0.5 w-10  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                        <div className="h-0.5 w-10 sm:w-24   bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                     </div>
 
                     <LogoComponent />
 
                     <div className=" items-center gap-1">
-                        <div className="h-0.5 w-10  bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
+                        <div className="h-0.5 w-10 sm:w-24   bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />
                     </div>
-                    <p className="cursor-pointer text-[12px] leading-4 text-center text-transparent 
+                    <p className="cursor-pointer sm:px-6 text-[12px] leading-4 text-center text-transparent 
                 bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
                 bg-clip-text font-medium relative">
                         MENU

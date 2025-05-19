@@ -49,6 +49,7 @@ const SecondSection = () => {
                     trigger: imgRef.current,
                     start: 'top 85%',
                     toggleActions: 'play none none none',
+
                 },
             }
         );
@@ -110,10 +111,11 @@ const SecondSection = () => {
                         trigger: circleRef.current,
                         start: "top 25%",
                         endTrigger: "#card",
-                        end: "90% 68%",
+                        end: "90% center",
                         pin: true,
                         scrub: true,
                         anticipatePin: 1,
+
                     },
                 });
 
@@ -124,7 +126,7 @@ const SecondSection = () => {
                         filter: "blur(10px)",
                         scrollTrigger: {
                             trigger: "#card",
-                            start: "top 45%",
+                            start: "top 35%",
                             end: "top 25%",
                             scrub: true,
                         },
@@ -133,74 +135,6 @@ const SecondSection = () => {
             })
         }
         if (!isMobile) {
-            mm.add("(max-width: 1280px) ", () => {
-
-                gsap.to(circleRef.current, {
-                    scrollTrigger: {
-                        trigger: circleRef.current,
-                        start: "top 25%",
-                        endTrigger: "#card",
-                        end: "bottom 70%",
-                        pin: true,
-                        scrub: true,
-                        anticipatePin: 1,
-                    },
-                });
-
-                gsap.fromTo(
-                    circleRef.current,
-                    { filter: "blur(0px)" },
-                    {
-                        filter: "blur(10px)",
-                        scrollTrigger: {
-                            trigger: "#card",
-                            start: "top 45%",
-                            end: "top 25%",
-                            scrub: true,
-                        },
-                    }
-                )
-            })
-
-
-
-
-            mm.add("(min-width: 1280px) and (max-width: 1535px)", () => {
-                // Пин шарика
-                gsap.to(circleRef.current, {
-                    scrollTrigger: {
-                        trigger: circleRef.current,
-                        start: "top 30%",
-                        endTrigger: "#stop",
-                        end: "64% 10%",
-                        pin: true,
-                        scrub: true,
-                        anticipatePin: 1,
-
-                    },
-                });
-
-                gsap.fromTo(
-                    circleRef.current,
-                    { filter: "blur(0px)" }, // начальное состояние
-                    {
-                        filter: "blur(10px)", // максимальный эффект блюра
-                        scrollTrigger: {
-                            trigger: "#card", // триггер, на котором срабатывает анимация
-                            start: "top 47%", // начало анимации, когда верх элемента #card достигает 45% экрана
-                            end: "bottom 30%", // конец анимации, когда верх элемента #card достигает 25% экрана
-                            scrub: true, // плавное сглаживание при прокрутке
-                            // для отладки, показывает маркеры начала и конца анимации
-                            onLeave: () => { // отменяем блюр, когда элемент покидает триггер
-                                gsap.to(circleRef.current, { filter: "blur(0px)", duration: 0.5 });
-                            },
-                            onEnter: () => { // восстановление эффекта блюра, когда элемент снова входит в область триггера
-                                gsap.to(circleRef.current, { filter: "blur(10px)", duration: 0.5 });
-                            }
-                        }
-                    }
-                );
-            });
             mm.add("(min-width: 1536px)", () => {
                 // Пин шарика
                 gsap.to(circleRef.current, {
@@ -238,6 +172,85 @@ const SecondSection = () => {
                     }
                 );
             });
+
+            mm.add("(min-width: 1280px) and (max-width: 1535px)", () => {
+                // Пин шарика
+                gsap.to(circleRef.current, {
+                    scrollTrigger: {
+                        trigger: circleRef.current,
+                        start: "top 30%",
+                        endTrigger: "#stop",
+                        end: "64% 10%",
+                        pin: true,
+                        scrub: true,
+                        anticipatePin: 1,
+
+                    },
+                });
+
+                // Устанавливаем начальный стиль явно
+                gsap.set(circleRef.current, { filter: "blur(0px)" });
+                // Анимация с scrub
+                gsap.to(circleRef.current, {
+                    scrollTrigger: {
+                        trigger: "#card",
+                        start: "top 47%",
+                        end: "bottom 30%",
+                        scrub: true,
+
+                        // Фикс: отключаем авто-прогон при создании
+                        immediateRender: false
+                    }
+                });
+                // Состояния на вход/выход
+                ScrollTrigger.create({
+                    trigger: "#card",
+                    start: "top 47%",
+                    end: "bottom 30%",
+                    onEnter: () => {
+                        gsap.to(circleRef.current, { filter: "blur(10px)", duration: 0.5 });
+                    },
+                    onLeave: () => {
+                        gsap.to(circleRef.current, { filter: "blur(0px)", duration: 0.5 });
+                    },
+                    onEnterBack: () => {
+                        gsap.to(circleRef.current, { filter: "blur(10px)", duration: 0.5 });
+                    },
+                    onLeaveBack: () => {
+                        gsap.to(circleRef.current, { filter: "blur(0px)", duration: 0.5 });
+                    }
+                });
+            });
+            mm.add("(max-width: 1279px) ", () => {
+
+                gsap.to(circleRef.current, {
+                    scrollTrigger: {
+                        trigger: circleRef.current,
+                        start: "top 25%",
+                        endTrigger: "#card",
+                        end: "bottom 70%",
+                        pin: true,
+                        scrub: true,
+                        anticipatePin: 1,
+                    },
+                });
+
+                gsap.fromTo(
+                    circleRef.current,
+                    { filter: "blur(0px)" },
+                    {
+                        filter: "blur(10px)",
+                        scrollTrigger: {
+                            trigger: "#card",
+                            start: "top 45%",
+                            end: "top 25%",
+                            scrub: true,
+
+                        },
+                    }
+                )
+            })
+
         }
 
 

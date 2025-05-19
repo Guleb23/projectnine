@@ -41,7 +41,7 @@ const SecondFone = ({ children, id }) => {
         <section
             ref={sectionRef}
             id={id}
-            className="bg-black w-full md:w-screen sm:h-screen h-full relative z-20 flex  justify-center items-center  pt-[8%]"
+            className="bg-black w-full md:w-screen sm:h-screen h-full relative z-50 flex  justify-center items-center  overflow-y-visible  pt-[8%]"
         >
 
 

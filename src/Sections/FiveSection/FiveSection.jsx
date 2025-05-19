@@ -76,15 +76,15 @@ const FiveSection = () => {
             />
 
             {/* Только эту часть мы анимируем */}
-            <div ref={containerRef} className='flex flex-col lg:flex-row gap-4 sm:gap-0 mt-4 min-h-[500px] md:mb-[0] mb-[20%]'>
+            <div ref={containerRef} className='flex flex-col md:flex-row gap-4 sm:gap-0 mt-4 min-h-[500px] md:mb-[0] mb-[20%] px-8'>
 
                 {/* Картинка — первая на мобилках, в центре на десктопе */}
-                <div className='flex-[0_0_40%] flex justify-center lg:order-2 order-1'>
+                <div className='flex-[0_0_40%] flex justify-center md:order-2 order-1'>
                     <AnimatedImg customStyle={`z-40`} />
                 </div>
 
                 {/* Левая карточка */}
-                <div ref={leftRef} className='flex-[0_0_30%] z-50 opacity-0 flex justify-center lg:justify-end lg:pt-[3%] lg:order-1 order-2 sm:-mt-0 -mt-[15%]'>
+                <div ref={leftRef} className='flex-[0_0_30%] z-50 opacity-0 flex justify-center md:justify-end md:pt-[3%] md:order-1 order-2 sm:-mt-0 -mt-[15%]'>
                     <Card
                         img={`/Five/Left.png`}
                         text={`Delivers up to 1000 TOPS/W, 20<br/> TOPS/mm², and unparalleled<br/> cost-effectiveness opacity-0`}

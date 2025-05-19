@@ -8,7 +8,7 @@ const FirstFone = ({ children, id }) => {
             <img className='block lg:hidden absolute w-full select-none pointer-events-none -translate-x-1/2 left-1/2 min-w-[860px] min-h-[276px] top-[30%]' src='/Hero/blur.png' />
             <img
 
-                className="block lg:hidden absolute top-16 left-0 h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
+                className="block lg:hidden sm:left-[8%] absolute top-16 left-0 h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
                 src="/Hero/Code.png"
                 alt="code"
                 style={{

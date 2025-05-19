@@ -80,7 +80,7 @@ const FourLastSection = () => {
     return (
         <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] pt-[20%] md:pb-[0] pb-[20%]'>
 
-            <div ref={containerRef} className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[23%] lg:-left-[32.3%] hidden lg:block '>
+            <div ref={containerRef} className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[32.3%]  lg:-left-[25%] hidden lg:block '>
                 <img ref={bigImgRef} src='/Four/bigLeft.png' className=' hidden lg:block ' width={1259} height={904} />
 
                 <div className='absolute w-[654px] h-[1009px] top-1/2 mt-16 -translate-y-1/2 -translate-x-1/2 left-1/2'>
@@ -106,7 +106,7 @@ const FourLastSection = () => {
 
 
 
-            <img src='/Four/mobLight.png' className='absolute  block lg:hidden -translate-y-1/2 top-[40%]' />
+            <img src='/Four/mobLight.png' className='absolute  block md:hidden -translate-y-1/2 top-[40%]' />
 
             <img src='/Four/Blur.png' className='absolute xl:-top-[25%] xl:-right-[15%] hidden lg:block' width={1442} height={815} />
 
@@ -131,7 +131,7 @@ const FourLastSection = () => {
 
 
                 </div>
-                <div className='flex  sm:gap-15 gap-1.5  pt-[6px] -mt-[7%] md:-mt-[0]'>
+                <div className='flex  xl:gap-15 lg:gap-6  gap-1.5  pt-10 -mt-[7%] md:-mt-[0]'>
                     <LastCard ref={el => cardsRef.current[0] = el} img={`/Four/cardLeft.png`} Title={`Non-Volatile<br/> Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
                     <LastCard ref={el => cardsRef.current[1] = el} img={`/Four/cardRight.png`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are<br/> the best fit for edge<br/> and IoT devices`} />
 

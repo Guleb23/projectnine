@@ -8,21 +8,22 @@ const Fone = ({ id, children }) => {
 
             <img src='/Nine/Blur.png' className='lg:block hidden absolute z-50 select-none -top-[10%] -left-[20%] pointer-events-none' />
 
-            <img src='/Nine/Fone.png' className='absolute hidden lg:block  2xl:-left-[33%] xl:-left-[36%] -bottom-[32%] z-0 ' />
+            <img src='/Nine/Fone.png' className='absolute hidden lg:block  2xl:-left-[33%] lg:-left-[36%] -bottom-[32%] z-0 ' />
+            <img src='/Nine/Fone.png' className='absolute hidden lg:block -bottom-[32%] 2xl:-right-[33%] lg:-right-[36%] z-0 ' />
+            <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-left-[44%] lg:-left-[64%] z-0 ' />
+            <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-right-[44%] lg:-right-[64%] z-0 ' />
 
-            <img src='/Nine/Fone.png' className='absolute hidden lg:block -bottom-[32%] 2xl:-right-[33%] xl:-right-[36%] z-0 ' />
-            <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-left-[44%] xl:-left-[64%] z-0 ' />
+
             <img
                 className="block md:hidden absolute min-w-[762px] -bottom-[30%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none"
                 src="/Nine/Fone.png"
             />
-            <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-right-[44%] xl:-right-[64%] z-0 ' />
 
 
             <img src='/Seven/Blur.png' className='absolute hidden lg:block top-[10%]  w-screen' />
             <img src='/Nine/LeftDirBlur.png' className='absolute z-20 rotate-90 select-none top-0 -right-[30%] pointer-events-none' />
             <img src='/Seven/Blur.png' className='absolute hidden lg:block top-[30%]' />
-            <img src='/nine.png' className='block lg:hidden absolute w-[760px] bottom-[15%]' />
+            <img src='/nine.png' className='block md:hidden absolute w-[760px] bottom-[15%]' />
             <img src='/Nine/Blur.png' className=' hidden lg:block absolute z-20 rotate-90 select-none top-[10%] -right-[30%] pointer-events-none' />
             {children}
             <div className='absolute lg:-bottom-[1.5%] -bottom-2  flex sm:max-w-[732px] max-w-[335px] w-full justify-between -translate-x-1/2 left-1/2 z-20' >
@@ -91,7 +92,7 @@ const Fone = ({ id, children }) => {
                 viewBox="0 0 375 271"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className='absolute bottom-0 z-50 block lg:hidden'
+                className='absolute bottom-0  z-50 block md:hidden'
 
             >
                 <g filter="url(#filter0_f_319_4127)">

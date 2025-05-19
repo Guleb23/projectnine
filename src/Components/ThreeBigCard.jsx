@@ -6,57 +6,10 @@ import AnimatedCircle from './AnimatedCircle';
 
 
 const ThreeBigCard = () => {
-    const circ = useRef(null);
-    const [isMobile, setIsMobile] = useState(false);
-    const [isXl, setIsXl] = useState(false);
-
-    // Определяем, мобильный ли экран
-    useEffect(() => {
-        setIsMobile(window.innerWidth < 640);
-        setIsXl(window.innerWidth > 1279)
-    }, []);
-
-
-
-    useGSAP(() => {
-        const isMobile = window.innerWidth < 640;
-        const isXl = window.innerWidth > 1279
-
-        if (circ.current && !isXl) {
-            gsap.set(circ.current, {
-                y: 0,
-                opacity: 1, // Шарик сразу видимый
-                left: "50%",
-                top: !isMobile ? '30%' : '-15%',
-                display: "none",
-            });
-
-            // Анимация движения сверху вниз с увеличением размера
-            gsap.to(circ.current, {
-                y: 200,
-                display: "block",
-                scrollTrigger: {
-                    trigger: '#card',
-                    start: !isMobile ? "top 28%" : "-10% 30%",
-                    end: "bottom center",
-                    scrub: 0,
-
-
-                },
-                timeScale: 0.5, // Чем меньше значение, тем медленнее скролл
-            });
-        }
-    }, []);
-
-
-
-
 
     return (
         <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[700px] min-h-[370px] px-4 overflow-hidden">
-            {(!isXl) && (
-                <AnimatedCircle customStyle={` select-none -mt-[2%] pointer-events-none z-10 -translate-x-1/2 blur-md opacity-100`} width={isMobile ? 100 : 200} height={isMobile ? 100 : 200} lottieRef={circ} />
-            )}
+
 
 
             {/* Фон карточки */}

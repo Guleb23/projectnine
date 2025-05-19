@@ -36,17 +36,17 @@ const Header = ({ top, mid, bottom, customStyles, four = false }) => {
         >
             <p
                 ref={el => (elementsRef.current[0] = el)}
-                className={`${four ? "w-[500px]" : ""} bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_80%)] bg-clip-text text-transparent w-full mono sm:text-sm text-[10px] font-normal`}
+                className={`${four ? "w-[500px]" : ""} bg-[radial-gradient(circle,_#00DA90_0%,_#4d5645_80%)] bg-clip-text text-transparent w-full mono sm:text-[19px] text-[10px] font-normal`}
                 dangerouslySetInnerHTML={{ __html: top }}
             />
             <h1
                 ref={el => (elementsRef.current[1] = el)}
-                className={`${four ? "w-[500px]" : ""} sm:text-[37px] text-[23px] w-full leading-[120%] font-bold gradient-text-green`}
+                className={`${four ? "w-[500px]" : ""} sm:text-[35px] text-[23px] w-full leading-[120%] font-bold gradient-text-green`}
                 dangerouslySetInnerHTML={{ __html: mid }}
             />
             <p
                 ref={el => (elementsRef.current[2] = el)}
-                className={`${four ? "w-[500px]" : ""} mono text-[12px] sm:text-[15px] gradient-text-green`}
+                className={`${four ? "w-[500px]" : ""} mono text-[12px] sm:text-[19px] gradient-text-green`}
                 dangerouslySetInnerHTML={{ __html: bottom }}
             />
         </div>

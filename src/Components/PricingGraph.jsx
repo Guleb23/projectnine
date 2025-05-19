@@ -133,7 +133,7 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
     return (
         <div
             ref={containerRef}
-            className={`${customStyle || ""} relative bg-gradient-to-r from-[#001F18] via-[#061F1C] to-[#0D2A24] w-[950px] h-[435px] overflow-hidden rounded-lg`}
+            className={`${customStyle || ""} relative bg-gradient-to-r from-[#001F18] via-[#061F1C] to-[#0D2A24]  w-[950px] h-[435px] overflow-hidden rounded-lg`}
         >
             <div ref={el => dashedLineRefs.current[0] = el} className="absolute top-[89.5%] w-[622px] border-t border-dashed border-[#00E599] z-50"></div>
             <div ref={el => dashedLineRefsVertical.current[0] = el} className="absolute left-[617px] h-[46px] top-[89.5%] border-l border-dashed border-[#00E599] z-50"></div>

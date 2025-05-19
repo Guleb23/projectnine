@@ -23,7 +23,7 @@ const HeroSection = ({ styles }) => {
 
     useGSAP(() => {
         const tl = gsap.timeline();
-
+        const mm = gsap.matchMedia();
         // 1. Скрытие overlay — быстрее
         tl.to(overlayRef.current, {
             opacity: 0,
@@ -139,25 +139,48 @@ const HeroSection = ({ styles }) => {
             );
         }
 
-        // 🎯 ScrollTrigger на шар
-        gsap.fromTo(ballRef.current,
-            {
-                scale: 1,
-            },
-            {
-                scale: 0.7,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ballRef.current,
-                    start: "50% 20%",
-                    endTrigger: "#sec",
-                    end: "20% 90%",
-                    scrub: 1,
-                    pin: true,
-                    immediateRender: false,
+
+        mm.add("(min-width: 768px)", () => {
+            gsap.fromTo(ballRef.current,
+                {
+                    scale: 1,
+                },
+                {
+                    scale: 0.7,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ballRef.current,
+                        start: "50% 20%",
+                        endTrigger: "#sec",
+                        end: "20% 90%",
+                        scrub: 1,
+                        pin: true,
+                        immediateRender: false,
+                    }
                 }
-            }
-        );
+            );
+        });
+        mm.add("(max-width: 768px)", () => {
+            gsap.fromTo(ballRef.current,
+                {
+                    scale: 1,
+                },
+                {
+                    scale: 0.7,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ballRef.current,
+                        start: "50% 20%",
+                        endTrigger: "#sec",
+                        end: "20% center",
+                        scrub: 1,
+                        pin: true,
+                        immediateRender: false
+                    }
+                }
+            );
+        });
+
     }, []);
 
 
@@ -218,7 +241,7 @@ const HeroSection = ({ styles }) => {
 
 
             {/* TEXT */}
-            <div className="relative flex flex-col items-center text-white text-center pb-32 sm:pt-30 pt-26 2xl:pb-40 w-full mx-auto">
+            <div className="relative flex flex-col items-center sm:text-[35px] text-center pb-32 sm:pt-30 pt-26 2xl:pb-40 w-full mx-auto">
                 <p
                     ref={el => firstElems.current[0] = el}
                     className="gradient-text-green font-bold sm:text-3xl text-[23px]  leading-[120%] first"
@@ -232,7 +255,7 @@ const HeroSection = ({ styles }) => {
                     SpinEdge saves it.
                 </p>
                 <div className='reltive w-full h-full'>
-                    <AnimatedCircle lottieRef={ballRef} width={window.innerWidth < 640 ? 110 : 220} height={window.innerWidth < 640 ? 110 : 220} customStyle={`sm:mt-0 mt-[12%] -translate-x-1/2 left-1/2 `} />
+                    <AnimatedCircle lottieRef={ballRef} width={window.innerWidth < 640 ? 100 : 190} height={window.innerWidth < 640 ? 100 : 190} customStyle={`sm:mt-0 mt-[12%] -translate-x-1/2 left-1/2 `} />
                 </div>
                 <Code ref={el => lastRight.current[0] = el} />
                 <p ref={el => lastLeft.current[0] = el} className="hidden lg:block  text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
@@ -274,19 +297,22 @@ const HeroSection = ({ styles }) => {
                             AI accelerator
                         </p>
                         {/* Нижние блоки */}
-                        <div className='flex w-full justify-between items-start pt-12'>
-                            <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] md:block relative w-[30%] text-sm lastLeft">
+                        <div className='flex w-full sm:flex-col lg:flex-row  justify-between items-start pt-12 sm:gap-16 lg:gap-0'>
+                            <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] lg:block relative w-[30%] text-sm lastLeft">
                                 <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
                                     AI's Energy Diet<br />Starts Here
                                 </div>
 
                             </div>
-
-                            <div ref={el => superLast.current[0] = el} className='w-full md:w-[30%] sm:pt-0 pt-4 text-center gradient-text-green md:text-lg super'>
+                            <p className='block lg:hidden mono text-center gradient-text-green w-full opacity-85 text-[19px]'>
+                                The world’s first
+                                spintronic<br /> AI accelerator
+                            </p>
+                            <div ref={el => superLast.current[0] = el} className='w-full lg:w-[30%] sm:pt-0 pt-4 sm:text-[23px] text-center gradient-text-green md:text-lg super opacity-45'>
                                 The revolution <span className='border-b-2 border-[#00DA90]'>starts now.</span>
                             </div>
 
-                            <div ref={el => lastRight.current[1] = el} className="hidden md:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
+                            <div ref={el => lastRight.current[1] = el} className="hidden lg:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
                                 <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
                                     <p className=''>
                                         The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.

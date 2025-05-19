@@ -17,9 +17,6 @@ const FourSection = () => {
             const rect = topSectionRef.current.getBoundingClientRect();
             const absoluteTop = rect.top + window.scrollY;
             setBlurHeight(topSectionRef.current.offsetHeight)
-            console.log("Высота всех элементов до FiveSection:", height);
-            console.log("Абсолютное положение (top) до FiveSection:", absoluteTop);
-            console.log("Заканчивается на высоте:", absoluteTop + height);
         }
     }, []);
     return (

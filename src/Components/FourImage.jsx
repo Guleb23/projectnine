@@ -34,28 +34,7 @@ const FourImage = () => {
                         });
                     }
 
-                    // 🌀 Появление AnimatedCircle через 0.5 сек после света
-                    mm.add("(min-width: 1280px)", () => {
-                        gsap.fromTo("#btm",
-                            {
-                                opacity: 0,
-                                scale: 0.8,
-                            },
-                            {
-                                opacity: 1,
-                                scale: 1,
-                                ease: "power2.out",
-                                scrollTrigger: {
-                                    trigger: "#stop",
-                                    start: "63% 10%",
-                                    end: "63% 10%",
-                                    toggleActions: "play none none reverse", // в конце запускаем reverse
-                                    duration: 0.2,
 
-                                }
-                            }
-                        );
-                    })
 
                     mm.add("(max-width: 1280px)", () => {
                         if (circleRef.current) {
@@ -159,10 +138,10 @@ const FourImage = () => {
             xl:rotate-4 
             lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
-                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[55px]' src='/Four/light.png' />
-                <AnimatedCircle id={`btm`} customStyle={`opacity-0 ml-4`} width={window.innerWidth < 640 ? 130 : 180} height={window.innerWidth < 640 ? 130 : 180} />
+                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[75px] xl:-top-[65px]' src='/Four/light.png' />
 
-                <AnimatedCircle lottieRef={circleRef} customStyle={`relative xl:hidden block`} width={`200`} height={`200`} />
+
+                <AnimatedCircle lottieRef={circleRef} customStyle={`relative xl:hidden block`} width={`170`} height={`170`} />
             </div>
 
         </div>

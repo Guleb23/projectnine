@@ -18,13 +18,14 @@ const MainImage = () => {
             <div className="relative ">  {/* Этот div теперь "отслеживает" размеры картинки */}
 
                 <PricingGraph customStyle={`hidden lg:block`} fText={fText} sText={sText} />
-                <img width={335} height={205} className='block lg:hidden select-none pointer-events-none  sm:w-[950px] sm:h-[435px]' src="/NewSecond/secOne.png" />
+                <img className='block lg:hidden' src='/NewSecond/Ilutsr1/img.png' />
+                <img width={335} height={205} className='block md:hidden select-none pointer-events-none  sm:w-[950px] sm:h-[435px]' src="/NewSecond/secOne.png" />
                 <p className='block lg:hidden absolute top-[10%] left-[4.5%]  mono sm:text-sm text-[11px] leading-[150%] bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text' dangerouslySetInnerHTML={{ __html: fText }} />
                 <p className='block lg:hidden absolute bottom-[18%] left-[4.5%] mono sm:text-sm text-[11px] leading-[150%] bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text' dangerouslySetInnerHTML={{ __html: sText }} />
             </div>
 
             <FlowLines id="main-image" />
-            <div className=' grid grid-cols-2 sm:flex max-w-full sm:max-w-[87%] justify-evenly sm:gap-[70px] gap-y-3 px-4 pt-8 flex-wrap lg:flex-nowrap text-center'>
+            <div className=' grid grid-cols-2 sm:flex max-w-full 2xl:max-w-[87%] xl:max-w-[100%] lg:max-w-[100%] justify-evenly sm:gap-[70px] gap-y-3 px-4 pt-8 flex-wrap lg:flex-nowrap text-center'>
                 <Card
                     num={`01`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}

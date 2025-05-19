@@ -69,7 +69,7 @@ const Diagramm = () => {
 
 
     return (
-        <div className='lg:min-w-[1360px] lg:max-w-[1360px] lg:min-h-[452px] h-fit w-fit    flex flex-col lg:gap-[20px] gap-[12px] diagramm-wrapper'>
+        <div className='2xl:min-w-[1360px] lg:min-w-[1260px] lg:max-w-[1360px] lg:min-h-[452px] w-full flex flex-col lg:gap-[20px] gap-[12px] diagramm-wrapper lg:px-[50px]'>
             <div className='flex lg:gap-[20px] gap-[12px]'>
                 <div className='flex flex-col w-full h-full'>
                     <div className='flex flex-col ' >
@@ -136,13 +136,13 @@ const Diagramm = () => {
                         <img src='/arrow.svg' />
                     </div>
                     <div ref={el => leftRef.current[2] = el} className='w-full flex justify-between' >
-                        <div className={`w-[230px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
+                        <div className={`2xl:w-[230px] w-[200px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
                             <p className='mono  text-[10px] lg:text-[15px] gradient-text-green '>
                                 Inference Accelerator
                             </p>
 
                         </div>
-                        <div className={`w-[230px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
+                        <div className={`2xl:w-[230px] w-[200px] h-[50px] bg-[#0ACF83]/5 rounded-lg flex justify-center items-center `}>
                             <p className='mono  text-[10px] lg:text-[15px] gradient-text-green '>
                                 Training Accelerator
                             </p>
