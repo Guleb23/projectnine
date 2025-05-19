@@ -58,7 +58,7 @@ const Code = ({ ref: innerRef }) => {
     return (
         <div
             ref={innerRef}
-            className="hidden lg:block w-[234px] text-left text-[10px] absolute top-24 right-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
+            className="hidden lg:block w-[234px] text-left text-[10px] absolute top-24 right-[7%] text-white h-auto max-h-[400px] select-none pointer-events-none z-0 lastLast"
             style={{
                 WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
                 WebkitMaskRepeat: 'no-repeat',

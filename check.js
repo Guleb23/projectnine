@@ -5,45 +5,46 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 1. Укажите пути
-const publicDir = path.join(__dirname, 'public'); // Папка public
-const projectRoot = __dirname;                   // Корень проекта (для проверки всех файлов)
+// Конфигурация
+const config = {
+    publicDir: path.join(__dirname, 'public'),
+    projectRoot: __dirname,
+    imageExtensions: ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.ico'],
+    ignoreDirs: ['node_modules', 'dist', '.git', '.vscode', '.idea', 'public'],
+    ignoreFiles: ['.DS_Store', 'thumbs.db'],
+    // Дополнительные паттерны для поиска (RegExp)
+    searchPatterns: [
+        /['"`]\/?([^'"`]+\.(png|jpg|jpeg|gif|svg|webp|ico))['"`]/gi,
+        /url\(['"]?\/?([^'"\)]+\.(png|jpg|jpeg|gif|svg|webp|ico))['"]?\)/gi,
+        /%PUBLIC_URL%\/[^'"\s]+\.(png|jpg|jpeg|gif|svg|webp|ico)/gi
+    ]
+};
 
-// 2. Какие форматы изображений проверяем
-const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'];
-
-// 3. Игнорируемые папки (node_modules, .git и т.д.)
-const ignoreDirs = [
-    'node_modules',
-    'dist',
-    '.git',
-    '.vscode',
-    '.idea',
-    'public' // Саму папку public не проверяем
-];
-
-// 4. Находим ВСЕ изображения в public и подпапках
-const allImages = [];
-function scanImages(dir) {
+// 1. Собираем все изображения из public
+const allImages = new Set();
+function scanPublicImages(dir) {
     const files = fs.readdirSync(dir);
     files.forEach(file => {
         const fullPath = path.join(dir, file);
         const stat = fs.statSync(fullPath);
+
+        if (config.ignoreFiles.includes(file)) return;
+
         if (stat.isDirectory()) {
-            scanImages(fullPath);
-        } else if (imageExtensions.some(ext => file.endsWith(ext))) {
-            const relativePath = path.relative(publicDir, fullPath);
-            allImages.push(relativePath);
+            scanPublicImages(fullPath);
+        } else if (config.imageExtensions.some(ext => file.endsWith(ext))) {
+            const relativePath = path.relative(config.publicDir, fullPath);
+            allImages.add(relativePath.replace(/\\/g, '/')); // Нормализуем пути
         }
     });
 }
-scanImages(publicDir);
+scanPublicImages(config.publicDir);
 
-// 5. Ищем использование изображений во ВСЕХ файлах проекта (кроме игнорируемых папок)
+// 2. Ищем использования во всех файлах проекта
 const usedImages = new Set();
-function scanProject(dir) {
-    if (ignoreDirs.some(ignoreDir => dir.includes(ignoreDir))) {
-        return; // Пропускаем игнорируемые папки
+function scanProjectFiles(dir) {
+    if (config.ignoreDirs.some(ignoreDir => path.join(dir).includes(ignoreDir))) {
+        return;
     }
 
     const files = fs.readdirSync(dir);
@@ -52,40 +53,45 @@ function scanProject(dir) {
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-            scanProject(fullPath);
-        } else {
-            // Проверяем все файлы, кроме бинарных (можно добавить исключения)
-            if (!/\.(bin|exe|dll|zip|rar|pdf|ico|mp4)$/i.test(file)) {
-                try {
-                    const content = fs.readFileSync(fullPath, 'utf-8');
-                    allImages.forEach(img => {
-                        // Проверяем разные варианты ссылок
-                        if (
-                            content.includes(`/${img}`) ||          // /images/logo.png
-                            content.includes(`"${img}"`) ||         // "images/logo.png"
-                            content.includes(`'${img}'`) ||         // 'images/logo.png'
-                            content.includes(`%PUBLIC_URL%/${img}`) // React-специфика
-                        ) {
-                            usedImages.add(img);
+            scanProjectFiles(fullPath);
+        } else if (!config.ignoreFiles.includes(file)) {
+            try {
+                const content = fs.readFileSync(fullPath, 'utf-8');
+
+                // Проверяем все заданные паттерны
+                config.searchPatterns.forEach(pattern => {
+                    let match;
+                    while ((match = pattern.exec(content)) !== null) {
+                        const imgPath = match[1] || match[0].replace(/%PUBLIC_URL%/, '');
+                        if (imgPath) {
+                            // Нормализуем путь для сравнения
+                            const normalizedPath = imgPath.startsWith('/')
+                                ? imgPath.slice(1)
+                                : imgPath;
+                            usedImages.add(normalizedPath);
                         }
-                    });
-                } catch (e) {
-                    console.warn(`⚠️ Не удалось прочитать файл: ${fullPath}`);
-                }
+                    }
+                });
+            } catch (e) {
+                console.warn(`⚠️ Could not read: ${fullPath}`, e.message);
             }
         }
     });
 }
-scanProject(projectRoot);
+scanProjectFiles(config.projectRoot);
 
-// 6. Выводим результат
-const unusedImages = allImages.filter(img => !usedImages.has(img));
-console.log('🔍 Неиспользуемые изображения в public/:');
+// 3. Сравниваем и выводим результат
+const unusedImages = [...allImages].filter(img => !usedImages.has(img));
+console.log('🚀 Used images count:', usedImages.size);
+console.log('🗑️ Unused images:', unusedImages.length);
 console.log(unusedImages.join('\n'));
 
-// 7. Опционально: автоматическое удаление (раскомментируйте)
-// unusedImages.forEach(img => {
-//   const fullPath = path.join(publicDir, img);
-//   fs.unlinkSync(fullPath);
-//   console.log(`🗑️ Удалено: ${img}`);
-// });
+// 4. Опциональное удаление (раскомментируйте)
+
+unusedImages.forEach(img => {
+    const fullPath = path.join(config.publicDir, img);
+    if (fs.existsSync(fullPath)) {
+        fs.unlinkSync(fullPath);
+        console.log(`✅ Deleted: ${img}`);
+    }
+});
