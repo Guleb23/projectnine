@@ -107,14 +107,14 @@ const FourLastSection = () => {
 
 
 
-            <img src='/Four/mobLight.png' className='absolute  block md:hidden -translate-y-1/2 top-[40%]' />
+            <img src='/Four/mobLight.png' className='absolute  block md:hidden -translate-y-1/2 top-[40%] w-full' />
 
             <img src='/Four/Blur.png' className='absolute xl:-top-[25%] xl:-right-[15%] hidden lg:block' width={1442} height={815} />
 
             <div className='flex-[0_0_49%] w-0 hidden lg:block  '>
 
             </div>
-            <div className='lg:flex-[0_0_51%] flex-[1_1_100%] w-full sm:items-start   items-center flex flex-col  lg:gap-46'>
+            <div className='lg:flex-[0_0_51%] flex-[1_1_100%] w-full sm:items-start   items-start lg:px-0 px-5 flex flex-col  lg:gap-46'>
                 <Header
                     four={innerWidth > 640}
                     customStyles={`lg:!text-left text-left lg:items-start items-center -mt-[14%] sm:w-[500px] w-[335px] `}
@@ -122,17 +122,17 @@ const FourLastSection = () => {
                     mid={`From Lab to Launch — No Fab Needed`}
                     bottom={`Our non-volatile memory and magnetic sensors are already built, tested, and production-ready. Spintronic components integrate seamlessly with existing microelectronics — no custom fabs, no exotic processes.`} />
 
-                <div className='  w-[500px] h-[704px]  relative lg:hidden block -mt-[16%]'>
+                <div className='  w-[500px] h-[704px]  relative lg:hidden block -mt-[16%] right-[15%]'>
                     <img src='/Four/bigLeft.png' className=' absolute ' width={1259} height={904} />
 
-                    <img src='/Four/leftLeft.png' className='absolute  right-[19%] h-[700px]' />
+                    <img src='/Four/leftLeft.png' className='absolute  w-full h-full object-none -left-[16%]' />
 
                     <img src='/Four/fone.png' className='absolute   -translate-y-1/2  -translate-x-1/2 left-[36%] top-[50%]' />
                     <AnimatedCircle width={`60`} height={`60`} customStyle={`!pt-0 select-none pointer-events-none top-[53%] left-[30%] -translate-y-1/2 `} />
 
 
                 </div>
-                <div className='flex  xl:gap-15 lg:gap-6 sm:gap-8 sm:pb-16  gap-1.5  pt-10 sm:-mt-[17%] -mt-[7%] lg:-mt-[0]'>
+                <div className='flex  xl:gap-15 lg:gap-6 sm:gap-8 sm:pb-16  gap-3  pt-10 sm:-mt-[17%] -mt-[35%] lg:-mt-[0] w-full '>
                     <LastCard ref={el => cardsRef.current[0] = el} img={`/Four/cardLeft.png`} Title={`Non-Volatile<br/> Memory`} sub={`Spintronics non-volatile memory retains data without power, crucial for automotive and low-power AI applications`} />
                     <LastCard ref={el => cardsRef.current[1] = el} img={`/Four/cardRight.png`} Title={`Advanced Magnetic Sensors`} sub={`Spintronic sensors are<br/> the best fit for edge<br/> and IoT devices`} />
 

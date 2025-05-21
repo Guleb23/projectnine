@@ -31,7 +31,8 @@ const Fone = ({ id, children }) => {
 
 
     return (
-        <section ref={sectionRef} id={id} className='bg-black w-screen h-full relative   pt-[1%] pb-[3%]'>
+        <section ref={sectionRef} id={id} className='bg-black w-screen h-full relative   pt-[1%] pb-[3%] overflow-hidden'>
+
             <div className='min-w-screen min-h-screen h-[135vh] absolute'>
 
                 <img ref={foneRef} src='/Seven/Fone.png' className='absolute  -translate-y-1/2 top-[55%] -translate-x-1/2 left-1/2 hidden sm:block' />
@@ -45,7 +46,7 @@ const Fone = ({ id, children }) => {
                 alt="White Blur"
             />
             {children}
-            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none opacity-70" />
             <img
                 className="absolute md:hidden block w-screen   -bottom-[10%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none  rounded-4xl"
                 src="/bb.png"
@@ -56,9 +57,10 @@ const Fone = ({ id, children }) => {
                 src="/bb.png"
                 alt="White Blur"
             />
-            <div className=" absolute opacity-100 -bottom-[1%]  left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
-            <img src='/Nine/Blur.png' className='md:hidden block absolute z-50 select-none -bottom-[13%] -left-[20%] pointer-events-none' />
-            <div className="absolute w-[190px] h-[300px] -bottom-[10%] left-1/2 -translate-x-1/2  blur-[120px] rounded-full bg-[#16CDDE] opacity-60 pointer-events-none z-0" />
+
+
+            <div className="absolute w-[190px] h-[300px] -bottom-[10%] left-1/2 -translate-x-1/2  blur-[120px] rounded-full bg-[#16CDDE] opacity-60 pointer-events-none z-10 lg:hidden block" />
+            <div className=" absolute opacity-100 -bottom-[1%]  left-0 w-full h-62 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
         </section>
     )
 }

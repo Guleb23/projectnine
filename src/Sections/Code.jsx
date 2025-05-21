@@ -33,10 +33,10 @@ const Code = ({ ref: innerRef }) => {
     useEffect(() => {
         const obj = { length: 0 };
 
-        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+        const tl = gsap.timeline({ repeat: -0.3, repeatDelay: 0.3 });
 
         tl.to(obj, {
-            duration: 6,
+            duration: 3,
             length: codeText.length,
             onUpdate: () => {
                 if (codeRef.current) {
@@ -44,9 +44,9 @@ const Code = ({ ref: innerRef }) => {
                 }
             },
         }).to(obj, {
-            duration: 3,
+            duration: 2,
             length: 0,
-            delay: 1,
+            delay: 0.5,
             onUpdate: () => {
                 if (codeRef.current) {
                     codeRef.current.innerText = codeText.substring(0, Math.floor(obj.length));

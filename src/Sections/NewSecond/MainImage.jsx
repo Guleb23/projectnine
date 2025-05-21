@@ -37,14 +37,14 @@ const MainImage = () => {
                     num={`02`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
                     text={`${innerWidth > 640 ?
-                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">No longer just for<br/> Big Tech —<br/> </span> democratizing intelligence`
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">No longer just for Big Tech —<br/> </span> democratizing intelligence`
                         : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">No longer just for<br/> Big Tech —<br/> </span> democratizing intelligence`}`}
                 />
                 <Card
                     num={`03`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
                     text={`${innerWidth > 640 ?
-                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models =<br/></span>more<br/> breakthroughs`
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models</span> = more<br/> breakthroughs`
                         : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">More models =<br/></span>more<br/> breakthroughs`}`}
                 />
                 <Card
@@ -52,8 +52,8 @@ const MainImage = () => {
                     num={`04`}
                     customStyle={`text-left sm:text-center items-start sm:items-center`}
                     text={`${innerWidth > 640 ?
-                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every <br/>level<br/></span>— from research<br/> to edge`
-                        : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every <br/>level<br/></span>— from research<br/> to edge`}`}
+                        `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every level<br/></span>— from research to edge`
+                        : `<span class="bg-[radial-gradient(circle,_#00E599,_#00E599)] text-transparent bg-clip-text">Acceleration at every level</span>— from research to edge`}`}
                 />
             </div>
         </div>

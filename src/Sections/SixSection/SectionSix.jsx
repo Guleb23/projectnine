@@ -50,13 +50,13 @@ const SectionSix = () => {
     }, [])
 
     return (
-        <div className='w-screen h-full md:h-screen flex flex-row  pt-[8%] relative md:mb-[125px]'>
+        <div className='w-screen h-full md:h-screen flex flex-row  pt-[25%] relative md:mb-[125px]'>
             <div className='flex-[0_0_72%] md:pl-[17%] pl-[5%] z-10'>
                 <Head />
                 <div className='flex flex-col  md:flex-row md:gap-14 gap-[35px] md:pt-18 pt-[35px]'>
-                    <Card ref={el => subRef.current[0] = el} img={`/Six/left.png`} text={`Multi-bit non-volatile<br/> resistive <br/>synapse using<br/> SOT MTJ cells`} />
+                    <Card ref={el => subRef.current[0] = el} img={`/Six/left.png`} text={innerWidth > 640 ? `Multi-bit non-volatile<br/> resistive <br/>synapse using<br/> SOT MTJ cells` : `Multi-bit<br/> non-volatile<br/> resistive<br/>synapse using<br/> SOT MTJ cells`} />
 
-                    <Card ref={el => subRef.current[1] = el} img={`/Six/right.png`} text={`Proprietary algorithms<br/> that adapt neural networks<br/> to analog hardware physics`} />
+                    <Card ref={el => subRef.current[1] = el} img={`/Six/right.png`} text={innerWidth > 640 ? `Proprietary algorithms<br/> that adapt neural networks<br/> to analog hardware physics` : `Proprietary algorithms<br/> that adapt neural<br/> networks to analog<br/> hardware physics`} />
                 </div>
             </div>
             <div className='relative w-[670px] h-[710px] -ml-[11%] -mt-[4%] hidden md:block'>
@@ -73,7 +73,7 @@ const SectionSix = () => {
 
             <div className='relative -ml-[55%] -mt-12'>
 
-                <div className='w-[582px] h-[710px] relative ml-0 mt-0 lg:-ml-[10%]  lg:mt-[6%] block md:hidden'>
+                <div className='w-[582px] h-[710px] relative ml-0 mt-0   block md:hidden'>
                     <img src='/Six/btm.png' className='absolute -translate-y-1/2 -translate-x-1/2 top-[350px]  left-[245px] w-[393px] h-[546px]' />
 
 

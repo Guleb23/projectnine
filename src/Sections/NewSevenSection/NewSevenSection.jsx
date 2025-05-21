@@ -3,6 +3,7 @@ import Header from '../NewSecond/Header'
 import ImageModal from '../../Components/ImageModal';
 import { HiMagnifyingGlassPlus } from "react-icons/hi2";
 import { Crad } from './Crad';
+import MiniCard from '../NineSection/MiniCard';
 
 const NewSevenSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +15,7 @@ const NewSevenSection = () => {
     };
     return (
 
-        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center md:-mt-[2%] -mt-[32%] relative'>
+        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center md:mt-[25%] -mt-[2%]  relative pb-[10%]'>
             {isModalOpen && (
                 <ImageModal
                     imageUrl={selectedImage}
@@ -22,7 +23,7 @@ const NewSevenSection = () => {
                 />
             )}
             <img src='/NewSeven/miniLight.png' className='absolute block lg:hidden  top-[15%] right-0 z-0' />
-            <img src='/right.png' className='absolute w-[960px]  top-0 right-0 z-0' />
+            <img src='/right.png' className='absolute w-[960px]  top-0 -right-[20%] z-0' />
             <img src='/left.png' className='absolute  w-[960px] lg:left-[40%]  top-[10%] left-[0] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute hidden lg:block -translate-y-1/2 top-1/2 -left-[70%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute hidden lg:block -translate-y-1/2 top-1/2 -right-[45%] z-0 ' />
@@ -46,8 +47,13 @@ const NewSevenSection = () => {
                     With expertise spanning spintronics, microelectronics, and systems engineering, the team blends technical depth with real-world execution.
                     The company is a graduate of the INNOFENSE Innovation Center (iHLS & Israeli MoD) and is supported by the European Innovation Council and the JU Chips Act.`} />
                     <div className=' gap-2.5 pt-[30px] flex md:hidden'>
+                        <div className='relative w-full h-full'>
+                            <img width={168} height={270} className='' src='/NewSeven/house.png' />
+                            <div className='absolute bottom-2 left-2 z-50'>
+                                <MiniCard customStyle={`!text-[10px] !px-[10px] !py-[8px]`} />
+                            </div>
+                        </div>
 
-                        <img width={168} height={270} className='' src='/NewSeven/house.png' />
 
 
                         <div className='flex flex-col w-full h-full'>

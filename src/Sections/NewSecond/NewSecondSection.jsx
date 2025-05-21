@@ -88,7 +88,7 @@ const NewSecondSection = () => {
 
             <MainImage />
 
-            <Header customStyles={`!gap-2`} top={`BThe Hidden Cost of Artificial Intelligence`}
+            <Header top={`BThe Hidden Cost of Artificial Intelligence`}
                 mid={`And Let’s Talk About<br/> Data Centers`}
                 bottom={`AI now consumes as much power as nations.`} />
             <SecondImage />
@@ -111,12 +111,9 @@ const NewSecondSection = () => {
                 ))}
             </div>
             <div className="absolute opacity-70 bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
-            <img
-                ref={lightRef}
-                src="/NewSecond/btmBlur.png"
-                alt="Blur Effect"
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none z-10"
-            />
+
+
+            <div ref={lightRef} className="absolute w-screen h-[30px] bottom-0 left-1/2 -translate-x-1/2  blur-[80px] rounded-full bg-[#16CDDE] opacity-100 pointer-events-none z-20" />
         </NewSecondFone>
     )
 }

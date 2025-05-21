@@ -283,7 +283,7 @@ const HeroSection = ({ styles }) => {
                         <div className='flex w-full justify-between mono pt-[5px]' ref={el => firstElems.current[3] = el}>
                             {reorderedSubText.map((w, index) => (
                                 <p
-                                    className={`gradient-text-green sm:text-[12px] text-[11px] lg:text-sm sm:w-44 w-fit text-center 
+                                    className={`gradient-text-green font-normal sm:text-[12px] text-[11px] lg:text-sm sm:w-44 w-fit text-center 
                     ${index === 0 && "text-start"} 
                     ${index === 3 && "text-end"}`}
                                     key={index}
@@ -292,14 +292,14 @@ const HeroSection = ({ styles }) => {
                                 </p>
                             ))}
                         </div>
-                        <p className='mono gradient-text-green text-[13px] text-center pt-18 sm:hidden'>
+                        <p className='mono gradient-text-green text-[13px] font-normal text-center pt-18 sm:hidden'>
                             The world’s first spintronic<br />
                             AI accelerator
                         </p>
                         {/* Нижние блоки */}
                         <div className='flex w-full sm:flex-col lg:flex-row  justify-between items-start pt-12 sm:gap-8 lg:gap-0'>
                             <div ref={el => lastLeft.current[1] = el} className="hidden mt-[8px] lg:block relative w-[30%] text-sm lastLeft">
-                                <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
+                                <div className="gradient-text-green opacity-40 font-normal text-transparent bg-clip-text mono">
                                     AI's Energy Diet<br />Starts Here
                                 </div>
 
@@ -313,7 +313,7 @@ const HeroSection = ({ styles }) => {
                             </div>
 
                             <div ref={el => lastRight.current[1] = el} className="hidden lg:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
-                                <div className="gradient-text-green opacity-40 font-bold text-transparent bg-clip-text mono">
+                                <div className="gradient-text-green opacity-40 font-normal text-transparent bg-clip-text mono">
                                     <p className=''>
                                         The Last Chip Humanity Will<br /> Ever Need. Where GPUs Sweat,<br /> SpinEdge Thrives.
                                     </p>

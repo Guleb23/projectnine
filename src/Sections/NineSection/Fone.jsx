@@ -6,7 +6,6 @@ const Fone = ({ id, children }) => {
         <div id={id} className='w-screen bg-black min-h-screen h-full relative pt-[6%] overflow-hidden'>
 
 
-            <img src='/Nine/Blur.png' className='lg:block hidden absolute z-50 select-none -top-[10%] -left-[20%] pointer-events-none' />
 
             <img src='/Nine/Fone.png' className='absolute hidden lg:block  2xl:-left-[33%] lg:-left-[36%] -bottom-[32%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute hidden lg:block -bottom-[32%] 2xl:-right-[33%] lg:-right-[36%] z-0 ' />
@@ -26,7 +25,7 @@ const Fone = ({ id, children }) => {
             <img src='/nine.png' className='block md:hidden absolute w-[760px] bottom-[15%]' />
             <img src='/Nine/Blur.png' className=' hidden lg:block absolute z-20 rotate-90 select-none top-[10%] -right-[30%] pointer-events-none' />
             {children}
-            <div className='absolute lg:-bottom-[1.5%] -bottom-2  flex sm:max-w-[732px] max-w-[335px] w-full justify-between -translate-x-1/2 left-1/2 z-20' >
+            <div className='absolute w-full px-5 lg:-bottom-[1.5%] -bottom-2  flex sm:max-w-[732px]  w-full justify-between -translate-x-1/2 left-1/2 z-20' >
                 {word.map((w, index) => (
                     <p
                         className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'
@@ -37,7 +36,7 @@ const Fone = ({ id, children }) => {
                 ))}
             </div>
 
-            <div className="absolute opacity-100 top-0 left-0 w-full h-12 bg-gradient-to-t from-transparent to-black z-10 pointer-events-none" />
+
 
             <div className="absolute bottom-0 left-0 w-full lg:h-32  h-13 bg-gradient-to-b from-transparent to-black z-40 pointer-events-none" />
 
@@ -49,7 +48,7 @@ const Fone = ({ id, children }) => {
                 viewBox="0 0 1725 632"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className=' absolute 2xl:-bottom-[360px] xl:-bottom-[260px] bottom-0 w-[1725px] h-[632px] select-none pointer-events-none z-[100]  '
+                className=' absolute 2xl:-bottom-[360px] xl:-bottom-[260px] bottom-0 w-[1725px] h-[632px] select-none pointer-events-none z-[100] w-full '
             >
                 <g filter="url(#filter0_f_341_398)">
                     <ellipse
@@ -92,7 +91,7 @@ const Fone = ({ id, children }) => {
                 viewBox="0 0 375 271"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className='absolute bottom-0  z-50 block md:hidden'
+                className='absolute bottom-0  z-50 block md:hidden w-full'
 
             >
                 <g filter="url(#filter0_f_319_4127)">

@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const SevenSection = () => {
     const cardsRef = useRef([])
     const teamHeaderRef = useRef([])
+    const handRef = useRef(null)
 
     useEffect(() => {
         // Анимация карточек
@@ -65,6 +66,15 @@ const SevenSection = () => {
                 }
             )
         }
+
+        // Анимация руки
+        gsap.to(handRef.current, {
+            x: 20,
+            duration: 1.5,
+            ease: "power1.inOut",
+            repeat: -1,
+            yoyo: true
+        })
     }, [])
 
     return (
@@ -73,8 +83,8 @@ const SevenSection = () => {
                 <div className='w-full px-[21px]'>
                     <Header
                         top={`BEHIND THE BREAKTHROUGH`}
-                        mid={`The Minds Rewriting<br/> AI’s Future`}
-                        bottom={`100+ years of combined experience at IBM, Google, and top<br/> research labs — now united to solve AI’s hardest problem`}
+                        mid={`The Minds Rewriting<br/> AI's Future`}
+                        bottom={window.innerWidth < 640 ? `100+ years of combined experience at IBM, Google, and top research labs — now united to solve AI's hardest problem` : `100+ years of combined experience at IBM, Google, and top<br/> research labs — now united to solve AI's hardest problem`}
                     />
                 </div>
 
@@ -128,7 +138,7 @@ const SevenSection = () => {
                         >
                             Team members<br /> and Advisors
                         </h2>
-                        <img src='/hand.svg' className='block lg:hidden' />
+                        <img ref={handRef} src='/hand.svg' className='block lg:hidden' />
                     </div>
 
                     <div className='flex justify-start'>

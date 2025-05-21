@@ -47,12 +47,12 @@ const SecondFone = ({ children, id }) => {
 
             <img
                 ref={el => firstAnimation.current[2] = el}
-                className="absolute top-0 h-full max-h-screen min-w-[760px] max-w-full m-auto select-none pointer-events-none z-0"
+                className="absolute top-[7%] h-full max-h-screen min-w-[760px] max-w-full m-auto select-none pointer-events-none z-0"
                 src="/Second/step2.png"
                 alt="Step 2"
             />
-            <img src='/right.png' className='absolute w-[960px] top-0 right-0' />
-            <img src='/left.png' className='absolute  w-[960px] top-0 left-0' />
+            <img src='/right.png' className='absolute w-[960px] top-0 right-0 select-none pointer-events-none' />
+            <img src='/left.png' className='absolute  w-[960px] top-0 left-0 select-none pointer-events-none' />
             <img
                 className="absolute inset-0 h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
                 src="/Second/whiteblur.png"
@@ -60,13 +60,13 @@ const SecondFone = ({ children, id }) => {
             />
             <img
                 ref={el => firstAnimation.current[1] = el}
-                className="absolute w-full select-none pointer-events-none z-1 opacity-40"
+                className="absolute w-full select-none pointer-events-none z-1 opacity-40 "
                 src="/Second/greenBlur.png"
                 alt="Green Blur"
             />
             <img
                 ref={blurRef}
-                className="hidden" // если больше не нужен — можно убрать из DOM или скрыть
+                className="hidden select-none pointer-events-none" // если больше не нужен — можно убрать из DOM или скрыть
                 alt="Hidden Blur"
             />
             {children}

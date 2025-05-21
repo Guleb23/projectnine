@@ -17,7 +17,7 @@ export const MiniCard = ({ className }) => {
                     strokeWidth="0.929688"
                 />
             </svg>
-            <div className="frame-1410103863">
+            <div className="frame-1410103863 ">
                 <div className="haifa-israel">Haifa, Israel</div>
             </div>
             <svg

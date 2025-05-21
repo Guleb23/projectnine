@@ -1,57 +1,104 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Fone from './Fone'
 import CustomInput from './CustomInput'
 import AnimatedCircle from '../../Components/AnimatedCircle'
 import MiniCard from "./MiniCard"
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+gsap.registerPlugin(ScrollTrigger)
 
 const NineSection = () => {
+    const sectionRef = useRef(null)
+    const mainRef = useRef(null)
+    const circleRef = useRef(null)
+    const blurRef = useRef(null)
+
+    useEffect(() => {
+        // Создаем временную шкалу для анимации
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse"
+            }
+        })
+
+        // Начальное состояние элементов
+        gsap.set(mainRef.current, { y: 100, opacity: 0 })
+        gsap.set(circleRef.current, { scale: 0, opacity: 0 })
+        gsap.set(blurRef.current, { opacity: 0 })
+
+        // Последовательность анимаций
+        tl.to(mainRef.current, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out"
+        })
+            .to(circleRef.current, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            }, "-=0.3")
+            .to(blurRef.current, {
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.inOut"
+            }, "-=0.4")
+
+        return () => {
+            tl.kill()
+        }
+    }, [])
+
     return (
         <Fone>
-            <div className='w-full h-full relative flex justify-center items-center flex-col'>
+            <div ref={sectionRef} className='w-full h-full relative flex justify-center items-center flex-col'>
+                <div className='relative w-fit h-fit ml-[5%] md:scale-100 scale-[0.8] '>
+                    <img ref={blurRef} id='blur' src='/Nine/MainBlur.png' className='absolute hidden lg:block z-0 -top-[9%] left-0 select-none pointer-events-none' />
+                    <img ref={mainRef} id='main' src='/Nine/Main.png' className='relative z-20 select-none pointer-events-none' />
 
-                <div className='relative w-fit h-fit ml-[5%]'>
-                    <img src='/Nine/MainBlur.png' className='absolute hidden lg:block z-0 -top-[9%] left-0 select-none pointer-events-none' />
-                    <img src='/Nine/Main.png' className=' relative z-20 select-none pointer-events-none' />
+                    <AnimatedCircle id='circle' lottieRef={circleRef} width={window.innerWidth < 640 ? 120 : 160} height={window.innerWidth < 640 ? 120 : 160} customStyle={`select-none pointer-events-none top-[30%] left-[45.5%] -translate-y-1/2 -translate-x-1/2 z-50 `} />
 
-                    <AnimatedCircle width={window.innerWidth < 640 ? 120 : 160} height={window.innerWidth < 640 ? 120 : 160} customStyle={`select-none pointer-events-none top-[30%] left-[45.5%] -translate-y-1/2 -translate-x-1/2 z-50 `} />
                 </div>
                 <h2 className='md:text-[46px] text-[27px] text-center mb-[25px] -mt-[15%] md:mt-0 md:text-left font-bold gradient-text-green 2xl:-mt-[4%] xl:-mt-[6%]'>
-                    $7M buys the future. Miss it,{window.innerWidth < 640 ? "" : <br />} and your competitors won’t.
+                    $7M buys the future.{window.innerWidth > 640 ? "" : <br />} Miss it,{window.innerWidth < 640 ? "" : <br />} and your{window.innerWidth > 640 ? "" : <br />} competitors won't.
                 </h2>
                 <div className='flex flex-col gap-3 pb-11 px-5 z-50'>
                     <CustomInput customStyle={`md:w-[730px] w-full`} placeholder={`Business / Website`} id={`first`} />
                     <CustomInput customStyle={`md:w-[730px] w-full`} placeholder={`E-mail address`} id={`second`} />
                     <CustomInput customStyle={`md:w-[730px] w-full`} isBig={true} placeholder={`Business / Website`} id={`three`} />
-                    <button className="bg-[radial-gradient(circle,_#16F501,_#00DA90)]  w-full h-10 md:h-12 rounded-lg text-sm md:text-[16px] font-bold">
+                    <button className="bg-[radial-gradient(143.46%_554.36%_at_-75.93%_-93%,_#16F501_0%,_#00DA90_100%)]  w-full h-10 md:h-12 rounded-lg text-sm md:text-[16px] font-bold">
                         Meet the Future →
                     </button>
                     <p className='lg:gradient-text-green lg:w-full   text-[#5B6765] mono md:text-[12px] text-center md:text-left text-[10px]'>By clicking the button, I consent to the processing of my <span className='underline'>personal data</span>.</p>
-                </div>
-                <div className='flex justify-center items-center flex-col gap-6 pb-26 z-50 md:px-0 px-5'>
-                    <div className='relative  '>
-                        <img className='w-[335px] h-[270px] object-cover object-top md:h-[362px] md:w-[730px]' src='/Nine/btmHouse.png' />
+                    <div className='flex justify-center items-center flex-col gap-6 lg:pb-26 pb-16 z-50  w-full pt-[65px] lg:pt-[45px]'>
+                        <div className='relative w-full'>
+                            <img className='w-full object-cover object-top' src='/Nine/btmHouse.png' />
 
+                            <div className='absolute bottom-2 left-2 z-50'>
+                                <MiniCard />
+                            </div>
+                        </div>
 
-                        <div className='absolute bottom-2 left-2 z-50'>
-                            <MiniCard />
+                        <div className='flex  mono md:text-[13px] text-[9px] justify-between w-full opacity-50 z-50 '>
+                            <p className='gradient-text-green'>
+                                © 2025, SpinEdge.
+                            </p>
+                            <p className='gradient-text-green'>
+                                All rights reserved.
+                            </p>
+                            <p className='gradient-text-green'>
+                                Privacy Policy
+                            </p>
                         </div>
 
                     </div>
-
-                    <div className='flex gradient-text-green mono md:text-[13px] text-[9px] justify-between w-full opacity-50'>
-                        <p>
-                            © 2025, SpinEdge.
-                        </p>
-                        <p>
-                            All rights reserved.
-                        </p>
-                        <p>
-                            Privacy Policy
-                        </p>
-                    </div>
-
                 </div>
+
             </div>
         </Fone>
     )

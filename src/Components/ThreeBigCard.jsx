@@ -36,7 +36,7 @@ const ThreeBigCard = () => {
                     radical new approaches in computation are essential.
                 </p>
                 <button className="relative overflow-hidden w-[194px] md:w-64 min-h-[43px] md:min-h-[50px] rounded-lg text-sm md:text-[18px] font-bold text-white group flex items-center justify-center">
-                    <span className="absolute inset-0 bg-[radial-gradient(circle,_#16F501_0%,_#00DA90_100%)] bg-[length:200%_100%] bg-left rounded-lg transition-[background-position] duration-500 ease-in-out group-hover:bg-right"></span>
+                    <span className="absolute inset-0 bg-[radial-gradient(143.46%_554.36%_at_-75.93%_-93%,_#16F501_0%,_#00DA90_100%)] bg-[length:200%_100%] bg-left rounded-lg transition-[background-position] duration-500 ease-in-out group-hover:bg-right"></span>
                     <span className="relative z-10 text-black">Meet the Future →</span>
                 </button>
 

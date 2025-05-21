@@ -5,7 +5,7 @@ const Card = ({ num,
     customStyle }) => {
     return (
         <div className={`flex  flex-col gap-4 sm:w-[262px] w-[165px] items-center ${customStyle || " "}`}>
-            <div className='w-16 h-11 bg-transparent relative text-center px-4 py-2.5'>
+            <div className='lg:w-16 lg:h-11 w-[55px] bg-transparent relative text-center px-4 py-2.5'>
                 <img src='/Four/miniRight.png' className='absolute top-0 right-0' />
                 <img src='/Four/miniLeft.png' className='absolute bottom-0 left-0' />
                 <p className='font-bold sm:text-lg text-sm  text-center gradient-text-green'>{num}</p>

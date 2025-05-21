@@ -145,7 +145,7 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
 
             <div ref={priceBlock1} className=" absolute -translate-y-1/2 -translate-x-1/2 bottom-[3%] left-[65%] flex flex-col items-center w-fit z-[51]">
                 <div className="relative inline-block">
-                    <div className="bg-white/10 text-[#00E599] font-extrabold text-[12px] px-3 py-1 rounded shadow-md z-50">
+                    <div className="bg-white/10 mono text-[#00E599] font-extrabold text-[12px] px-3 py-1 rounded shadow-md z-50">
                         $0.0005
                     </div>
                     <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white/10"></div>
@@ -155,7 +155,7 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
             </div>
             <div ref={priceBlock2} className=" absolute -translate-y-1/2 -translate-x-1/2 top-[23.5%] left-[49%] flex flex-col items-center w-fit z-[51]">
                 <div className="relative inline-block">
-                    <div className="bg-white/5 text-[#00E599] font-extrabold text-[12px] px-3 py-1 rounded shadow-md z-50">
+                    <div className="bg-white/5 mono text-[#00E599] font-extrabold text-[12px] px-3 py-1 rounded shadow-md z-50">
                         $0.05
                     </div>
                     <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white/5"></div>

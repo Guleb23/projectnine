@@ -111,7 +111,7 @@ const FiveSection = () => {
                 * SpinEdge Digital twin modeling
             </h3>
 
-            <div className='flex justify-center items-center sm:pt-[2%] pt-[6%] px-2 pb-[10px]'>
+            <div className='flex justify-center items-center sm:pt-[2%] pt-[6%] px-2 '>
                 <Table />
             </div>
         </FiveFone>
