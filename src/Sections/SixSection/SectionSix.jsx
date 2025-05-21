@@ -50,7 +50,7 @@ const SectionSix = () => {
     }, [])
 
     return (
-        <div className='w-screen h-full md:h-screen flex flex-row  pt-[25%] relative md:mb-[125px]'>
+        <div className='w-screen h-full md:h-screen flex flex-row lg:pt-[10%]  pt-[25%] relative md:mb-[125px]'>
             <div className='flex-[0_0_72%] md:pl-[17%] pl-[5%] z-10'>
                 <Head />
                 <div className='flex flex-col  md:flex-row md:gap-14 gap-[35px] md:pt-18 pt-[35px]'>

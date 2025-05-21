@@ -15,7 +15,7 @@ const NewSevenSection = () => {
     };
     return (
 
-        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center md:mt-[25%] -mt-[2%]  relative pb-[10%]'>
+        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center  -mt-[2%]  relative pb-[10%]'>
             {isModalOpen && (
                 <ImageModal
                     imageUrl={selectedImage}
