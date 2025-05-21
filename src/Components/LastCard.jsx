@@ -5,7 +5,7 @@ const LastCard = ({ customStyles, ref,
     sub,
     img }) => {
     return (
-        <div ref={ref} className={`flex flex-col gap-4  sm:w-80 lg:w-[165px] w-full  h-60 ${customStyles || " "}`}>
+        <div ref={ref} className={`flex flex-col gap-4  sm:w-80  w-full  h-60 ${customStyles || " "}`}>
             <div className='w-16 h-11 bg-transparent relative text-center '>
                 <img src={img} />
             </div>
