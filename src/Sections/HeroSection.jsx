@@ -7,6 +7,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import FirstFone from '../Components/FirstFone'
 import Code from './Code'
 gsap.registerPlugin(ScrollToPlugin);
+
 const HeroSection = ({ styles }) => {
     const overlayRef = useRef(null)
     const firstElems = useRef([])
@@ -16,208 +17,125 @@ const HeroSection = ({ styles }) => {
     const superLast = useRef([])
     const navbarRef = useRef(null);
     const toumanRef = useRef(null);
+
     const getVisible = (arr) =>
         arr.filter(el => el && el.offsetParent !== null);
 
-
-
     useGSAP(() => {
-        const tl = gsap.timeline();
-        const mm = gsap.matchMedia();
-        // 1. Скрытие overlay — быстрее
+        const tl = gsap.timeline({
+            defaults: {
+                duration: 0.4,
+                ease: 'power2.out'
+            }
+        });
+
+        // Оптимизированная последовательность анимаций
         tl.to(overlayRef.current, {
             opacity: 0,
-            duration: 0.8,
-            ease: 'power2.inOut',
-            delay: 0.2, // меньше задержка
-        });
-
-        // 2. Текст появляется быстрее и плотнее
-        tl.fromTo(
-            firstElems.current,
-            { opacity: 0, y: 40 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power2.out',
-                stagger: 0.08,
-            },
-            '-=0.6'
-        );
-
-        // 3. Navbar
-        tl.fromTo(
-            navbarRef.current,
-            { opacity: 0, y: -20 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power2.out',
-            },
-            '-=0.4' // быстрее после текста
-        );
-
-        // 4. Touman + Ball (одновременно с Navbar)
-        tl.fromTo(
-            toumanRef.current,
-            {
-                opacity: 0,
-                yPercent: -100,
-                transform: 'translateX(-50%)',
-            },
-            {
-                opacity: 1,
-                yPercent: 0,
-                duration: 0.6,
-                ease: 'power2.out',
-                transform: 'translateX(-50%)',
-            },
-            '-=0.6'
-        );
-
-        tl.fromTo(
-            ballRef.current,
-            {
-                opacity: 0,
-                scale: 0.5,
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                duration: 0.6,
-                ease: 'power2.out',
-            },
-            '-=0.6'
-        );
-
-        // 5. lastLeft
-        const visibleLastLeft = getVisible(lastLeft.current);
-        if (visibleLastLeft.length) {
-            tl.fromTo(
-                visibleLastLeft,
-                { opacity: 0, xPercent: -40 },
+            duration: 0.5,
+            delay: 0.1
+        })
+            .fromTo(firstElems.current,
+                { opacity: 0, y: 20 },
                 {
                     opacity: 1,
-                    xPercent: 0,
-                    duration: 0.6,
-                    ease: 'power2.out',
-                    stagger: 0.12,
+                    y: 0,
+                    stagger: 0.05
                 }
-            );
-        }
-
-        // 6. lastRight
-        const visibleLastRight = getVisible(lastRight.current);
-        if (visibleLastRight.length) {
-            tl.fromTo(
-                visibleLastRight,
-                { opacity: 0, xPercent: 40 },
+            )
+            .fromTo([navbarRef.current, toumanRef.current],
                 {
-                    opacity: 1,
-                    xPercent: 0,
-                    duration: 0.6,
-                    ease: 'power2.out',
-                    stagger: 0.12,
-                }
-            );
-        }
-
-        // 7. superLast
-        const visibleSuperLast = getVisible(superLast.current);
-        if (visibleSuperLast.length) {
-            tl.fromTo(
-                visibleSuperLast,
-                { opacity: 0, yPercent: 10 },
-                {
-                    opacity: 1,
-                    yPercent: 0,
-                    duration: 0.6,
-                    ease: 'power2.out',
-                }
-            );
-        }
-
-
-        mm.add("(min-width: 768px)", () => {
-            gsap.fromTo(ballRef.current,
-                {
-                    scale: 1,
+                    opacity: 0,
+                    y: -10
                 },
                 {
-                    scale: 0.7,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: ballRef.current,
-                        start: "50% 20%",
-                        endTrigger: "#sec",
-                        end: "20% 90%",
-                        scrub: 1,
-                        pin: true,
-                        immediateRender: false,
-                    }
-                }
-            );
-        });
-        mm.add("(max-width: 768px)", () => {
-            gsap.fromTo(ballRef.current,
+                    opacity: 1,
+                    y: 0,
+                },
+                '-=0.2'
+            )
+            .fromTo(ballRef.current,
                 {
-                    scale: 1,
+                    opacity: 0,
+                    scale: 0.8
                 },
                 {
-                    scale: 0.7,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: ballRef.current,
-                        start: "50% 20%",
-                        endTrigger: "#sec",
-                        end: "20% center",
-                        scrub: 1,
-                        pin: true,
-                        immediateRender: false
-                    }
+                    opacity: 1,
+                    scale: 1
+                },
+                '-=0.2'
+            );
+
+        // Оптимизированная анимация для боковых элементов
+        const visibleElements = [
+            ...getVisible(lastLeft.current),
+            ...getVisible(lastRight.current),
+            ...getVisible(superLast.current)
+        ];
+
+        if (visibleElements.length) {
+            tl.fromTo(visibleElements,
+                {
+                    opacity: 0,
+                    x: (i) => i < lastLeft.current.length ? -20 : 20
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    stagger: 0.03
                 }
             );
+        }
+
+        // Оптимизированный ScrollTrigger
+        const mm = gsap.matchMedia();
+
+        mm.add({
+            isDesktop: "(min-width: 768px)",
+            isMobile: "(max-width: 767px)"
+        }, (context) => {
+            const { isDesktop } = context.conditions;
+
+            gsap.to(ballRef.current, {
+                scale: 0.7,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ballRef.current,
+                    start: "50% 20%",
+                    endTrigger: "#sec",
+                    end: isDesktop ? "20% 90%" : "20% center",
+                    scrub: 0.5,
+                    pin: true,
+                    anticipatePin: 1
+                }
+            });
         });
 
     }, []);
 
-
     const [isMobile, setIsMobile] = useState(false);
     const [reorderedSubText, setReorderedSubText] = useState([
         "200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"
-    ]); // Изначальный порядок
+    ]);
 
     const subText = ["200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"];
 
-    // useEffect без зависимости от subText, чтобы избежать перерисовок.
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 640);
-
-            if (window.innerWidth < 640) {
-                // На мобильных устройствах показываем только 3 элемента в новом порядке
-                setReorderedSubText([
-                    "200x faster", "500W → 2W per chip", ">$1.2M saving"
-                ]);
-            } else {
-                // На больших экранах возвращаем все 4 элемента в исходном порядке
-                setReorderedSubText(subText);
-            }
+            const width = window.innerWidth;
+            setIsMobile(width < 640);
+            setReorderedSubText(width < 640 ?
+                ["200x faster", "500W → 2W per chip", ">$1.2M saving"] :
+                subText
+            );
         };
 
-        handleResize(); // При первом рендере
-        window.addEventListener('resize', handleResize); // Подписка на изменение размера экрана
-
-        return () => window.removeEventListener('resize', handleResize); // Очистка при размонтировании
-    }, []); // Пустой массив зависимостей
-
-
-
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const word = ["S", "P", "I", "N", "E", "D", "G", "E"];
-
 
     return (
         <FirstFone id='main' >
@@ -235,7 +153,8 @@ const HeroSection = ({ styles }) => {
                 src="/Hero/touman.png"
                 alt="Touman"
                 style={{
-                    transform: 'translateX(-50%)', // ✅ Центрируем вручную
+                    transform: 'translateX(-50%)',
+                    willChange: 'transform'
                 }}
             />
 
@@ -259,7 +178,7 @@ const HeroSection = ({ styles }) => {
                 </div>
                 <Code ref={el => lastRight.current[0] = el} />
                 <p ref={el => lastLeft.current[0] = el} className="hidden lg:block  text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
-                    The world’s first<br />
+                    The world's first<br />
                     spintronic AI accelerator
                 </p>
             </div>
@@ -293,7 +212,7 @@ const HeroSection = ({ styles }) => {
                             ))}
                         </div>
                         <p className='mono gradient-text-green text-[13px] text-center pt-18 sm:hidden'>
-                            The world’s first spintronic<br />
+                            The world's first spintronic<br />
                             AI accelerator
                         </p>
                         {/* Нижние блоки */}
@@ -305,7 +224,7 @@ const HeroSection = ({ styles }) => {
 
                             </div>
                             <p className='hidden  sm:block lg:hidden mono text-center gradient-text-green w-full opacity-85 text-[19px]'>
-                                The world’s first
+                                The world's first
                                 spintronic<br /> AI accelerator
                             </p>
                             <div ref={el => superLast.current[0] = el} className='w-full lg:w-[30%] sm:pt-0 pt-4 sm:text-[23px] text-center gradient-text-green md:text-lg super opacity-45'>
@@ -327,7 +246,7 @@ const HeroSection = ({ styles }) => {
             </div>
 
             <p
-                onClick={() => gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' })}
+                onClick={() => gsap.to(window, { duration: 1, scrollTo: '#second', ease: 'power1.inOut' })}
                 ref={el => superLast.current[1] = el}
                 className='cursor-pointer flex justify-center bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent items-center w-full absolute bottom-24  sm:bottom-12 mono text-sm font-normal super'
             >
