@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import NavBar from '../Components/NavBar';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -22,151 +22,147 @@ const HeroSection = ({ styles }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [reorderedSubText, setReorderedSubText] = useState(["200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"]);
 
-    const getVisible = (arr) => arr.filter(el => el && el.offsetParent !== null);
+    const getVisible = useCallback((arr) => arr.filter(el => el && el.offsetParent !== null), []);
 
     const circleSize = useMemo(() => isMobile ? 100 : 190, [isMobile]);
 
-    useGSAP(() => {
-        const runDesktopAnimation = () => {
-            const mm = gsap.matchMedia();
+    const handleResize = useCallback(() => {
+        const mobile = window.innerWidth < 768;
+        setIsMobile(mobile);
+        setReorderedSubText(mobile
+            ? ["200x faster", "500W → 2W per chip", ">$1.2M saving"]
+            : ["200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"]);
+    }, []);
 
-            mm.add("(min-width: 768px)", () => {
-                const tl = gsap.timeline();
-
-                tl.to(overlayRef.current, {
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: 'power2.inOut',
-                    delay: 0.2,
-                });
-
-                tl.fromTo(
-                    firstElems.current,
-                    { opacity: 0, y: 40 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        ease: 'power2.out',
-                        stagger: 0.08,
-                    },
-                    '-=0.6'
-                );
-
-                tl.fromTo(
-                    navbarRef.current,
-                    { opacity: 0, y: -20 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        ease: 'power2.out',
-                    },
-                    '-=0.4'
-                );
-
-                tl.fromTo(
-                    toumanRef.current,
-                    {
-                        opacity: 0,
-                        yPercent: -100,
-                        transform: 'translateX(-50%)',
-                    },
-                    {
-                        opacity: 1,
-                        yPercent: 0,
-                        duration: 0.6,
-                        ease: 'power2.out',
-                        transform: 'translateX(-50%)',
-                    },
-                    '-=0.6'
-                );
-
-                tl.fromTo(
-                    ballRef.current,
-                    {
-                        opacity: 0,
-                        scale: 0.5,
-                    },
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        duration: 0.6,
-                        ease: 'power2.out',
-                    },
-                    '-=0.6'
-                );
-
-                const visibleLastLeft = getVisible(lastLeft.current);
-                if (visibleLastLeft.length) {
-                    tl.fromTo(
-                        visibleLastLeft,
-                        { opacity: 0, xPercent: -40 },
-                        {
-                            opacity: 1,
-                            xPercent: 0,
-                            duration: 0.6,
-                            ease: 'power2.out',
-                            stagger: 0.12,
-                        }
-                    );
-                }
-
-                const visibleLastRight = getVisible(lastRight.current);
-                if (visibleLastRight.length) {
-                    tl.fromTo(
-                        visibleLastRight,
-                        { opacity: 0, xPercent: 40 },
-                        {
-                            opacity: 1,
-                            xPercent: 0,
-                            duration: 0.6,
-                            ease: 'power2.out',
-                            stagger: 0.12,
-                        }
-                    );
-                }
-
-                const visibleSuperLast = getVisible(superLast.current);
-                if (visibleSuperLast.length) {
-                    tl.fromTo(
-                        visibleSuperLast,
-                        { opacity: 0, yPercent: 10 },
-                        {
-                            opacity: 1,
-                            yPercent: 0,
-                            duration: 0.6,
-                            ease: 'power2.out',
-                        }
-                    );
-                }
-
-                gsap.fromTo(ballRef.current,
-                    { scale: 1 },
-                    {
-                        scale: 0.7,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: ballRef.current,
-                            start: "50% 20%",
-                            endTrigger: "#sec",
-                            end: "20% 90%",
-                            scrub: 1,
-                            pin: true,
-                            immediateRender: false,
-                        }
-                    }
-                );
-            });
+    useEffect(() => {
+        let timeout;
+        const debouncedResize = () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(handleResize, 200);
         };
 
-        const runMobileAnimation = () => {
-            gsap.to(overlayRef.current, {
+        window.addEventListener('resize', debouncedResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', debouncedResize);
+            clearTimeout(timeout);
+        };
+    }, [handleResize]);
+
+    const runDesktopAnimation = useCallback(() => {
+        const mm = gsap.matchMedia();
+        mm.add("(min-width: 768px)", () => {
+            const tl = gsap.timeline();
+
+            tl.to(overlayRef.current, {
                 opacity: 0,
                 duration: 0.8,
                 ease: 'power2.inOut',
                 delay: 0.2,
             });
+
+            tl.fromTo(
+                firstElems.current,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    stagger: 0.08,
+                },
+                '-=0.6'
+            );
+
+            tl.fromTo(
+                navbarRef.current,
+                { opacity: 0, y: -20 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                },
+                '-=0.4'
+            );
+
+            tl.fromTo(
+                toumanRef.current,
+                {
+                    opacity: 0,
+                    yPercent: -100,
+                    transform: 'translateX(-50%)',
+                },
+                {
+                    opacity: 1,
+                    yPercent: 0,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    transform: 'translateX(-50%)',
+                },
+                '-=0.6'
+            );
+
+            tl.fromTo(
+                ballRef.current,
+                {
+                    opacity: 0,
+                    scale: 0.5,
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                },
+                '-=0.6'
+            );
+
+            const visibleLastLeft = getVisible(lastLeft.current);
+            if (visibleLastLeft.length) {
+                tl.fromTo(
+                    visibleLastLeft,
+                    { opacity: 0, xPercent: -40 },
+                    {
+                        opacity: 1,
+                        xPercent: 0,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        stagger: 0.12,
+                    }
+                );
+            }
+
+            const visibleLastRight = getVisible(lastRight.current);
+            if (visibleLastRight.length) {
+                tl.fromTo(
+                    visibleLastRight,
+                    { opacity: 0, xPercent: 40 },
+                    {
+                        opacity: 1,
+                        xPercent: 0,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        stagger: 0.12,
+                    }
+                );
+            }
+
+            const visibleSuperLast = getVisible(superLast.current);
+            if (visibleSuperLast.length) {
+                tl.fromTo(
+                    visibleSuperLast,
+                    { opacity: 0, yPercent: 10 },
+                    {
+                        opacity: 1,
+                        yPercent: 0,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                    }
+                );
+            }
+
             gsap.fromTo(ballRef.current,
                 { scale: 1 },
                 {
@@ -176,43 +172,54 @@ const HeroSection = ({ styles }) => {
                         trigger: ballRef.current,
                         start: "50% 20%",
                         endTrigger: "#sec",
-                        end: "20% center",
+                        end: "20% 90%",
                         scrub: 1,
                         pin: true,
                         immediateRender: false,
                     }
                 }
             );
-        };
+        });
+    }, [getVisible]);
 
+    const runMobileAnimation = useCallback(() => {
+        gsap.to(overlayRef.current, {
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.inOut',
+            delay: 0.2,
+        });
+        gsap.fromTo(ballRef.current,
+            { scale: 1 },
+            {
+                scale: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ballRef.current,
+                    start: "50% 20%",
+                    endTrigger: "#sec",
+                    end: "20% center",
+                    scrub: 1,
+                    pin: true,
+                    immediateRender: false,
+                }
+            }
+        );
+    }, []);
+
+    useGSAP(() => {
         if (isMobile) {
             runMobileAnimation();
         } else {
             runDesktopAnimation();
         }
-    }, [isMobile]);
+    }, [isMobile, runMobileAnimation, runDesktopAnimation]);
 
-    useEffect(() => {
-        let timeout;
-
-        const handleResize = () => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
-                const mobile = window.innerWidth < 768;
-                setIsMobile(mobile);
-                setReorderedSubText(mobile
-                    ? ["200x faster", "500W → 2W per chip", ">$1.2M saving"]
-                    : ["200x faster", "1000x cheaper", "500W → 2W per chip", ">$1.2M saving"]);
-            }, 200);
-        };
-
-        window.addEventListener('resize', handleResize);
-        handleResize();
-
-        return () => window.removeEventListener('resize', handleResize);
+    const handleScrollToSecond = useCallback(() => {
+        gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' });
     }, []);
 
-    const word = ["S", "P", "I", "N", "E", "D", "G", "E"];
+    const word = useMemo(() => ["S", "P", "I", "N", "E", "D", "G", "E"], []);
 
     return (
         <FirstFone id='main'>
@@ -240,7 +247,7 @@ const HeroSection = ({ styles }) => {
                 </div>
                 <Code ref={el => lastRight.current[0] = el} />
                 <p ref={el => lastLeft.current[0] = el} className="hidden lg:block  text-[15px] absolute top-[83.5%] 2xl:left-[7%] xl:left-[88px] lg:left-[7%] h-auto max-h-[400px] select-none pointer-events-none z-0 text-left mono gradient-text-green lastLeft">
-                    The world’s first<br />
+                    The world's first<br />
                     spintronic AI accelerator
                 </p>
             </div>
@@ -269,7 +276,7 @@ const HeroSection = ({ styles }) => {
                             ))}
                         </div>
                         <p className='mono gradient-text-green text-[13px] text-center pt-18 sm:hidden'>
-                            The world’s first spintronic<br />
+                            The world's first spintronic<br />
                             AI accelerator
                         </p>
                         <div className='flex w-full sm:flex-col lg:flex-row  justify-between items-start pt-12 sm:gap-16 lg:gap-0'>
@@ -279,7 +286,7 @@ const HeroSection = ({ styles }) => {
                                 </div>
                             </div>
                             <p className=' mono text-center gradient-text-green w-full opacity-85 text-[19px] hidden md:block lg:hidden'>
-                                The world’s first
+                                The world's first
                                 spintronic<br /> AI accelerator
                             </p>
                             <div ref={el => superLast.current[0] = el} className='w-full lg:w-[30%] sm:pt-0 pt-4 sm:text-[23px] text-center gradient-text-green md:text-lg super opacity-45'>
@@ -296,7 +303,7 @@ const HeroSection = ({ styles }) => {
             </div>
 
             <p
-                onClick={() => gsap.to(window, { duration: 1.5, scrollTo: '#second', ease: 'power2.inOut' })}
+                onClick={handleScrollToSecond}
                 ref={el => superLast.current[1] = el}
                 className='cursor-pointer flex justify-center bg-[radial-gradient(circle,_#00DA90_0%,_#E1FFDE_100%)] bg-clip-text text-transparent items-center w-full absolute bottom-24  sm:bottom-12 mono text-sm font-normal super'
             >
