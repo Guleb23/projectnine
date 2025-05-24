@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useCallback, Suspense } from 'react';
 import NavBar from '../Components/NavBar';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -8,6 +8,19 @@ import FirstFone from '../Components/FirstFone';
 import Code from './Code';
 
 gsap.registerPlugin(ScrollToPlugin);
+
+// Оптимизированный компонент для изображений
+const OptimizedImage = React.memo(({ src, alt, className, style, ref }) => (
+    <img
+        ref={ref}
+        className={className}
+        src={src}
+        alt={alt}
+        style={style}
+        loading="lazy"
+        decoding="async"
+    />
+));
 
 const HeroSection = ({ styles }) => {
     const overlayRef = useRef(null);
@@ -72,7 +85,7 @@ const HeroSection = ({ styles }) => {
                     ease: 'power2.out',
                     stagger: 0.08,
                 },
-                '-=0.6'
+                '-=0.2'
             );
 
             tl.fromTo(
@@ -221,19 +234,34 @@ const HeroSection = ({ styles }) => {
 
     const word = useMemo(() => ["S", "P", "I", "N", "E", "D", "G", "E"], []);
 
+    // Оптимизация анимаций
+    const animationConfig = useMemo(() => ({
+        desktop: {
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.08
+        },
+        mobile: {
+            duration: 0.8,
+            ease: 'power2.inOut'
+        }
+    }), []);
+
     return (
         <FirstFone id='main'>
             <div ref={overlayRef} className="absolute inset-0 bg-black z-[150] pointer-events-none" />
 
             <NavBar ref={navbarRef} />
 
-            <img
-                ref={toumanRef}
-                className="absolute z-1 top-10 left-1/2 max-w-full h-auto select-none pointer-events-none min-w-[485px] min-h-[520px]"
-                src="/Hero/touman.png"
-                alt="Touman"
-                style={{ transform: 'translateX(-50%)' }}
-            />
+            <Suspense fallback={<div className="min-w-[485px] min-h-[520px]" />}>
+                <OptimizedImage
+                    ref={toumanRef}
+                    className="absolute z-1 top-10 left-1/2 max-w-full h-auto select-none pointer-events-none min-w-[485px] min-h-[520px]"
+                    src="/Hero/touman.png"
+                    alt="Touman"
+                    style={{ transform: 'translateX(-50%)' }}
+                />
+            </Suspense>
 
             <div className="relative flex flex-col items-center sm:text-[35px] text-center pb-32 sm:pt-30 pt-26 2xl:pb-40 w-full mx-auto">
                 <p ref={el => firstElems.current[0] = el} className="gradient-text-green font-bold sm:text-3xl text-[23px]  leading-[120%] first">
@@ -310,10 +338,20 @@ const HeroSection = ({ styles }) => {
                 Meet the Future ↓
             </p>
 
-            <img className="absolute z-1 bottom-10 w-full h-auto select-none pointer-events-none" src="/Hero/bottom.png" alt="botom" />
-            <img className="absolute z-10 bottom-0 -translate-x-1/2  left-[50%]  select-none pointer-events-none" src="/Hero/btmBlur.png" alt="botom" />
+            <Suspense fallback={<div className="w-full h-auto" />}>
+                <OptimizedImage
+                    className="absolute z-1 bottom-10 w-full h-auto select-none pointer-events-none"
+                    src="/Hero/bottom.png"
+                    alt="bottom"
+                />
+                <OptimizedImage
+                    className="absolute z-10 bottom-0 -translate-x-1/2 left-[50%] select-none pointer-events-none"
+                    src="/Hero/btmBlur.png"
+                    alt="bottom blur"
+                />
+            </Suspense>
         </FirstFone>
     );
 };
 
-export default HeroSection;
+export default React.memo(HeroSection);
