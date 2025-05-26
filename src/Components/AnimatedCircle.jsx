@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import animationData from '/public/Ball/main.json'; // путь к Lottie JSON-файлу
+import animationData from '/public/Ball/compBall.json'; // путь к Lottie JSON-файлу
 import { useEffect } from 'react';
 
 

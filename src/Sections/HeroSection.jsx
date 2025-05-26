@@ -22,7 +22,7 @@ const OptimizedImage = React.memo(({ src, alt, className, style, ref }) => (
     />
 ));
 
-const HeroSection = ({ styles }) => {
+const HeroSection = () => {
     const overlayRef = useRef(null);
     const firstElems = useRef([]);
     const lastLeft = useRef([]);
@@ -234,18 +234,7 @@ const HeroSection = ({ styles }) => {
 
     const word = useMemo(() => ["S", "P", "I", "N", "E", "D", "G", "E"], []);
 
-    // Оптимизация анимаций
-    const animationConfig = useMemo(() => ({
-        desktop: {
-            duration: 0.6,
-            ease: 'power2.out',
-            stagger: 0.08
-        },
-        mobile: {
-            duration: 0.8,
-            ease: 'power2.inOut'
-        }
-    }), []);
+
 
     return (
         <FirstFone id='main'>
