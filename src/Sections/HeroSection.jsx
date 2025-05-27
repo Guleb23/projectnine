@@ -6,8 +6,10 @@ import AnimatedCircle from '../Components/AnimatedCircle';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import FirstFone from '../Components/FirstFone';
 import Code from './Code';
+import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 // Оптимизированный компонент для изображений
 const OptimizedImage = React.memo(({ src, alt, className, style, ref }) => (
@@ -22,7 +24,9 @@ const OptimizedImage = React.memo(({ src, alt, className, style, ref }) => (
     />
 ));
 
-const HeroSection = () => {
+const HeroSection = ({ onAnimationComplete }) => {
+
+    const mainRef = useRef(null);
     const overlayRef = useRef(null);
     const firstElems = useRef([]);
     const lastLeft = useRef([]);
@@ -130,6 +134,7 @@ const HeroSection = () => {
                     ease: 'power2.out',
                 },
                 '-=0.6'
+
             );
 
             const visibleLastLeft = getVisible(lastLeft.current);
@@ -184,15 +189,24 @@ const HeroSection = () => {
                     scrollTrigger: {
                         trigger: ballRef.current,
                         start: "50% 20%",
-                        endTrigger: "#sec",
-                        end: "20% 90%",
+                        endTrigger: mainRef.current,
+                        end: "bottom top",
                         scrub: 1,
                         pin: true,
                         immediateRender: false,
+                        markers: true
+
                     }
                 }
             );
+            tl.eventCallback("onComplete", () => {
+                if (typeof onAnimationComplete === "function") {
+                    onAnimationComplete();
+                }
+            });
+
         });
+
     }, [getVisible]);
 
     const runMobileAnimation = useCallback(() => {
@@ -201,6 +215,11 @@ const HeroSection = () => {
             duration: 0.8,
             ease: 'power2.inOut',
             delay: 0.2,
+            onComplete: () => {
+                if (typeof onAnimationComplete === "function") {
+                    onAnimationComplete();
+                }
+            }
         });
         gsap.fromTo(ballRef.current,
             { scale: 1 },
@@ -210,14 +229,18 @@ const HeroSection = () => {
                 scrollTrigger: {
                     trigger: ballRef.current,
                     start: "50% 20%",
-                    endTrigger: "#sec",
-                    end: "20% center",
+                    endTrigger: mainRef.current,
+                    end: "bottom top",
                     scrub: 1,
                     pin: true,
                     immediateRender: false,
-                }
+
+
+                },
+
             }
         );
+
     }, []);
 
     useGSAP(() => {
@@ -234,10 +257,12 @@ const HeroSection = () => {
 
     const word = useMemo(() => ["S", "P", "I", "N", "E", "D", "G", "E"], []);
 
-
+    useEffect(() => {
+        console.log('mainRef:', mainRef.current);
+    }, []);
 
     return (
-        <FirstFone id='main'>
+        <FirstFone ref={mainRef} id='main'>
             <div ref={overlayRef} className="absolute inset-0 bg-black z-[150] pointer-events-none" />
 
             <NavBar ref={navbarRef} />

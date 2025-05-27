@@ -1,8 +1,8 @@
 import React from 'react'
 
-const FirstFone = ({ children, id }) => {
+const FirstFone = ({ children, id, ref }) => {
     return (
-        <section id={id} className='bg-black w-screen h-screen relative overflow-hidden overflow-x-hidden'>
+        <section ref={ref} id={id} className='bg-black w-screen h-screen relative overflow-hidden overflow-x-hidden'>
             <img className='absolute lg:w-full w-[4432.25px]  h-screen select-none pointer-events-none -translate-x-1/2 left-1/2  z-20' src='/Hero/morp.png' />
             <img className='hidden lg:block absolute w-full select-none pointer-events-none z-0' src='/Hero/blur.png' />
             <img className='hidden lg:block absolute -translate-x-1/2 left-1/2 select-none pointer-events-none z-0' src='/Hero/dots.png' />
