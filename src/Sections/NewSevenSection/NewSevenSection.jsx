@@ -15,7 +15,7 @@ const NewSevenSection = () => {
     };
     return (
 
-        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center  -mt-[2%]  relative pb-[10%]'>
+        <div id='house' className='w-screen h-screen bg-black flex justify-center items-center md:-mt-[2%]  -mt-[35%]  relative pb-[10%]'>
             {isModalOpen && (
                 <ImageModal
                     imageUrl={selectedImage}
@@ -50,7 +50,7 @@ const NewSevenSection = () => {
                         <div className='relative w-full h-full'>
                             <img width={168} height={270} className='' src='/NewSeven/house.png' />
                             <div className='absolute bottom-2 left-2 z-50'>
-                                <MiniCard customStyle={`!text-[10px] !px-[10px] !py-[8px]`} />
+                                <MiniCard first={true} customStyle={`!text-[10px] !px-[10px] !py-[8px]`} />
                             </div>
                         </div>
 

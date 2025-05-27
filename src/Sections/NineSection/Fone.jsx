@@ -12,7 +12,10 @@ const Fone = ({ id, children }) => {
             <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-left-[44%] lg:-left-[64%] z-0 ' />
             <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-right-[44%] lg:-right-[64%] z-0 ' />
 
-
+            <img
+                className="absolute -top-[13%] -left-[13%]"
+                src="/Nine/Blur.png"
+            />
             <img
                 className="block md:hidden absolute min-w-[762px] -bottom-[30%] -translate-y-1/2 -translate-x-1/2 left-1/2 m-auto select-none pointer-events-none"
                 src="/Nine/Fone.png"
@@ -25,7 +28,7 @@ const Fone = ({ id, children }) => {
             <img src='/nine.png' className='block md:hidden absolute w-[760px] bottom-[15%]' />
             <img src='/Nine/Blur.png' className=' hidden lg:block absolute z-20 rotate-90 select-none top-[10%] -right-[30%] pointer-events-none' />
             {children}
-            <div className='absolute w-full px-5 lg:-bottom-[1.5%] -bottom-2  flex sm:max-w-[732px]  w-full justify-between -translate-x-1/2 left-1/2 z-20' >
+            <div className='absolute  px-5 lg:-bottom-[1.5%] -bottom-2  flex sm:max-w-[732px]  w-full justify-between -translate-x-1/2 left-1/2 z-20' >
                 {word.map((w, index) => (
                     <p
                         className='sm:text-[77px] text-[35px] leading-[120%] font-bold gradient-text-green text-center'

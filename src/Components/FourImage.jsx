@@ -110,12 +110,12 @@ const FourImage = () => {
 
             <FourCard
                 ref={el => leftCards.current[0] = el}
-                customPosition="absolute opacity-0 2xl:left-[10%] 2xl:top-[2%]  xl:top-[1%] xl:left-[12%] lg:left-[5%] lg:top-[0%] md:top-[3%] md:left-[6%]  -bottom-[22%] -right-[7%] "
+                customPosition="absolute opacity-0 2xl:left-[10%] 2xl:top-[2%]  xl:top-[6%] xl:left-[12%] lg:left-[5%] lg:top-[0%] md:top-[3%] md:left-[6%]  -bottom-[22%] -right-[7%] "
                 text={`Analog inference<br /> through the Ohm’s<br /> law I = V G`}
             />
             <FourCard
                 ref={el => rightCards.current[0] = el}
-                customPosition="absolute opacity-0 2xl:-top-[8%] 2xl:left-[58%] xl:left-[65.5%] xl:bottom-[15%] lg:-top-[10%] lg:left-[70%]  md:-top-[2%] md:left-[60%] -right-[58%] -bottom-[14%] "
+                customPosition="absolute opacity-0 2xl:-top-[8%] 2xl:left-[58%] xl:left-[65.5%] xl:-top-[7%] lg:-top-[10%] lg:left-[70%]  md:-top-[2%] md:left-[60%] -right-[58%] -bottom-[14%] "
                 text={`Analog data<br/> (voltages)`}
             />
             <FourCard
@@ -138,7 +138,7 @@ const FourImage = () => {
             xl:rotate-4 
             lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
-                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[75px] xl:-top-[65px]' src='/Four/light.png' />
+                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[75px] xl:-top-[55px]' src='/Four/light.png' />
 
 
                 <AnimatedCircle lottieRef={circleRef} customStyle={`relative xl:hidden block`} width={`170`} height={`170`} />

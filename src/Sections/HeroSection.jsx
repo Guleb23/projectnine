@@ -194,7 +194,7 @@ const HeroSection = ({ onAnimationComplete }) => {
                         scrub: 1,
                         pin: true,
                         immediateRender: false,
-                        markers: true
+
 
                     }
                 }

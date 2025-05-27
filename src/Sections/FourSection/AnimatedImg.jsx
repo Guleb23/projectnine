@@ -32,7 +32,7 @@ const AnimatedImg = ({ customStyle, id }) => {
         <div
             id={id}
             ref={containerRef}
-            className={`h-[350px] w-[350px] lg:h-[500px] lg:w-[500px] absolute lg:left-[63%] top-[25%] left-[50%] lg:top-[35%] 2xl:left-[50%] 2xl:top-[35%]  -translate-y-1/2 -translate-x-1/2
+            className={`h-[350px] w-[350px] lg:h-[500px] lg:w-[500px] absolute lg:left-[63%] top-[25%] left-[50%] lg:top-[39%] 2xl:left-[50%] 2xl:top-[35%]  -translate-y-1/2 -translate-x-1/2
                 object-contain z-0 ${customStyle || ""}`}
         >
             <Lottie

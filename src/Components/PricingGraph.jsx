@@ -46,20 +46,7 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
         const dashedLines = dashedLineRefs.current;
         const dashedLinesVertical = dashedLineRefsVertical.current;
 
-        // ✅ Текст появляется первым
-        tl.fromTo(
-            text,
-            { x: -200, opacity: 0 },
-            {
-                x: 0,
-                opacity: 1,
-                duration: 1,
-                ease: "power2.out",
-                stagger: 0.2,
-            }
-        );
-
-        // ✅ Основной график
+        // ✅ График (линия + заливка + блоки)
         tl.to(polyline, {
             strokeDashoffset: 0,
             duration: 1.5,
@@ -83,6 +70,20 @@ const PricingGraph = ({ fText, sText, customStyle }) => {
                 },
                 "+=0.2"
             );
+
+        // ✅ Текст — почти одновременно, но чуть позже (например, на 0.2s позже начала графика)
+        tl.fromTo(
+            text,
+            { x: -200, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+                stagger: 0.2,
+            },
+            "-=1.3" // запуск текста через 0.2s после начала графика (график длится 1.5s)
+        );
 
         dashedLines.forEach((line, index) => {
             let length = "470px";

@@ -1,6 +1,6 @@
 import "../NewSevenSection/Group11055.css";
 
-export const MiniCard = ({ className }) => {
+export const MiniCard = ({ className, first }) => {
     return (
         <div className={"group-1105-5  " + className}>
             <svg
@@ -18,7 +18,15 @@ export const MiniCard = ({ className }) => {
                 />
             </svg>
             <div className="frame-1410103863 ">
-                <div className="haifa-israel">Haifa, Israel</div>
+                <div className="haifa-israel text-left">
+                    {!first
+                        ? <div>
+                            152 Derech Menachem Begin
+                            Tel Aviv,<br /> Israel, 6492106. POB 138
+                        </div>
+                        : "Haifa, Israel"
+                    }
+                </div>
             </div>
             <svg
                 className="group2"

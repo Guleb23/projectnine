@@ -33,7 +33,7 @@ const NavItem = ({ name, link }) => {
             ref={textRef}
             className="cursor-pointer text-[12px] px-2.5 leading-4 text-center text-transparent 
                 bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
-                bg-clip-text font-medium relative"
+                bg-clip-text font-medium relative  "
             style={{ opacity: 1 }}
         >
             {name}
@@ -88,7 +88,7 @@ const NavBar = ({ ref }) => {
                             </>
                         )}
 
-                        {/* Divider if not last or logo spot */}
+
                         {index !== fullItems.length - 1 && index !== 1 && (
                             <div className="hidden lg:flex items-center gap-1 px-2">
                                 <div className="h-0.5 lg:w-10 xl:w-16 2xl:w-34 bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]" />

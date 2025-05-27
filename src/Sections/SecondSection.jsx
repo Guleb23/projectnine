@@ -145,8 +145,7 @@ const SecondSection = () => {
                         end: "64% 10%",
                         pin: true,
                         scrub: true,
-                        anticipatePin: 1,
-
+                        anticipatePin: 1
 
                     },
                 });

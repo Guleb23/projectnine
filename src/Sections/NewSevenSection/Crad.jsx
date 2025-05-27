@@ -18,7 +18,7 @@ export const Crad = ({ className }) => {
                 />
             </svg>
             <div className="frame-1410103863">
-                <div className="haifa-israel">152 Derech Menachem Begin Tel Aviv,<br /> Israel, 6492106. POB 138 </div>
+                <div className="haifa-israel text-left">  152 Derech Menachem Begin Tel Aviv,<br /> Israel, 6492106. POB 138 </div>
             </div>
             <svg
                 className="group2"
