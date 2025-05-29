@@ -125,11 +125,11 @@ const HeroSection = ({ onAnimationComplete }) => {
                 ballRef.current,
                 {
                     opacity: 0,
-                    scale: 0.5,
+
                 },
                 {
                     opacity: 1,
-                    scale: 1,
+
                     duration: 0.6,
                     ease: 'power2.out',
                 },
@@ -181,10 +181,10 @@ const HeroSection = ({ onAnimationComplete }) => {
                 );
             }
 
-            gsap.fromTo(ballRef.current,
-                { scale: 1 },
+            gsap.to(ballRef.current,
+
                 {
-                    scale: 0.7,
+
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: ballRef.current,
@@ -221,10 +221,8 @@ const HeroSection = ({ onAnimationComplete }) => {
                 }
             }
         });
-        gsap.fromTo(ballRef.current,
-            { scale: 1 },
+        gsap.to(ballRef.current,
             {
-                scale: 0.7,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: ballRef.current,
