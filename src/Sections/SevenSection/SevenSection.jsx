@@ -99,7 +99,7 @@ const SevenSection = () => {
                     <div className="justify-self-start md:ml-[13%] md:mt-[17%]">
                         <Card
                             ref={el => (cardsRef.current[0] = el)}
-                            img={`/Seven/People.png`}
+                            img={`/Workers/dmitriy.png`}
                             name={`Dr. Dmitry<br/> Leshchiner`}
                             work={`Chief Technology Officer`}
                             desc={`AI algorithms & neuromorphic<br/> technologies; SW development:<br/> 20+ years @ Google, Yahoo, Yandex`}
@@ -109,7 +109,7 @@ const SevenSection = () => {
                     <div className="justify-self-end md:mr-[12%] md:-mt-[29%]">
                         <Card
                             ref={el => (cardsRef.current[1] = el)}
-                            img={`/Seven/People.png`}
+                            img={`/Workers/konst.png`}
                             name={`Dr. Konstantin<br/> Zvezdin`}
                             work={`CEO`}
                             desc={`R&D MRAM and microwave<br/> spintronics: 20+ years @ Fiat,<br/> European Projects`}
@@ -119,7 +119,7 @@ const SevenSection = () => {
                     <div className="justify-self-start md:justify-self-center self-start md:self md:-mt-[25%] mt-[35px]">
                         <Card
                             ref={el => (cardsRef.current[2] = el)}
-                            img={`/Seven/People.png`}
+                            img={`/Workers/nir.png`}
                             name={`Dr. Nir Karasikov`}
                             work={`Chairman`}
                             desc={`Senior leadership in the High-<br/>Tech industry and business: 25+<br/> year executive @ Nanomotion`}

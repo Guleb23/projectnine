@@ -6,13 +6,13 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const data = [
-    { img: `/Seven/People.png`, name: `Vladimir Krupnik`, work: `CBO`, desc: `MRAM fabrication, NVM,<br/> MCU, Fab construction` },
-    { img: `/Seven/People.png`, name: `Uri Darvish`, work: `Financial Controller`, desc: `Senior Finance leadership<br/> in High-tech industry` },
-    { img: `/Seven/People.png`, name: `Menachem Shoval`, work: `COO`, desc: `Strategic Sourcing / EMEA<br/> Microelectronic fabrication` },
-    { img: `/Seven/People.png`, name: `Doron<br/> Nevo`, work: `Investments`, desc: `Management and business in tech` },
-    { img: `/Seven/People.png`, name: `Prof. Ching<br/> Ray Chang`, work: `Fabs Advisor`, desc: `NTU-IBM. Quantum Computer Hub` },
-    { img: `/Seven/People.png`, name: `Prof. Yosi Shacham-<br/>Diamand`, work: `Technology Advisor`, desc: `Tel Aviv University` },
-    { img: `/Seven/People.png`, name: `Avi Mendelson`, work: `Technology Advisor`, desc: `Tel Aviv University` },
+    { img: `/Workers/vladimir.png`, name: `Vladimir Krupnik`, work: `CBO`, desc: `MRAM fabrication, NVM,<br/> MCU, Fab construction` },
+    { img: `/Workers/uri.png`, name: `Uri Darvish`, work: `Financial Controller`, desc: `Senior Finance leadership<br/> in High-tech industry` },
+    { img: `/Workers/menachem.png`, name: `Menachem Shoval`, work: `COO`, desc: `Strategic Sourcing / EMEA<br/> Microelectronic fabrication` },
+    { img: `/Workers/nevo.png`, name: `Doron<br/> Nevo`, work: `Investments`, desc: `Management and business in tech` },
+    { img: `/Workers/ray.png`, name: `Prof. Ching<br/> Ray Chang`, work: `Fabs Advisor`, desc: `NTU-IBM. Quantum Computer Hub` },
+    { img: `/Workers/yosi.png`, name: `Prof. Yosi Shacham-<br/>Diamand`, work: `Technology Advisor`, desc: `Tel Aviv University` },
+    { img: `/Workers/avi.png`, name: `Avi Mendelson`, work: `Technology Advisor`, desc: `Tel Aviv University` },
 ]
 
 const Table = () => {
