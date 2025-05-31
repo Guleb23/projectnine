@@ -23,60 +23,65 @@ const FourLastSection = () => {
 
     // внутри компонента
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 70%', // когда верх контейнера дойдет до 70% окна
-                    toggleActions: 'play none none none',
+        // Добавляем небольшую задержку для гарантии, что DOM полностью загружен
+        const timeoutId = setTimeout(() => {
+            const ctx = gsap.context(() => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top 70%',
+                        toggleActions: 'play none none none',
+                    },
+                    defaults: { ease: "power2.out" }
+                });
 
-                },
-                defaults: { ease: "power2.out" }
+                // bigImage появляется
+                tl.fromTo(bigImgRef.current,
+                    { opacity: 0, scale: 0.8 },
+                    { opacity: 1, scale: 1, duration: 1 }
+                );
+
+                // круги и изображения сверху/снизу
+                tl.fromTo(topCircle.current,
+                    { y: -100, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1 }, "-=0.5"
+                );
+                tl.fromTo(bottomCircle.current,
+                    { y: 100, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1 },
+                );
+                tl.fromTo(topImage.current,
+                    { y: -100, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1 }, "-=0.6"
+                );
+                tl.fromTo(btmImage.current,
+                    { y: 100, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1 }, "-=0.7"
+                );
+                tl.fromTo(cardsRef.current,
+                    { x: 200, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 1.2, stagger: 0.2 }, "-=0.7"
+                );
+                // center image просто с opacity
+                tl.fromTo(centerImgRef.current,
+                    { opacity: 0 },
+                    { opacity: 1, duration: 1.2 }, "-=0.5"
+                );
+
+                tl.fromTo(circle.current,
+                    { opacity: 0 },
+                    { opacity: 1, duration: 1.2 }, "-=0.2"
+                );
             });
 
-            // bigImage появляется
-            tl.fromTo(bigImgRef.current,
-                { opacity: 0, scale: 0.8 },
-                { opacity: 1, scale: 1, duration: 1 }
-            );
-
-            // круги и изображения сверху/снизу
-            tl.fromTo(topCircle.current,
-                { y: -100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }, "-=0.5"
-            );
-            tl.fromTo(bottomCircle.current,
-                { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 },
-            );
-            tl.fromTo(topImage.current,
-                { y: -100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }, "-=0.6"
-            );
-            tl.fromTo(btmImage.current,
-                { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }, "-=0.7"
-            );
-            tl.fromTo(cardsRef.current,
-                { x: 200, opacity: 0 },
-                { x: 0, opacity: 1, duration: 1.2, stagger: 0.2 }, "-=0.7"
-            );
-            // center image просто с opacity
-            tl.fromTo(centerImgRef.current,
-                { opacity: 0 },
-                { opacity: 1, duration: 1.2 }, "-=0.5"
-            );
-
-            tl.fromTo(circle.current,
-                { opacity: 0 },
-                { opacity: 1, duration: 1.2 }, "-=0.2"
-            );
+            // Принудительно обновляем ScrollTrigger после инициализации
             ScrollTrigger.refresh();
-        });
+        }, 100);
 
-
-
-
+        return () => {
+            clearTimeout(timeoutId);
+            ctx?.revert(); // Очищаем контекст GSAP при размонтировании
+        };
     }, []);
     return (
         <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] sm:px-[50px] pt-[20%] md:pb-[0] pb-[20%]'>
@@ -119,7 +124,7 @@ const FourLastSection = () => {
                     four={innerWidth > 640}
                     customStyles={`lg:!text-left text-left lg:items-start items-center -mt-[14%] sm:w-[500px] w-[335px] `}
                     top={`THE QUANTUM LEAP IN AI HARDWARE`}
-                    mid={`From Lab to Launch — No Fab Needed`}
+                    mid={`From Lab to Launch — No Fab Needed`}
                     bottom={`Our non-volatile memory and magnetic sensors are already built, tested, and production-ready. Spintronic components integrate seamlessly with existing microelectronics — no custom fabs, no exotic processes.`} />
 
                 <div className='  w-[500px] h-[704px]  relative lg:hidden block -mt-[16%] right-[15%]'>
