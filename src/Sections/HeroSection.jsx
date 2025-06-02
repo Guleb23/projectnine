@@ -270,7 +270,7 @@ const HeroSection = ({ onAnimationComplete }) => {
             <Suspense fallback={<div className="min-w-[485px] min-h-[520px]" />}>
                 <OptimizedImage
                     ref={toumanRef}
-                    className="absolute z-1 top-10 left-1/2 max-w-full h-auto select-none pointer-events-none min-w-[485px] min-h-[520px]"
+                    className="absolute z-0 top-2 left-1/2 max-w-full h-auto select-none pointer-events-none min-w-[485px] min-h-[520px] "
                     src="/Hero/touman.png"
                     alt="Touman"
                     style={{ transform: 'translateX(-50%)' }}
@@ -368,4 +368,4 @@ const HeroSection = ({ onAnimationComplete }) => {
     );
 };
 
-export default React.memo(HeroSection);
+export default React.memo(HeroSection)

@@ -4,7 +4,7 @@ const FourFone = ({ id, children, heightBlur }) => {
     return (
         <section
             id={id}
-            className="bg-black w-screen h-full relative "
+            className="bg-black w-screen h-full relative"
         >
 
 

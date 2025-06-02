@@ -21,8 +21,8 @@ const FourSection = () => {
     }, []);
     return (
         <FourFone heightBlur={blurHeight} >
-            <div id={"four"} ref={topSectionRef}>
-                <div id="stop" className='flex flex-col 2xl:pl-[25%] xl:pl-[17%] px-5 md:flex-row  items-start relative h-fit  '>
+            <div id={"four"} ref={topSectionRef} className='pb-[6%]'>
+                <div id="stop" className='flex flex-col 2xl:pl-[25%] xl:pl-[17%] px-5 md:flex-row  items-start relative h-fit'>
                     <FourLeft />
 
                     <FourImage />
@@ -31,6 +31,7 @@ const FourSection = () => {
                 </div>
                 <FourLastSection />
                 <FiveSection />
+
             </div>
 
             <SectionSix />

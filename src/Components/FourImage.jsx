@@ -14,29 +14,64 @@ const FourImage = () => {
 
     useEffect(() => {
         const mm = gsap.matchMedia();
+        mm.add("(min-width: 1281px)", () => {
+            const triggerInstance = ScrollTrigger.create({
+                trigger: "#stop",  // триггер — весь контейнер
+                start: `${innerWidth > 1500 ? '20% center' : '15% center'}`,            // когда верх контейнера достигнет центра экрана
+                end: "bottom top",           // когда низ контейнера достигнет центра экрана
+
+                onEnter: () => {
+                    gsap.to(lightRef.current, {
+                        opacity: 1,
+                        filter: "brightness(1) blur(0px)",
+                        duration: 1,
+                    });
+                },
+                onLeave: () => {
+                    gsap.to(lightRef.current, {
+                        opacity: 0,
+                        filter: "brightness(0.3) blur(10px)",
+                        duration: 1,
+                    });
+                },
+                onEnterBack: () => {
+                    gsap.to(lightRef.current, {
+                        opacity: 1,
+                        filter: "brightness(1) blur(0px)",
+                        duration: 1,
+                    });
+                },
+                onLeaveBack: () => {
+                    gsap.to(lightRef.current, {
+                        opacity: 0,
+                        filter: "brightness(0.3) blur(10px)",
+                        duration: 1,
+                    });
+                },
+            });
+
+            return () => triggerInstance.kill();
+        });
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     const globalDelay = 2;
 
-                    // 💡 Анимация "включения света"
-                    if (lightRef.current) {
-                        gsap.fromTo(lightRef.current, {
-                            opacity: 0,
-                            filter: 'brightness(0.3) blur(10px)',
-                        }, {
-                            opacity: 1,
-                            filter: 'brightness(1) blur(0px)',
-                            duration: 1.5,
-                            ease: 'power2.out',
-                            delay: globalDelay + 0.5,
-
-                        });
-                    }
-
-
-
                     mm.add("(max-width: 1280px)", () => {
+                        if (lightRef.current) {
+                            gsap.fromTo(lightRef.current, {
+                                opacity: 0,
+                                filter: 'brightness(0.3) blur(10px)',
+                            }, {
+                                opacity: 1,
+                                filter: 'brightness(1) blur(0px)',
+                                duration: 1.5,
+                                ease: 'power2.out',
+                                delay: globalDelay + 0.5,
+
+                            });
+                        }
                         if (circleRef.current) {
                             gsap.fromTo(circleRef.current, {
                                 opacity: 0,
@@ -102,7 +137,7 @@ const FourImage = () => {
     return (
 
 
-        <div ref={containerRef} className="relative hidden md:block md:sticky md:top-16 w-full h-[560px] sm:h-[700px] md:h-[752px] ">
+        <div ref={containerRef} className="relative hidden md:block md:sticky md:top-16 w-full h-[560px] sm:h-[700px] md:h-[752px]  ">
 
 
             <AnimatedImg />
@@ -138,13 +173,17 @@ const FourImage = () => {
             xl:rotate-4 
             lg:-top-36 lg:-left-36 lg:rotate-2
             -top-24 -left-40 rotate-2'>
-                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[75px] xl:-top-[55px]' src='/Four/light.png' />
-
+                <img ref={lightRef} className='absolute left-[96px] w-[350px] lg:h-[200px] h-[195px] 2xl:h-[200px] xl:h-[202px] -top-[75px] xl:-top-[55px] opacity-0' src='/Four/light.png' />
+                <div
+                    id="proxyTrigger"
+                    className="absolute left-[96px] w-[350px] pointer-events-none"
+                    style={{ top: 'calc(50% - 150px)', height: '300px' }}
+                />
 
                 <AnimatedCircle lottieRef={circleRef} customStyle={`relative xl:hidden block`} width={`170`} height={`170`} />
             </div>
 
-        </div>
+        </div >
 
     )
 }

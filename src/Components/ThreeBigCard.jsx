@@ -1,12 +1,21 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import AnimatedCircle from './AnimatedCircle';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+
+gsap.registerPlugin(ScrollToPlugin); // 👈 важно
 
 
 const ThreeBigCard = () => {
+    const goToNine = () => {
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: { y: '#nine', offsetY: 50 },
+            ease: "power2.inOut",
+        });
 
+
+    };
     return (
         <div className="flex justify-center items-center  md:pt-35 relative w-full h-full md:h-[700px] min-h-[370px] px-4 overflow-hidden">
 
@@ -35,7 +44,7 @@ const ThreeBigCard = () => {
                     To sustainably manage AI's energy consumption,<br className="hidden md:block" />
                     radical new approaches in computation are essential.
                 </p>
-                <button className="relative overflow-hidden w-[194px] md:w-64 min-h-[43px] md:min-h-[50px] rounded-lg text-sm md:text-[18px] font-bold text-white group flex items-center justify-center">
+                <button onClick={goToNine} className="relative overflow-hidden w-[194px] md:w-64 min-h-[43px] md:min-h-[50px] rounded-lg text-sm md:text-[18px] font-bold text-white group flex items-center justify-center cursor-pointer">
                     <span className="absolute inset-0 bg-[radial-gradient(143.46%_554.36%_at_-75.93%_-93%,_#16F501_0%,_#00DA90_100%)] bg-[length:200%_100%] bg-left rounded-lg transition-[background-position] duration-500 ease-in-out group-hover:bg-right"></span>
                     <span className="relative z-10 text-black">Meet the Future →</span>
                 </button>

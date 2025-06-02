@@ -55,7 +55,7 @@ const NineSection = () => {
     }, [])
 
     return (
-        <Fone>
+        <Fone id={`nine`}>
             <div ref={sectionRef} className='w-full h-full relative flex justify-center items-center flex-col'>
                 <div className='relative w-fit h-fit ml-[5%] md:scale-100 scale-[0.8] '>
                     <img ref={blurRef} id='blur' src='/Nine/MainBlur.png' className='absolute hidden lg:block z-0 -top-[9%] left-0 select-none pointer-events-none' />

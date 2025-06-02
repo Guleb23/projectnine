@@ -86,7 +86,7 @@ const FourLastSection = () => {
     return (
         <div className='w-screen min-h-screen h-full relative flex lg:justify-start lg:items-start items-center justify-center sm:pt-[3%] sm:px-[50px] pt-[20%] md:pb-[0] pb-[20%]'>
 
-            <div ref={containerRef} className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[32.3%]  lg:-left-[25%] hidden lg:block '>
+            <div ref={containerRef} className='absolute w-[1259px] h-[904px]  -top-[38%]  2xl:-left-[5%]  2xl:-top-[33%] xl:-left-[25%]  lg:-left-[25%] hidden lg:block '>
                 <img ref={bigImgRef} src='/Four/bigLeft.png' className=' hidden lg:block ' width={1259} height={904} />
 
                 <div className='absolute w-[654px] h-[1009px] top-1/2 mt-16 -translate-y-1/2 -translate-x-1/2 left-1/2'>

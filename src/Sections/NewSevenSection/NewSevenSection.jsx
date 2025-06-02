@@ -64,19 +64,19 @@ const NewSevenSection = () => {
                                 {["/NewSeven/left.png", "/NewSeven/right.png"].map((src, index) => (
                                     <div
                                         key={index}
-                                        className="group flex-1 relative cursor-pointer w-[76px] h-[97px]"
+                                        className="group flex-1 relative  w-[76px] h-[97px]"
                                         onClick={() => openModal(src)}
                                     >
                                         <img
                                             src={src}
                                             width={76}
                                             height={97}
-                                            className="object-cover w-full h-full object-center"
+                                            className="object-cover w-full h-full object-center opacity-60"
                                             alt={`Preview ${index}`}
                                         />
                                         <div className="absolute inset-0 flex items-center justify-center bg-black/20  opacity-0 transition-opacity group-hover:opacity-100">
                                             <span className="text-white text-xl">
-                                                <HiMagnifyingGlassPlus />
+                                                <HiMagnifyingGlassPlus size={28} />
                                             </span>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@ const NewSevenSection = () => {
                             {["/NewSeven/left.png", "/NewSeven/right.png"].map((src, index) => (
                                 <div
                                     key={index}
-                                    className="group  relative cursor-pointer w-[103px] h-[130px]"
+                                    className="group  relative  w-[103px] h-[130px]"
                                     onClick={() => openModal(src)}
                                 >
 
@@ -100,12 +100,12 @@ const NewSevenSection = () => {
                                         src={src}
                                         width={103}
                                         height={130}
-                                        className="object-cover w-full h-full object-center"
+                                        className="object-cover w-full h-full object-center opacity-60"
                                         alt={`Preview ${index}`}
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center bg-black/20  opacity-0 transition-opacity group-hover:opacity-100">
                                         <span className="text-white text-xl">
-                                            <HiMagnifyingGlassPlus />
+                                            <HiMagnifyingGlassPlus size={28} />
                                         </span>
                                     </div>
                                 </div>

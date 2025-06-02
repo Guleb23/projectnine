@@ -43,7 +43,7 @@ const Spirit = ({ customStyle }) => {
             className={`${customStyle || " "} flex relative flex-col md:flex-row bg-black/25 text-white p-6 md:p-10 rounded-lg w-[950px] h-[435px] mx-auto font-mono px-[25px] py-[35px]`}
         >
             <img
-                className="absolute inset-0  h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
+                className="absolute inset-0 w-full opacity-20  h-full m-auto select-none pointer-events-none z-0 rounded-4xl"
                 src="/Second/whiteblur.png"
                 alt="White Blur"
             />
