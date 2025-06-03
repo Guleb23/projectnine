@@ -60,7 +60,10 @@ const Fone = ({ id, children }) => {
 
 
             <div className="absolute w-[190px] h-[300px] -bottom-[10%] left-1/2 -translate-x-1/2  blur-[120px] rounded-full bg-[#16CDDE] opacity-60 pointer-events-none z-10 lg:hidden block" />
-            <div className=" absolute opacity-100 -bottom-[1%]  left-0 w-full h-62 bg-gradient-to-b from-transparent to-black z-10 pointer-events-none" />
+
+
+
+            <div className="absolute h-24 w-full bg-gradient-to-b from-black/0 to-black via-black/60  bottom-0 z-50" />
         </section>
     )
 }

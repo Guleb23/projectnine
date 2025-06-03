@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+gsap.registerPlugin(ScrollTrigger)
 const Fone = ({ id, children }) => {
     const word = ["S", "P", "I", "N", "E", "D", "G", "E"];
+    const lightRef = useRef(null);
+
+    useEffect(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#body',
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse"
+            },
+        })
+        gsap.set(lightRef.current, { opacity: 0 })
+        tl.to(lightRef.current, {
+            opacity: 1,
+            delay: 1.5,
+
+            duration: 1,
+            ease: "power3.out"
+        })
+        return () => {
+            tl.kill()
+        }
+    }, [])
     return (
         <div id={id} className='w-screen bg-black min-h-screen h-full relative pt-[6%] overflow-hidden'>
-
+            <div className="absolute h-24 w-full bg-gradient-to-b from-black to-black/0 via-black/60  top-0 z-50" />
 
 
             <img src='/Nine/Fone.png' className='absolute hidden lg:block  2xl:-left-[33%] lg:-left-[36%] -bottom-[32%] z-0 ' />
@@ -13,6 +39,7 @@ const Fone = ({ id, children }) => {
             <img src='/Nine/Fone.png' className='absolute hidden lg:block bottom-[10%] 2xl:-right-[44%] lg:-right-[64%] z-0 ' />
 
             <img
+                ref={lightRef}
                 className="absolute -top-[13%] -left-[13%]"
                 src="/Nine/Blur.png"
             />
@@ -51,7 +78,7 @@ const Fone = ({ id, children }) => {
                 viewBox="0 0 1725 632"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className=' absolute 2xl:-bottom-[360px] xl:-bottom-[260px] bottom-0 w-[1725px] h-[632px] select-none pointer-events-none z-[100] w-full '
+                className=' absolute 2xl:-bottom-[360px] xl:-bottom-[260px] bottom-0 w-[1725px] h-[632px] select-none pointer-events-none z-40 w-full '
             >
                 <g filter="url(#filter0_f_341_398)">
                     <ellipse
@@ -94,7 +121,7 @@ const Fone = ({ id, children }) => {
                 viewBox="0 0 375 271"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className='absolute bottom-0  z-50 block md:hidden w-full'
+                className='absolute bottom-0  z-40 block md:hidden w-full'
 
             >
                 <g filter="url(#filter0_f_319_4127)">

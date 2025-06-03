@@ -17,8 +17,9 @@ const FourImage = () => {
         mm.add("(min-width: 1281px)", () => {
             const triggerInstance = ScrollTrigger.create({
                 trigger: "#stop",  // триггер — весь контейнер
-                start: `${innerWidth > 1500 ? '20% center' : '15% center'}`,            // когда верх контейнера достигнет центра экрана
+                start: `${innerWidth > 1500 ? '19% center' : '14% center'}`,            // когда верх контейнера достигнет центра экрана
                 end: "bottom top",           // когда низ контейнера достигнет центра экрана
+                markers: true,
 
                 onEnter: () => {
                     gsap.to(lightRef.current, {

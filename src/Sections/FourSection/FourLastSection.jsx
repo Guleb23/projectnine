@@ -23,9 +23,10 @@ const FourLastSection = () => {
 
     // внутри компонента
     useEffect(() => {
+        let ctx;
         // Добавляем небольшую задержку для гарантии, что DOM полностью загружен
         const timeoutId = setTimeout(() => {
-            const ctx = gsap.context(() => {
+            ctx = gsap.context(() => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: containerRef.current,

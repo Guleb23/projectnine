@@ -6,8 +6,7 @@ const CustomInput = ({ id, placeholder = "", isBig = false, customStyle }) => {
             <input
                 placeholder={placeholder}
                 type='text'
-                className='w-full md:h-[60px] h-[50px] mono text-[13px] md:text-base bg-transparent px-4 text-white placeholder-white/50 focus:outline-none'
-
+                className='w-full md:h-[60px] h-[50px] mono text-[13px] md:text-base bg-transparent px-4 text-white placeholder-white/50 focus:outline-none focus:placeholder-white/20 transition-all' // Добавлен focus:placeholder-white/30
             />
             <img src='/Four/miniLeft.png' className='absolute bottom-0 left-0' />
             <img src='/Four/miniRight.png' className='absolute top-0 right-0' />

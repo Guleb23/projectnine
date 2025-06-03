@@ -2,11 +2,12 @@ import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import LogoComponent from '../Components/LogoComponent';
 import MobileMenu from '../Sections/MobileMenu';
-
+import { useLocation, useNavigate } from "react-router-dom";
 const NavItem = ({ name, link }) => {
     const underlineRef = useRef(null);
     const textRef = useRef(null);
-
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleMouseEnter = () => {
         gsap.to(textRef.current, { opacity: 0.8, duration: 0.3, ease: 'power1.out' });
         gsap.to(underlineRef.current, { width: '100%', duration: 0.3, ease: 'power1.out' });
@@ -18,31 +19,37 @@ const NavItem = ({ name, link }) => {
     };
 
     const handleClick = () => {
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: link,
-            ease: "power2.inOut",
-        });
-    };
+        if (location.pathname !== "/") {
+            // если не на главной — переходим туда с хешем
+            navigate(`/${link}`);
+        } else {
+            // если уже на главной — прокручиваем
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: link,
+                ease: "power2.inOut",
+            });
+        }
+    }
 
     return (
-        <span
+        <div
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             ref={textRef}
-            className="cursor-pointer text-[12px] px-2.5 leading-4 text-center text-transparent 
+            className="cursor-pointer text-[12px] px-2.5  leading-4 text-center text-transparent 
                 bg-[radial-gradient(circle_at_center,rgba(225,255,222,1)_0%,rgba(225,255,222,0.25)_100%)] 
-                bg-clip-text font-medium relative  "
+                bg-clip-text font-medium relative  py-3 "
             style={{ opacity: 1 }}
         >
             {name}
             <span
                 ref={underlineRef}
-                className="absolute -bottom-1 left-0 h-[2px] bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]"
+                className="absolute bottom-1 left-0 h-[2px] bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]"
                 style={{ width: '0%', transition: 'width 0.1s ease' }}
             />
-        </span>
+        </div>
     );
 };
 

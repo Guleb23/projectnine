@@ -2,13 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import LogoComponent from '../Components/LogoComponent';
 import AnimatedCircle from '../Components/AnimatedCircle';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const sections = ['#sec', '#four', '#house', '#diagramm'];
 
 const MobileMenu = ({ isOpen, onClose }) => {
     const menuRef = useRef(null);
     const [activeSection, setActiveSection] = useState('');
-
+    const location = useLocation();
+    const navigate = useNavigate();
     useEffect(() => {
         if (isOpen) {
             gsap.set(menuRef.current, { display: 'block' });
@@ -47,15 +49,20 @@ const MobileMenu = ({ isOpen, onClose }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleClick = (link) => {
-        onClose();
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: link,
-            ease: "power2.inOut",
-        });
-    };
 
+    const handleClick = (link) => {
+        if (location.pathname !== "/") {
+            onClose();
+            navigate(`/${link}`);
+        } else {
+            onClose();
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: link,
+                ease: "power2.inOut",
+            });
+        }
+    }
     return (
         <div
             ref={menuRef}
