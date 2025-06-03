@@ -8,6 +8,7 @@ const loaders = [
   () => import("./Sections/ThreeScetion"),
   () => import("./Sections/FourSection/FourSection"),
   () => import("./Sections/SevenSection/SevenSection"),
+  () => import("./Sections/EightSection/EightSection"),
   () => import("./Sections/NineSection/NineSection"),
 ];
 
@@ -20,7 +21,8 @@ const SecondSection = LazySections[1];
 const ThreeSection = LazySections[2];
 const FourSection = LazySections[3];
 const SevenSection = LazySections[4];
-const NineSection = LazySections[5];
+const EightSection = LazySections[5];
+const NineSection = LazySections[6];
 
 const SectionLoader = () => (
   <div className="min-h-[30vh] flex items-center justify-center">
@@ -94,6 +96,11 @@ function App() {
           <Suspense fallback={<SectionLoader />}>
             <section>
               <SevenSection />
+            </section>
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <section>
+              <EightSection />
             </section>
           </Suspense>
           <Suspense fallback={<SectionLoader />}>
