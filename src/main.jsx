@@ -13,6 +13,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="*" element={<NotFoundPage />} />
       <Route path="/thanks" element={<NotFoundPage isThanks={true} />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/blog/:post" element={<PrivacyPolicy isBlog={true} />} />
     </Routes>
   </BrowserRouter>,
 )

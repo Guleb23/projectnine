@@ -59,13 +59,13 @@ const EightSection = () => {
             <Header top={`INSIGHTS & INNOVATION`} mid={`Read also:`} bottom={`Cutting-edge research, industry trends,<br/> and SpinEdge breakthroughs`} />
             <div
                 ref={containerRef}
-                className="flex z-50 pt-[4%] px-[6%] gap-8 justify-center flex-wrap overflow-y-hidden overflow-x-visible"
+                className="flex z-50 pt-[4%] px-[6%] gap-8 xl:justify-center flex-wrap overflow-y-hidden overflow-x-visible"
                 style={{ height: '515px' }} // Начальная высота
             >
                 <div className='flex'>
-                    <Card top={`Category`} mid={`Blog title heading will go here`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/one.png`} />
-                    <Card top={`Category`} mid={`Blog title heading will go here`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/two.png`} />
-                    <Card top={`Category`} mid={`Blog title heading will go here`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/three.png`} />
+                    <Card top={`Category`} mid={`Blog title heading will go here 1`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/one.png`} />
+                    <Card top={`Category`} mid={`Blog title heading will go here 2`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/two.png`} />
+                    <Card top={`Category`} mid={`Blog title heading will go here 3`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/three.png`} />
                 </div>
                 <div ref={firstRef} className='flex '>
                     <Card top={`Category`} mid={`Blog title heading will go here`} bottom={`Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Suspendisse varius enim in eros.`} img={`/Eight/three.png`} />
