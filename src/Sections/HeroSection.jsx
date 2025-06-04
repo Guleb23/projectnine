@@ -327,11 +327,11 @@ const HeroSection = ({ onAnimationComplete }) => {
                                     AI's Energy Diet<br />Starts Here
                                 </div>
                             </div>
-                            <p className=' mono text-center gradient-text-green w-full opacity-85 text-[19px] hidden md:block lg:hidden'>
+                            <p className=' mono text-center gradient-text-green w-full opacity-85 text-[19px] hidden md:block lg:hidden '>
                                 The world's first
                                 spintronic<br /> AI accelerator
                             </p>
-                            <div ref={el => superLast.current[0] = el} className='w-full lg:w-[30%] sm:pt-0 pt-4 sm:text-[23px] text-center gradient-text-green md:text-lg super opacity-45'>
+                            <div ref={el => superLast.current[0] = el} className=' w-full lg:w-[30%] sm:pt-0 pt-4 sm:text-[23px] text-center gradient-text-green md:text-lg super lg:opacity-45 opacity-100'>
                                 The revolution <span className='border-b-2 border-[#00DA90]'>starts now.</span>
                             </div>
                             <div ref={el => lastRight.current[1] = el} className="hidden lg:flex mt-[8px] relative w-[30%] text-left text-sm justify-end">
