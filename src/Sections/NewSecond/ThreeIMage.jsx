@@ -11,13 +11,17 @@ const ThreeIMage = () => {
     const lightRef = useRef(null);
 
     useEffect(() => {
-        if (circleRef.current && lightRef.current) {
-            const tl = gsap.timeline({
+        let tl = null;
+
+        const initAnimation = () => {
+            if (!circleRef.current || !lightRef.current) return;
+
+            tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: circleRef.current,
                     start: 'top center',
-                    toggleActions: 'play none none none',
-
+                    toggleActions: 'play none none reverse',
+                    once: false,
                 },
             });
 
@@ -31,37 +35,49 @@ const ThreeIMage = () => {
                 {
                     autoAlpha: 1,
                     scale: 1,
-                    data: 1,
                     duration: 1,
                     ease: 'power2.out',
                 }
             );
 
+            // Анимация света с проверкой
+            if (lightRef.current) {
+                tl.fromTo(
+                    lightRef.current,
+                    {
+                        autoAlpha: 0,
+                        scale: 0.8,
+                    },
+                    {
+                        autoAlpha: 1,
+                        scale: 1,
+                        duration: 1,
+                        ease: 'power2.out',
+                    },
+                    '+=0.2'
+                );
+            }
+        };
 
-            tl.fromTo(
-                lightRef.current,
-                {
-                    autoAlpha: 0,
-                    scale: 0.8,
-                },
-                {
-                    autoAlpha: 1,
-                    scale: 1,
-                    duration: 1,
-                    ease: 'power2.out',
-                },
-                '+=0.2'
-            );
-        }
+        // Инициализация анимации
+        initAnimation();
+
+        // Очистка при размонтировании
+        return () => {
+            if (tl) {
+                tl.kill();
+                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            }
+        };
     }, []);
+
     return (
         <div className='relative w-full h-full flex justify-center items-center'>
-
             <img
                 ref={lightRef}
                 src="/NewSecond/blur.png"
                 alt="Blur Effect"
-                className="block lg:hidden  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                className="block lg:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             />
             <TagCloud customStyle={`hidden md:block`} />
             <MobileTag customStyle={`block md:hidden`} />
