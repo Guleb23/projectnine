@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo, useCallback } from 'react'
 import Fone from "./Fone"
 import Header from '../NewSecond/Header'
 import Card from './Card'
@@ -13,69 +13,107 @@ const SevenSection = () => {
     const teamHeaderRef = useRef([])
     const handRef = useRef(null)
 
-    useEffect(() => {
-        // Анимация карточек
-        cardsRef.current.forEach((card, index) => {
-            if (!card) return
+    // Мемоизируем текст для мобильных устройств
+    const bottomText = useMemo(() =>
+        window.innerWidth < 640
+            ? `100+ years of combined experience at IBM, Google, and top research labs — now united to solve AI's hardest problem`
+            : `100+ years of combined experience at IBM, Google, and top<br/> research labs — now united to solve AI's hardest problem`
+        , []);
 
-            gsap.fromTo(
-                card,
-                { y: 100, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 2.2,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none',
-                    },
-                }
-            )
+    // Мемоизируем функцию для создания анимации карточек
+    const createCardAnimation = useCallback((card, index) => {
+        if (!card) return;
 
-            // Параллакс эффект
-            gsap.to(card, {
-                y: -50,
-                ease: 'none',
+        // Анимация появления
+        const appearAnimation = gsap.fromTo(
+            card,
+            { y: 100, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 2.2,
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 3,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
                 },
-            })
-        })
+            }
+        );
 
-        // Анимация заголовка "Team members and Advisors"
+        // Параллакс эффект
+        const parallaxAnimation = gsap.to(card, {
+            y: -50,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 3,
+            },
+        });
+
+        return () => {
+            appearAnimation.kill();
+            parallaxAnimation.kill();
+        };
+    }, []);
+
+    // Мемоизируем функцию для создания анимации заголовка
+    const createHeaderAnimation = useCallback((header) => {
+        if (!header) return;
+
+        const animation = gsap.fromTo(
+            header,
+            { x: -160, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                duration: 1.6,
+                ease: 'power2.out',
+                stagger: 0.3,
+                scrollTrigger: {
+                    trigger: header,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
+                },
+            }
+        );
+
+        return () => animation.kill();
+    }, []);
+
+    useEffect(() => {
+        const cleanupFunctions = [];
+
+        // Анимация карточек
+        cardsRef.current.forEach((card, index) => {
+            const cleanup = createCardAnimation(card, index);
+            if (cleanup) cleanupFunctions.push(cleanup);
+        });
+
+        // Анимация заголовка
         if (teamHeaderRef.current) {
-            gsap.fromTo(
-                teamHeaderRef.current,
-                { x: -160, opacity: 0 },
-                {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1.6,
-                    ease: 'power2.out',
-                    stagger: 0.3,
-                    scrollTrigger: {
-                        trigger: teamHeaderRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none',
-                    },
-                }
-            )
+            const cleanup = createHeaderAnimation(teamHeaderRef.current);
+            if (cleanup) cleanupFunctions.push(cleanup);
         }
 
         // Анимация руки
-        gsap.to(handRef.current, {
+        const handAnimation = gsap.to(handRef.current, {
             x: 20,
             duration: 1.5,
             ease: "power1.inOut",
             repeat: -1,
             yoyo: true
-        })
-    }, [])
+        });
+
+        cleanupFunctions.push(() => handAnimation.kill());
+
+        // Очистка всех анимаций при размонтировании
+        return () => {
+            cleanupFunctions.forEach(cleanup => cleanup());
+        };
+    }, [createCardAnimation, createHeaderAnimation]);
 
     return (
         <Fone>
@@ -84,7 +122,7 @@ const SevenSection = () => {
                     <Header
                         top={`BEHIND THE BREAKTHROUGH`}
                         mid={`The Minds Rewriting<br/> AI's Future`}
-                        bottom={window.innerWidth < 640 ? `100+ years of combined experience at IBM, Google, and top research labs — now united to solve AI's hardest problem` : `100+ years of combined experience at IBM, Google, and top<br/> research labs — now united to solve AI's hardest problem`}
+                        bottom={bottomText}
                     />
                 </div>
 
@@ -92,6 +130,8 @@ const SevenSection = () => {
                     <img
                         src='/Seven/Fone.png'
                         className='w-[1057px] h-[512px] object-center object-cover'
+                        loading="lazy"
+                        alt="Background"
                     />
                 </div>
 
@@ -128,17 +168,25 @@ const SevenSection = () => {
                 </div>
 
                 <div className='px-[6%] mt-[10px] pb-[5%]'>
-                    <p ref={el => teamHeaderRef.current[0] = el} className='md:text-[13px] text-[10px] mono bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text pt-[35px] pb-2'>
+                    <p
+                        ref={el => teamHeaderRef.current[0] = el}
+                        className='md:text-[13px] text-[10px] mono bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text pt-[35px] pb-2'
+                    >
                         AND ALSO
                     </p>
-                    <div className='flex '>
+                    <div className='flex'>
                         <h2
                             ref={el => teamHeaderRef.current[1] = el}
                             className='gradient-text-green md:text-[37px] text-[19px] font-bold pb-[25px] flex-1'
                         >
                             Team members<br /> and Advisors
                         </h2>
-                        <img ref={handRef} src='/hand.svg' className='block lg:hidden' />
+                        <img
+                            ref={handRef}
+                            src='/hand.svg'
+                            className='block lg:hidden'
+                            alt="Hand pointer"
+                        />
                     </div>
 
                     <div className='flex justify-start'>
@@ -147,7 +195,7 @@ const SevenSection = () => {
                 </div>
             </div>
         </Fone>
-    )
-}
+    );
+};
 
-export default SevenSection
+export default React.memo(SevenSection);
