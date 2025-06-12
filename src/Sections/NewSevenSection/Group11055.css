@@ -55,3 +55,18 @@
     font-weight: 700;
     line-height: 1.4;
 }
+
+@media (max-width: 600px) {
+    .group-1105-5 {
+        padding: 5px 5px;
+        max-width: 90%
+    }
+
+    .group-1105-5 .frame-1410103863 {
+        padding: 0 0;
+    }
+
+    .group-1105-5 .haifa-israel {
+        font-size: 10px;
+    }
+}

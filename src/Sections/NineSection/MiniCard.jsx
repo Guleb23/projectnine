@@ -24,7 +24,10 @@ export const MiniCard = ({ className, first }) => {
                             152 Derech Menachem Begin
                             Tel Aviv,<br /> Israel, 6492106. POB 138
                         </div>
-                        : "Haifa, Israel"
+                        : <div>
+                            152 Derech Menachem Begin
+                            Tel Aviv, Israel, 6492106. POB 138
+                        </div>
                     }
                 </div>
             </div>

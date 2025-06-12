@@ -39,45 +39,45 @@ const FourLastSection = () => {
                 // bigImage появляется
                 tl.fromTo(bigImgRef.current,
                     { opacity: 0, scale: 0.8 },
-                    { opacity: 1, scale: 1, duration: 1 }
+                    { opacity: 1, scale: 1, duration: 0.7 }
                 );
 
                 // круги и изображения сверху/снизу
                 tl.fromTo(topCircle.current,
                     { y: -100, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1 }, "-=0.5"
+                    { y: 0, opacity: 1, duration: 0.7 }, "-=0.35"
                 );
                 tl.fromTo(bottomCircle.current,
                     { y: 100, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1 },
+                    { y: 0, opacity: 1, duration: 0.7 },
                 );
                 tl.fromTo(topImage.current,
                     { y: -100, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1 }, "-=0.6"
+                    { y: 0, opacity: 1, duration: 0.7 }, "-=0.4"
                 );
                 tl.fromTo(btmImage.current,
                     { y: 100, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1 }, "-=0.7"
+                    { y: 0, opacity: 1, duration: 0.7 }, "-=0.45"
                 );
                 tl.fromTo(cardsRef.current,
                     { x: 200, opacity: 0 },
-                    { x: 0, opacity: 1, duration: 1.2, stagger: 0.2 }, "-=0.7"
+                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.14 }, "-=0.45"
                 );
                 // center image просто с opacity
                 tl.fromTo(centerImgRef.current,
                     { opacity: 0 },
-                    { opacity: 1, duration: 1.2 }, "-=0.5"
+                    { opacity: 1, duration: 0.8 }, "-=0.3"
                 );
 
                 tl.fromTo(circle.current,
                     { opacity: 0 },
-                    { opacity: 1, duration: 1.2 }, "-=0.2"
+                    { opacity: 1, duration: 0.8 }, "-=0.2"
                 );
             });
 
-            // Принудительно обновляем ScrollTrigger после инициализации
             ScrollTrigger.refresh();
         }, 100);
+
 
         return () => {
             clearTimeout(timeoutId);

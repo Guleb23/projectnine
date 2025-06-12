@@ -1,7 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
+import toast, { Toaster } from 'react-hot-toast'
+
 const Blog = ({ post }) => {
+
+    const hundleClick = () => {
+
+        navigator.clipboard.writeText(window.location.href);
+        toast.success('Ссылка скопирована!', {
+            style: {
+                background: '#000',
+                color: '#00e599',
+
+            },
+            iconTheme: {
+                primary: '#00e599',
+                secondary: '#000',
+            },
+        });
+    }
     const handleBlogClick = (e) => {
         e.preventDefault()
         const target = document.getElementById('eight')
@@ -18,6 +36,7 @@ const Blog = ({ post }) => {
     }
     return (
         <div className='min-h-screen w-full bg-black pt-[110px] lg:p-[100px] p-0'>
+            <Toaster />
             <div className='flex flex-col gap-[20px] lg:pl-0 p-[20px]'>
                 <div className="text-white mono text-sm lg:text-base flex items-center gap-2">
                     <Link to="/" className="hover:text-[#00e599] transition-colors text-[15px] mono">Main</Link>
@@ -32,7 +51,7 @@ const Blog = ({ post }) => {
                     {post && (
                         <>
                             <span className='opacity-50'>{">"}</span>
-                            <span className=" text-[15px] mono opacity-50">{post}</span>
+                            <span className=" text-[15px] mono opacity-50 md:max-w-full max-w-[200px]">{post}</span>
                         </>
                     )}
                 </div>
@@ -162,9 +181,9 @@ const Blog = ({ post }) => {
                             Поделиться:
                         </div>
                         <div className='flex gap-3  justify-self-end'>
-                            <img src='/x.svg' />
-                            <img src='/tg.svg' />
-                            <img src='/LinkedIn.svg' />
+                            <img onClick={hundleClick} src='/x.svg' />
+                            <img onClick={hundleClick} src='/tg.svg' />
+                            <img onClick={hundleClick} src='/LinkedIn.svg' />
                         </div>
                     </div>
                 </div>

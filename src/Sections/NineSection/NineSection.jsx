@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Fone from './Fone'
 import CustomInput from './CustomInput'
 import AnimatedCircle from '../../Components/AnimatedCircle'
@@ -18,66 +18,22 @@ const NineSection = () => {
     const textRef = useRef(null)
     const underlineRef = useRef(null)
 
-    // Мемоизируем размеры для мобильных устройств
-    const circleSize = useMemo(() => ({
-        width: window.innerWidth < 640 ? 120 : 160,
-        height: window.innerWidth < 640 ? 120 : 160
-    }), []);
 
-    // Мемоизируем текст заголовка
-    const titleText = useMemo(() =>
-        `$7M buys the future.${window.innerWidth > 640 ? "" : <br />} Miss it,${window.innerWidth < 640 ? "" : <br />} and your${window.innerWidth > 640 ? "" : <br />} competitors won't.`
-        , []);
+    const handleMouseEnter = () => {
+        gsap.to(textRef.current, { opacity: 0.8, duration: 0.3, ease: 'power1.out' });
+        gsap.to(underlineRef.current, { width: '100%', duration: 0.3, ease: 'power1.out' });
+    };
 
-    // Мемоизируем обработчики событий
-    const handleMouseEnter = useCallback(() => {
-        gsap.to(textRef.current, {
-            opacity: 0.8,
-            duration: 0.3,
-            ease: 'power1.out',
-            willChange: 'opacity'
-        });
-        gsap.to(underlineRef.current, {
-            width: '100%',
-            duration: 0.3,
-            ease: 'power1.out',
-            willChange: 'width'
-        });
-    }, []);
-
-    const handleMouseLeave = useCallback(() => {
-        gsap.to(textRef.current, {
-            opacity: 1,
-            duration: 0.3,
-            ease: 'power1.out',
-            willChange: 'opacity'
-        });
-        gsap.to(underlineRef.current, {
-            width: '0%',
-            duration: 0.3,
-            ease: 'power1.out',
-            willChange: 'width'
-        });
-    }, []);
-
-    const handleClick = useCallback(() => {
+    const handleMouseLeave = () => {
+        gsap.to(textRef.current, { opacity: 1, duration: 0.3, ease: 'power1.out' });
+        gsap.to(underlineRef.current, { width: '0%', duration: 0.3, ease: 'power1.out' });
+    };
+    const handleClick = () => {
         navigate("/thanks")
-    }, [navigate]);
-
-    const handleClickPolicy = useCallback(() => {
+    }
+    const handleClickPolicy = () => {
         navigate("/privacy")
-    }, [navigate]);
-
-    // Мемоизируем стили для кнопки
-    const buttonStyles = useMemo(() => ({
-        background: 'radial-gradient(143.46% 554.36% at -75.93% -93%, #16F501 0%, #00DA90 100%)',
-        width: '100%',
-        height: 'var(--button-height, 2.5rem)',
-        borderRadius: '0.5rem',
-        fontSize: 'var(--button-font-size, 1rem)',
-        fontWeight: 'bold'
-    }), []);
-
+    }
     useEffect(() => {
         // Создаем временную шкалу для анимации
         const tl = gsap.timeline({
@@ -87,12 +43,12 @@ const NineSection = () => {
                 end: "bottom center",
                 toggleActions: "play none none reverse"
             }
-        });
+        })
 
         // Начальное состояние элементов
-        gsap.set(mainRef.current, { y: 100, opacity: 0, willChange: 'transform, opacity' });
-        gsap.set(circleRef.current, { scale: 0, opacity: 0, willChange: 'transform, opacity' });
-        gsap.set(blurRef.current, { opacity: 0, willChange: 'opacity' });
+        gsap.set(mainRef.current, { y: 100, opacity: 0 })
+        gsap.set(circleRef.current, { scale: 0, opacity: 0 })
+        gsap.set(blurRef.current, { opacity: 0 })
 
         // Последовательность анимаций
         tl.to(mainRef.current, {
@@ -111,103 +67,75 @@ const NineSection = () => {
                 opacity: 1,
                 duration: 0.8,
                 ease: "power2.inOut"
-            }, "-=0.4");
+            }, "-=0.4")
 
         return () => {
-            tl.kill();
-        };
-    }, []);
+            tl.kill()
+        }
+    }, [])
 
     return (
-        <Fone id="nine">
+        <Fone id={`nine`}>
             <div ref={sectionRef} id='body' className='w-full h-full relative flex justify-center items-center flex-col'>
-                <div className='relative w-fit h-fit ml-[5%] md:scale-100 scale-[0.8]'>
-                    <img
-                        ref={blurRef}
-                        id='blur'
-                        src='/Nine/MainBlur.png'
-                        className='absolute hidden lg:block z-0 -top-[9%] left-0 select-none pointer-events-none'
-                        loading="lazy"
-                        alt="Background blur"
-                    />
-                    <img
-                        ref={mainRef}
-                        id='main'
-                        src='/Nine/Main.png'
-                        className='relative z-20 select-none pointer-events-none'
-                        loading="lazy"
-                        alt="Main image"
-                    />
+                <div className='relative w-fit h-fit ml-[3%] md:scale-100 scale-[0.8] '>
+                    <img ref={blurRef} id='blur' src='/Nine/MainBlur.png' className='absolute hidden lg:block z-0 -top-[9%] left-0 select-none pointer-events-none' />
+                    <img ref={mainRef} id='main' src='/Nine/Main.png' className='relative z-20 select-none pointer-events-none' />
+                    <img id='doots' src='/dots.png' className='absolute z-20 select-none pointer-events-none w-fit h-fit -top-[30%] left-0' />
 
-                    <AnimatedCircle
-                        id='circle'
-                        lottieRef={circleRef}
-                        width={circleSize.width}
-                        height={circleSize.height}
-                        customStyle={`select-none pointer-events-none top-[30%] left-[45.5%] -translate-y-1/2 -translate-x-1/2 z-50`}
-                    />
+                    <AnimatedCircle id='circle' lottieRef={circleRef} width={window.innerWidth < 640 ? 120 : 160} height={window.innerWidth < 640 ? 120 : 160} customStyle={`select-none pointer-events-none top-[30%] left-[45.5%] -translate-y-1/2 -translate-x-1/2 z-50 `} />
+
                 </div>
-
                 <h2 className='md:text-[46px] text-[27px] text-center mb-[25px] -mt-[15%] md:mt-0 md:text-left font-bold gradient-text-green 2xl:-mt-[4%] xl:-mt-[6%]'>
-                    {titleText}
+                    $7M buys the future.{window.innerWidth > 640 ? "" : <br />} Miss it,{window.innerWidth < 640 ? "" : <br />} and your{window.innerWidth > 640 ? "" : <br />} competitors won't.
                 </h2>
-
                 <div className='flex flex-col gap-3 pb-11 px-5 z-50'>
                     <CustomInput customStyle={`md:w-[730px] w-full`} placeholder={`Business / Website`} id={`first`} />
                     <CustomInput customStyle={`md:w-[730px] w-full`} placeholder={`E-mail address`} id={`second`} />
                     <CustomInput customStyle={`md:w-[730px] w-full`} isBig={true} placeholder={`Business / Website`} id={`three`} />
-
-                    <button
-                        onClick={handleClick}
-                        style={buttonStyles}
-                    >
+                    <button onClick={handleClick} className="bg-[radial-gradient(143.46%_554.36%_at_-75.93%_-93%,_#16F501_0%,_#00DA90_100%)]  w-full h-10 md:h-12 rounded-lg text-sm md:text-[16px] font-bold">
                         Meet the Future →
                     </button>
+                    <p onClick={handleClickPolicy} className='lg:gradient-text-green lg:w-full cursor-pointer text-[#5B6765] mono md:text-[12px] text-center md:text-left text-[10px]'>By clicking the button, I consent to the processing of my <span className='underline'>personal data</span>.</p>
+                    <div className='flex justify-center items-center flex-col gap-6 lg:pb-26 pb-16 z-50  w-full pt-[65px] lg:pt-[45px]'>
+                        <div className='relative w-full max-w-[730px] max-h-[400px] overflow-hidden'>
+                            <img className='w-full h-full object-contain object-bottom' src='/ofice.png' />
 
-                    <p className='lg:gradient-text-green lg:w-full text-[#5B6765] mono md:text-[12px] text-center md:text-left text-[10px]'>
-                        By clicking the button, I consent to the processing of my <span className='underline'>personal data</span>.
-                    </p>
-
-                    <div className='flex justify-center items-center flex-col gap-6 lg:pb-26 pb-16 z-50 w-full pt-[65px] lg:pt-[45px]'>
-                        <div className='relative w-full'>
-                            <img
-                                className='w-full object-cover object-top'
-                                src='/Nine/btmHouse.png'
-                                loading="lazy"
-                                alt="Bottom house"
-                            />
                             <div className='absolute bottom-2 left-2 z-50'>
                                 <MiniCard />
                             </div>
                         </div>
 
-                        <div className='flex mono md:text-[13px] text-[9px] justify-between w-full opacity-50 z-50'>
-                            <p className='gradient-text-green'>© 2025, SpinEdge.</p>
-                            <p className='gradient-text-green'>All rights reserved.</p>
+                        <div className='flex  mono md:text-[13px] text-[9px] justify-between w-full opacity-50 z-50 '>
+                            <p className='gradient-text-green'>
+                                © 2025, SpinEdge.
+                            </p>
+                            <p className='gradient-text-green'>
+                                All rights reserved.
+                            </p>
                             <div className='relative cursor-pointer'>
-                                <p
-                                    className='gradient-text-green'
-                                    onClick={handleClickPolicy}
+
+                                <p className='gradient-text-green' onClick={handleClickPolicy}
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
+
                                     ref={textRef}
-                                    style={{ opacity: 1 }}
-                                >
+                                    style={{ opacity: 1 }}>
                                     Privacy Policy
                                 </p>
-                                <span
+                                < span
                                     ref={underlineRef}
                                     className="absolute -bottom-1 left-0 h-[2px] bg-[radial-gradient(circle_at_center,rgba(225,255,222,0.5)_0%,rgba(225,255,222,0)_100%)]"
                                     style={{ width: '0%', transition: 'width 0.1s ease' }}
                                 />
                             </div>
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </Fone>
-    );
-};
+    )
+}
 
-export default React.memo(NineSection);
-
+export default NineSection

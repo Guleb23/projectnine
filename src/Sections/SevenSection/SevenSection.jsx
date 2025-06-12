@@ -155,8 +155,8 @@ const SevenSection = () => {
                             desc={`R&D MRAM and microwave<br/> spintronics: 20+ years @ Fiat,<br/> European Projects`}
                         />
                     </div>
-                    <div></div>
-                    <div className="justify-self-start md:justify-self-center self-start md:self md:-mt-[25%] mt-[35px]">
+                    <div className='hidden lg:block'></div>
+                    <div className="justify-self-start md:justify-self-center self-start md:self md:-mt-[25%] ">
                         <Card
                             ref={el => (cardsRef.current[2] = el)}
                             img={`/Workers/nir.png`}
@@ -167,7 +167,7 @@ const SevenSection = () => {
                     </div>
                 </div>
 
-                <div className='px-[6%] mt-[10px] pb-[5%]'>
+                <div className='pl-[6%] mt-[10px] pb-[5%]'>
                     <p
                         ref={el => teamHeaderRef.current[0] = el}
                         className='md:text-[13px] text-[10px] mono bg-[radial-gradient(circle,_#16F501,_#00DA90)] text-transparent bg-clip-text pt-[35px] pb-2'

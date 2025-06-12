@@ -66,7 +66,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
     return (
         <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-screen w-[80%] bg-black z-[999] flex flex-col overflow-hidden"
+            className="fixed top-0 right-0 h-[100dvh] w-[80%] bg-black z-[999] flex flex-col overflow-hidden"
             style={{ display: 'none' }}
         >
             {/* Background */}

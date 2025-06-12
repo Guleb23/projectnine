@@ -6,77 +6,39 @@ import FiveSection from '../FiveSection/FiveSection'
 import SectionSix from '../SixSection/SectionSix'
 import NewSevenSection from '../NewSevenSection/NewSevenSection'
 import LastFourSection from '../LastFour/LastFourSection'
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
-import React from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const FourSection = () => {
-    const topSectionRef = useRef(null);
-    const [blurHeight, setBlurHeight] = useState(0);
-
-    // Мемоизируем функцию обновления высоты
-    const updateBlurHeight = useCallback(() => {
+    const topSectionRef = useRef(null);  // Ссылка на контейнер до FiveSection
+    const [blurHeight, setBlurHeight] = useState();
+    useEffect(() => {
         if (topSectionRef.current) {
             const height = topSectionRef.current.offsetHeight;
-            setBlurHeight(height);
+            const rect = topSectionRef.current.getBoundingClientRect();
+            const absoluteTop = rect.top + window.scrollY;
+            setBlurHeight(topSectionRef.current.offsetHeight)
         }
     }, []);
-
-    // Используем ResizeObserver для отслеживания изменений размера
-    useEffect(() => {
-        if (!topSectionRef.current) return;
-
-        const resizeObserver = new ResizeObserver(() => {
-            updateBlurHeight();
-        });
-
-        resizeObserver.observe(topSectionRef.current);
-
-        // Очистка при размонтировании
-        return () => {
-            resizeObserver.disconnect();
-        };
-    }, [updateBlurHeight]);
-
-    // Мемоизируем стили для контейнера
-    const containerStyles = useMemo(() => ({
-        paddingBottom: '6%'
-    }), []);
-
-    // Мемоизируем стили для внутреннего контейнера
-    const innerContainerStyles = useMemo(() => ({
-        display: 'flex',
-        flexDirection: 'column',
-        paddingLeft: 'var(--padding-left, 1.25rem)',
-        alignItems: 'flex-start',
-        position: 'relative',
-        height: 'fit-content'
-    }), []);
-
     return (
-        <FourFone heightBlur={blurHeight}>
-            <div
-                id="four"
-                ref={topSectionRef}
-                className='pb-[6%]'
-                style={containerStyles}
-            >
-                <div
-                    id="stop"
-                    className='flex flex-col 2xl:pl-[25%] xl:pl-[17%] px-5 md:flex-row items-start relative h-fit'
-                    style={innerContainerStyles}
-                >
+        <FourFone heightBlur={blurHeight} >
+            <div id={"four"} ref={topSectionRef} className='pb-[6%]'>
+                <div id="stop" className='flex flex-col 2xl:pl-[25%] xl:pl-[17%] px-5 md:flex-row  items-start relative h-fit'>
                     <FourLeft />
+
                     <FourImage />
+
+
                 </div>
                 <FourLastSection />
                 <FiveSection />
+
             </div>
 
             <SectionSix />
             <NewSevenSection />
             <LastFourSection />
         </FourFone>
-    );
-};
+    )
+}
 
-export default React.memo(FourSection);
+export default FourSection

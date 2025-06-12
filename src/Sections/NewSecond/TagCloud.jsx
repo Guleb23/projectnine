@@ -22,7 +22,7 @@ const TagCloud = ({ customStyle }) => {
                     opacity: 1,
                     y: 0,
                     filter: "blur(3.27px)",
-                    duration: 0.7,
+                    duration: 0.3,
                     ease: "power3.out",
                     stagger: 0.1,
                     scrollTrigger: {
@@ -43,8 +43,8 @@ const TagCloud = ({ customStyle }) => {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.7,
-                    delay: 1.5,
+                    duration: 0.2,
+                    delay: 0.2,
                     ease: "power3.out",
                     stagger: 0.1,
                     scrollTrigger: {

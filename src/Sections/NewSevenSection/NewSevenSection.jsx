@@ -32,7 +32,7 @@ const NewSevenSection = () => {
                 <img src='/rec.png' className='absolute hidden lg:block -translate-y-1/2 top-1/2 h-screen -translate-x-1/2 left-[30%] z-0 ' />
 
                 <div className='relative  md:block hidden'>
-                    <img width={400} height={610} className='w-[400px] h-[610px]  z-50' src='/NewSeven/house.png' />
+                    <img width={400} height={610} className='w-[400px] h-[610px]  z-50' src='/ofice.png' />
 
 
                     <div className='absolute bottom-2 left-2 z-50'>
@@ -48,7 +48,7 @@ const NewSevenSection = () => {
                     The company is a graduate of the INNOFENSE Innovation Center (iHLS & Israeli MoD) and is supported by the European Innovation Council and the JU Chips Act.`} />
                     <div className=' gap-2.5 pt-[30px] flex md:hidden'>
                         <div className='relative w-full h-full'>
-                            <img width={168} height={270} className='' src='/NewSeven/house.png' />
+                            <img width={168} height={270} className='' src='/ofice.png' />
                             <div className='absolute bottom-2 left-2 z-50'>
                                 <MiniCard first={true} customStyle={`!text-[10px] !px-[10px] !py-[8px]`} />
                             </div>

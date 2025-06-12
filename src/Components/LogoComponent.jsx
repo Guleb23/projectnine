@@ -1,11 +1,28 @@
-import React from 'react'
-import { Logo } from './Logo'
 
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Logo } from './Logo'
+import gsap from 'gsap';
 function LogoComponent() {
+    const location = useLocation();
+    const navigation = useNavigate();
+    const onClick = () => {
+        if (location.pathname == '/') {
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: "#main",
+                ease: "power2.inOut",
+            });
+        } else {
+            navigation("/")
+        }
+    }
     return (
         <div className='flex items-center gap-2'>
             <p className='gradient-text-green font-bold sm:text-2xl text-[17px]'>Spin</p>
-            <Logo />
+            <a onClick={onClick}>
+                <Logo />
+            </a>
+
 
             <p className='gradient-text-green font-bold sm:text-2xl text-[17px]'>Edge</p>
         </div>

@@ -9,9 +9,9 @@ const EightSection = () => {
     const containerRef = useRef(null);
     const firstRef = useRef(null);
     const secondRef = useRef(null);
-
+    const handRef = useRef(null)
     // Мемоизируем начальную высоту контейнера
-    const initialHeight = useMemo(() => 515, []);
+    const initialHeight = useMemo(() => innerWidth < 640 ? 425 : 515, []);
 
     // Мемоизируем функцию для анимации открытия/закрытия
     const animateContainer = useCallback((isOpen) => {
@@ -52,6 +52,13 @@ const EightSection = () => {
 
     useEffect(() => {
         const cleanup = animateContainer(open);
+        gsap.to(handRef.current, {
+            x: 20,
+            duration: 1.5,
+            ease: "power1.inOut",
+            repeat: -1,
+            yoyo: true
+        });
         return () => {
             if (cleanup) cleanup();
         };
@@ -68,7 +75,7 @@ const EightSection = () => {
         border: '2px solid rgba(0, 218, 145, 0.19)',
         borderRadius: '0.5rem',
         padding: '13px 22px',
-        marginTop: '50px',
+        marginTop: innerWidth < 640 ? "20px" : '50px',
         width: '120px',
         height: '50px'
     }), []);
@@ -82,10 +89,10 @@ const EightSection = () => {
             />
             <div
                 ref={containerRef}
-                className="flex z-50 pt-[4%] px-[6%] gap-8 xl:justify-center flex-wrap overflow-y-hidden overflow-x-visible"
+                className="flex z-50 pt-[4%] px-[6%] gap-8 xl:justify-center flex-wrap overflow-y-hidden overflow-x-visible relative"
                 style={containerStyles}
             >
-                <div className='flex'>
+                <div className={`flex ${open ? 'sm:flex-row flex-col gap-y-12' : 'flex-row'}`}>
                     <Card
                         top="Category"
                         mid="Blog title heading will go here 1"
@@ -105,7 +112,7 @@ const EightSection = () => {
                         img="/Eight/three.png"
                     />
                 </div>
-                <div ref={firstRef} className='flex'>
+                <div ref={firstRef} className='flex sm:flex-row flex-col gap-y-12'>
                     <Card
                         top="Category"
                         mid="Blog title heading will go here"
@@ -125,7 +132,7 @@ const EightSection = () => {
                         img="/Eight/three.png"
                     />
                 </div>
-                <div ref={secondRef} className='flex'>
+                <div ref={secondRef} className='flex sm:flex-row flex-col gap-y-12'>
                     <Card
                         top="Category"
                         mid="Blog title heading will go here"
@@ -145,8 +152,11 @@ const EightSection = () => {
                         img="/Eight/three.png"
                     />
                 </div>
+
             </div>
-            <div className='flex w-full justify-center items-center'>
+
+
+            <div className='flex w-full justify-center items-center relative'>
                 <button
                     onClick={() => setIsOpen(!open)}
                     style={buttonStyles}
@@ -155,6 +165,12 @@ const EightSection = () => {
                         {open ? 'Hide' : 'View all'}
                     </p>
                 </button>
+                <img
+                    ref={handRef}
+                    src='/hand.svg'
+                    className={`${open ? "hidden" : "block"}  block lg:hidden absolute top-[50%] right-[15%]`}
+                    alt="Hand pointer"
+                />
             </div>
         </Fone>
     );

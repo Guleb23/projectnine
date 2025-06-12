@@ -40,7 +40,7 @@ const Fone = ({ id, children }) => {
 
             <img
                 ref={lightRef}
-                className="absolute -top-[13%] -left-[13%]"
+                className="absolute lg:-top-[13%] lg:-left-[13%] -left-[15%] -top-[5%]"
                 src="/Nine/Blur.png"
             />
             <img

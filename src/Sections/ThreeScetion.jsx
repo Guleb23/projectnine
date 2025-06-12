@@ -46,7 +46,7 @@ const ThreeScetion = () => {
                 {
                     scale: 1,
                     opacity: 1,
-                    duration: 1.5,
+                    duration: 1,
                     ease: 'power2.out',
                     willChange: 'transform, opacity' // Оптимизация для GPU
                 }
@@ -58,7 +58,7 @@ const ThreeScetion = () => {
                 {
                     x: 0,
                     opacity: 1,
-                    duration: 1.5,
+                    duration: 1,
                     ease: 'power2.out',
                     willChange: 'transform, opacity'
                 },
@@ -71,7 +71,7 @@ const ThreeScetion = () => {
                 {
                     x: 0,
                     opacity: 1,
-                    duration: 1.5,
+                    duration: 1,
                     ease: 'power2.out',
                     willChange: 'transform, opacity'
                 },
