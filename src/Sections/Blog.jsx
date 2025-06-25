@@ -181,9 +181,9 @@ const Blog = ({ post }) => {
                             Поделиться:
                         </div>
                         <div className='flex gap-3  justify-self-end'>
-                            <img onClick={hundleClick} className='w-[26px] h-[26px] lg:w-[36px] lg:h-[36px]' src='/x.svg' />
-                            <img onClick={hundleClick} className='w-[26px] h-[26px] lg:w-[36px] lg:h-[36px]' src='/tg.svg' />
-                            <img onClick={hundleClick} className='w-[26px] h-[26px] lg:w-[36px] lg:h-[36px]' src='/LinkedIn.svg' />
+                            <img onClick={hundleClick} className='cursor-pointer w-[26px] h-[26px] lg:w-[36px] lg:h-[36px]' src='/x.svg' />
+                            <img onClick={hundleClick} className='cursor-pointer w-[26px] h-[26px] lg:w-[36px] lg:h-[36px]' src='/tg.svg' />
+                            <img onClick={hundleClick} className='cursor-pointer w-[26px] h-[26px] lg:w-[36px] lg:h-[36px]' src='/LinkedIn.svg' />
                         </div>
                     </div>
                 </div>

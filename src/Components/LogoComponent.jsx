@@ -20,7 +20,8 @@ function LogoComponent() {
         <div className='flex items-center gap-2'>
             <p className='gradient-text-green font-bold sm:text-2xl text-[17px]'>Spin</p>
             <a onClick={onClick}>
-                <Logo />
+                {innerWidth > 640 ? <Logo /> : <img className='w-[54px] h-[54px]' src='/MobileLogo.svg' />}
+
             </a>
 
 

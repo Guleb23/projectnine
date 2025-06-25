@@ -27,7 +27,7 @@ const Diagramm = () => {
             x: -100,
             opacity: 0,
             stagger: 0.15,
-            duration: 0.6,
+            duration: 0.5,
             ease: 'power3.out',
         })
 
@@ -35,9 +35,9 @@ const Diagramm = () => {
             x: 100,
             opacity: 0,
             stagger: 0.15,
-            duration: 0.6,
+            duration: 0.5,
             ease: 'power3.out',
-        }, '-=0.5')
+        }, '-=0.3')
 
         tl.from(yearsRef.current, {
             y: 30,
@@ -51,7 +51,7 @@ const Diagramm = () => {
         tl.from(btmRef.current, {
             opacity: 0,
             clipPath: 'inset(0% 50% 0% 50%)',
-            duration: 0.6,
+            duration: 0.5,
             ease: 'power2.out',
             stagger: 0.15,
         }, '+=0.1')

@@ -80,7 +80,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             <AnimatedCircle width={120} customStyle={`-right-[60px] -translate-y-1/2 top-1/2 pb-10`} />
             <div className="flex flex-col justify-between flex-1 z-10 h-full">
                 <div className="flex justify-between items-center p-4 z-10">
-                    <LogoComponent />
+                    <img className='w-[54px] h-[54px]' src='/MobileLogo.svg' />
                     <button onClick={onClose} className="text-white text-2xl z-20">✕</button>
                 </div>
 
@@ -103,7 +103,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
                 </div>
             </div>
-            {/* Header: Logo + Close */}
+
 
         </div>
 

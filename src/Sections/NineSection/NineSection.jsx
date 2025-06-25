@@ -97,8 +97,8 @@ const NineSection = () => {
                     </button>
                     <p onClick={handleClickPolicy} className='lg:gradient-text-green lg:w-full cursor-pointer text-[#5B6765] mono md:text-[12px] text-center md:text-left text-[10px]'>By clicking the button, I consent to the processing of my <span className='underline'>personal data</span>.</p>
                     <div className='flex justify-center items-center flex-col gap-6 lg:pb-26 pb-16 z-50  w-full pt-[65px] lg:pt-[45px]'>
-                        <div className='relative w-full max-w-[730px] max-h-[400px] overflow-hidden'>
-                            <img className='w-full h-full object-contain object-bottom' src='/ofice.png' />
+                        <div className='relative w-full max-w-[730px] max-h-[400px] overflow-hidden rounded-xl'>
+                            <img className='w-full h-full object-contain object-bottom ' src='/ofice.png' />
 
                             <div className='absolute bottom-2 left-2 z-50'>
                                 <MiniCard />

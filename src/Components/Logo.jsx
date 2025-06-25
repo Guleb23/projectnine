@@ -2,7 +2,7 @@ export const Logo = () => {
     return (
         <svg
             className={"h-[auto] relative overflow-visible "}
-            style={{ aspectRatio: "53.84/54" }}
+            style={{ aspectRatio: "54/54" }}
             width="54"
             height="54"
             viewBox="0 0 54 54"

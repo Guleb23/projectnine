@@ -19,7 +19,7 @@ const LastFourSection = () => {
     }, [])
 
     return (
-        <div id='diagramm' className='w-screen relative md:h-screen h-fit pt-[1%] flex flex-col items-center lg:gap-14 gap-6 md:pb-0 pb-16'>
+        <div id='diagramm' className='w-screen relative md:h-screen h-fit pt-[1%] flex flex-col items-center lg:gap-14 gap-6 md:pb-0 pb-16 '>
             <Header
                 top={`TECHNOLOGY DEVELOPMENT`}
                 mid={window.innerWidth < 640 ? `From Lab to Global<br/> Dominance` : `From Lab to Global Dominance`}
@@ -30,10 +30,12 @@ const LastFourSection = () => {
                 <img ref={handRef} src='/hand.svg' className='block lg:hidden absolute top-0 right-12' />
             </div>
             <Light />
-
-            <div className="w-full overflow-x-auto xl:overflow-x-visible  pb-[10%] md:flex md:justify-center md:items-center relative ">
-                <Diagramm />
+            <div className='w-full px-5'>
+                <div className="w-full overflow-x-auto xl:overflow-x-visible  pb-[10%] md:flex md:justify-center md:items-center relative">
+                    <Diagramm />
+                </div>
             </div>
+
         </div>
     )
 }

@@ -156,7 +156,7 @@ const EightSection = () => {
             </div>
 
 
-            <div className='flex w-full justify-center items-center relative'>
+            <div className='flex w-full justify-center items-center relative  z-[150]'>
                 <button
                     onClick={() => setIsOpen(!open)}
                     style={buttonStyles}
